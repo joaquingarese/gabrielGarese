@@ -1,0 +1,134 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const colors = require('tailwindcss/colors');
+
+module.exports = {
+  content: ['./src/*/.{js,ts,jsx,tsx}'],
+  theme: {
+    screens: {
+      '2xs': '400px',
+      xs: '500px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px'
+    },
+    fontFamily: {
+      header: '"Px Grotesk", Helvetica, Arial, sans-serif',
+      body: '"Public Sans", Helvetica, Arial, sans-serif'
+    },
+    fontSize: {
+      'main-title': [
+        '5rem', // 80px
+        {
+          letterSpacing: '-0.02em', // -0.32px
+          lineHeight: '100%' // 80px
+        }
+      ],
+      headline: [
+        '3rem', // 48px
+        {
+          letterSpacing: '-0.01em', // -0.16px
+          lineHeight: '100%' // 48px
+        }
+      ],
+      'headline-2': [
+        '2.25rem', // 36px
+        {
+          letterSpacing: '0em',
+          lineHeight: '119.46%' // 43px
+        }
+      ],
+      'course-summary-title': [
+        '2.25rem', // 36px
+        {
+          letterSpacing: '0em',
+          lineHeight: '130%' // 46.8px
+        }
+      ],
+      'course-summary-subtitle': [
+        '1.5rem', // 24px
+        {
+          letterSpacing: '0em',
+          lineHeight: '130%' // 31.2px
+        }
+      ],
+      'headline-3': [
+        '1.5rem', // 24px
+        {
+          letterSpacing: '0em',
+          lineHeight: '120.87%' // 29px
+        }
+      ],
+      // font-weight: 300 -> use 'font-light'
+      'small-paragraph': [
+        '1.5rem', // 24px
+        {
+          letterSpacing: '0em',
+          lineHeight: '120%' // 28.8px
+        }
+      ],
+      'small-paragraph-upscaled': [
+        '1.65rem', // 26.4px
+        {
+          letterSpacing: '0em',
+          lineHeight: '120%' // 31.68px
+        }
+      ],
+      'big-paragraph': [
+        '2.25rem', // 36px
+        {
+          letterSpacing: '0em',
+          lineHeight: '119.47%' // 43px
+        }
+      ],
+      // font-weight: 300 -> use 'font-light'
+      'big-paragraph-2': [
+        '1.5rem', // 24px
+        {
+          letterSpacing: '0em',
+          lineHeight: '129.2%' // 31px
+        }
+      ]
+    },
+    textColor: {
+      black: '#101010',
+      orange: '#FF4F14',
+      white: '#FFFFFF',
+      brown: '#8D7449',
+      'black-medium': '#10101099',
+      'black-medium-soft': '#10101066',
+      link: '#0284C7'
+    },
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: '#FFFFFF',
+      'white-soft': '#FFFFFF33',
+      black: '#101010',
+      'black-medium': '#10101099',
+      'black-medium-soft': '#10101066',
+      'black-soft': '#1010101F',
+      orange: '#FF4F14',
+      'orange-soft': '#ffeeea',
+      'orange-hover': '#FF6833',
+      grey: '#EFEFEF',
+      yellow: '#FEDC00',
+      overlay: '#00000026',
+      green: '#2FC95A',
+      link: '#0284C7'
+    },
+    extend: {
+      maxWidth: {
+        '8xl': '1340px',
+        '9xl': '1520px',
+        '10xl': '1750px'
+      },
+      screens: {
+        '3xl': '1750px',
+        '4xl': '2000px'
+      }
+    }
+  },
+  plugins: [require('@tailwindcss/typography')]
+};
