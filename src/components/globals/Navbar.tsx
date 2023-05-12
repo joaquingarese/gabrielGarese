@@ -10,6 +10,7 @@ const Navbar = () => {
     { href: '/', label: 'INICIO' },
     { href: '/campos', label: 'CAMPOS' },
     { href: '/propiedades', label: 'PROPIEDADES' },
+    { href: '/ganados', label: 'GANADOS' },
     { href: '/informacion', label: 'INFORMACION' },
     { href: '/nosotros', label: 'NOSOTROS' },
     { href: '/contacto', label: 'CONTACTO' }
@@ -29,12 +30,12 @@ const Navbar = () => {
               />
             </a>
           </Link>
-          <div className="hidden xl:block font-navbar text-caqui">
+          <div className="hidden xl:block font-navbar">
             <div className="flex">
               {links.map(({ href, label }) => (
                 <Link href={href} key={href}>
                   <a
-                    className={`block mt-4 ms-2 mr-4 hover:border-b-4 hover:border-secondary py-4 ${
+                    className={`block mt-4 ms-2 mr-2 hover:border-b-4 hover:border-secondary py-4  text-bold ${
                       router.pathname === href
                         ? 'text-secondary font-bold border-b-4 border-secondary'
                         : ''

@@ -11,7 +11,7 @@ function farmsFromLocation() {
   const router = useRouter();
   const { location } = router.query;
 
-  const cities = ['Florida', 'Artigas', 'Soriano'];
+  const cities = ['Florida', 'Artigas', 'Soriano', 'Salto', 'Maldonado', 'Montevideo'];
   const capitalizedLocation =
     typeof location === 'string' ? location.charAt(0).toUpperCase() + location.slice(1) : '';
 

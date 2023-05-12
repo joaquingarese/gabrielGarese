@@ -1,8 +1,8 @@
-import React from 'react';
 import Link from 'next/link';
-import { MdLocationOn } from 'react-icons/md';
+import React from 'react';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';
+import { MdLocationOn } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 
 interface Property {
