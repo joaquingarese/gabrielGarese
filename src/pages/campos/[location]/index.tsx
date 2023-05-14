@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '~/components/globals/Navbar';
-import ShowFarms from '~/components/propertiesContainer/PropertiesContainer';
+import PropertiesContainer from '~/components/propertiesContainer/PropertiesContainer';
 import Footer from '~/components/globals/Footer';
 import Selector from '~/components/tools/Selector';
 import { useRouter } from 'next/router';
@@ -25,7 +25,7 @@ function farmsFromLocation() {
           <Selector selectedCity={selectedCity} setSelectedCity={setSelectedCity} cities={cities} />
         </div>
       </div>
-      <ShowFarms />
+      <PropertiesContainer propertyType={'farm'} />
     </>
   );
 }

@@ -2,7 +2,11 @@ import React from 'react';
 import Farm from '../farms/Farm';
 import House from '../houses/House';
 
-function PropertiesContainer() {
+interface PropertiesContainerProps {
+  propertyType: string;
+}
+
+function PropertiesContainer({ propertyType }: PropertiesContainerProps) {
   const farmsPropertiesExample = [
     {
       state: 'Soriano',
@@ -46,15 +50,11 @@ function PropertiesContainer() {
 
   return (
     <div className="container font-navbar mb-16">
-      {farmsPropertiesExample.map((property) => {
-        if (property.type === 'farm') {
-          return <Farm key={property.id} property={property} />;
-        } else if (property.type === 'house') {
-          return <House key={property.id} property={property} />;
-        } else {
-          return null;
-        }
-      })}
+      {propertyType === 'farm'
+        ? farmsPropertiesExample.map((property) => <Farm key={property.id} property={property} />)
+        : housesPropertiesExample.map((property) => (
+            <House key={property.id} property={property} />
+          ))}
     </div>
   );
 }
