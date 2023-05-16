@@ -84,7 +84,10 @@ function CardSlider() {
           loop={true}
         >
           {farmsPropertiesExample.map((farm) => (
-            <SwiperSlide className="text-center text-2xl flex justify-center items-center">
+            <SwiperSlide
+              key={farm.id}
+              className="text-center text-2xl flex justify-center items-center"
+            >
               <CardFarm property={farm} />
             </SwiperSlide>
           ))}

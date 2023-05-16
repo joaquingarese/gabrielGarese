@@ -1,12 +1,14 @@
 import React from 'react';
 import Farm from '../farms/Farm';
 import House from '../houses/House';
+import { Farm2, House2 } from '~/pages/types';
 
 interface PropertiesContainerProps {
   propertyType: string;
+  properties: Array<Farm2> | Array<House2>;
 }
 
-function PropertiesContainer({ propertyType }: PropertiesContainerProps) {
+const PropertiesContainer = ({ propertyType, properties }: PropertiesContainerProps) => {
   const farmsPropertiesExample = [
     {
       state: 'Soriano',
@@ -57,6 +59,6 @@ function PropertiesContainer({ propertyType }: PropertiesContainerProps) {
           ))}
     </div>
   );
-}
+};
 
 export default PropertiesContainer;

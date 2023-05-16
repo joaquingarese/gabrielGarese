@@ -1,15 +1,28 @@
 import React from 'react';
-import Navbar from '~/components/globals/Navbar';
 import PropertiesContainer from '~/components/propertiesContainer/PropertiesContainer';
-import Footer from '~/components/globals/Footer';
 import Selector from '~/components/tools/Selector';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { createClient } from 'next-sanity';
+import { Farm2 } from '~/pages/types';
 
-function farmsFromLocation() {
+const client = createClient({
+  projectId: 'c7nn4dit',
+  dataset: 'production',
+  apiVersion: '2022-05-15',
+  useCdn: false
+});
+
+interface farmsFromLocationProps {
+  farms: Array<Farm2>;
+}
+
+const farmsFromLocation = ({ farms }: farmsFromLocationProps) => {
+  console.log(farms);
   const [selectedCity, setSelectedCity] = useState('');
   const router = useRouter();
   const { location } = router.query;
+  console.log('location', location);
 
   const cities = ['Florida', 'Artigas', 'Soriano', 'Salto', 'Maldonado', 'Montevideo'];
   const capitalizedLocation =
@@ -25,9 +38,19 @@ function farmsFromLocation() {
           <Selector selectedCity={selectedCity} setSelectedCity={setSelectedCity} cities={cities} />
         </div>
       </div>
-      <PropertiesContainer propertyType={'farm'} />
+      <PropertiesContainer propertyType={'farm'} properties={farms} />
     </>
   );
+};
+
+export async function getStaticProps() {
+  const farms = await client.fetch(`*[_type == "farms"]`);
+
+  return {
+    props: {
+      farms
+    }
+  };
 }
 
 export default farmsFromLocation;

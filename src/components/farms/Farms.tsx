@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import PropertiesContainer from '../propertiesContainer/PropertiesContainer';
 import Link from 'next/link';
+import { createClient } from 'next-sanity';
+import { Farm2 } from '~/pages/types';
 
-function Farms() {
+const client = createClient({
+  projectId: 'c7nn4dit',
+  dataset: 'production',
+  apiVersion: '2022-05-15',
+  useCdn: false
+});
+
+interface FarmProps {
+  farms: Array<Farm2>;
+}
+
+const Farms = ({ farms }: FarmProps) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -75,10 +88,20 @@ function Farms() {
         <div className="flex container">
           <h3 className="text-2xl md:text-3xl mb-6 font-navbar  font-medium">Campos Destacados</h3>
         </div>
-        <PropertiesContainer />
+        <PropertiesContainer propertyType={'farm'} properties={farms} />
       </div>
     </>
   );
+};
+
+export async function getStaticProps() {
+  const farms = await client.fetch(`*[_type == "farms"]`);
+
+  return {
+    props: {
+      farms
+    }
+  };
 }
 
 export default Farms;
