@@ -18,15 +18,15 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full left-0 fixed mx-auto  z-20 bg-gray-100">
-        <div className=" container flex items-center justify-between">
+      <nav className="w-full left-0 fixed mx-auto z-20 bg-gray-100 h-24 md:h-32">
+        <div className="container flex items-center justify-between h-full">
           {' '}
           <Link href="/">
             <a>
               <img
                 src="/images/logoCentrado.png"
                 alt="My Site Logo"
-                className="max-h-12 sm:max-h-16 lg:max-h-20 w-auto my-6"
+                className="max-h-12 sm:max-h-16 lg:max-h-20 max-w-[200px] md:max-w-xs my-6"
               />
             </a>
           </Link>

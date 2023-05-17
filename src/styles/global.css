@@ -2,8 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import '../fonts/fonts.css';
-
 /* Custom styles */
 .duration-2000 {
   transition-duration: 2000ms;

@@ -17,7 +17,7 @@ module.exports = {
       header: '"Libre Baskerville", serif;',
       navbar: '"Montserrat", sans-serif',
       body: '"Public Sans", Helvetica, Arial, sans-serif',
-      card: '"Dosis", sans-serif',
+      card: ['Dosis', 'sans-serif'],
       title: '"Montserrat", sans-serif'
     },
     colors: {
@@ -46,20 +46,7 @@ module.exports = {
         900: '#051128'
       }
     },
-    textColor: {
-      gray: colors.coolGray,
-      white: colors.white,
-      slate: colors.slate,
-      primary: '#a67e58',
-      secondary: '#8D7449',
-      tertiary: '#725B32',
-      textNotes: '#2F4858',
-      green: '#777C50',
-      green2: '#8fb360',
-      'green-soft': '#7c854d',
-      'green-small': '#a9d175',
-      caqui: '#707070'
-    },
+
     extend: {
       maxWidth: {
         '8xl': '1340px',
@@ -78,6 +65,17 @@ module.exports = {
       container: {
         center: true,
         padding: '1rem'
+      },
+      textColor: {
+        primary: '#a67e58',
+        secondary: '#8D7449',
+        tertiary: '#725B32',
+        textNotes: '#2F4858',
+        green: '#777C50',
+        green2: '#8fb360',
+        'green-soft': '#7c854d',
+        'green-small': '#a9d175',
+        caqui: '#707070'
       }
     }
   },

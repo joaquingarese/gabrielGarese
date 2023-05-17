@@ -30,9 +30,7 @@ function FarmView() {
           <MdLocationOn size={24} className="text-secondary inline" /> {country} {'>'} {state} {'>'}{' '}
           Campos
         </span>
-        <div className="w-full md:w-3/4">
-          <ImageGallery images={images} />
-        </div>
+        <div className="w-full md:w-3/4">{/* <ImageGallery images={images} /> */}</div>
         <section className="my-5 mb-10">
           <h4 className="text-2xl text-secondary font-medium my-2">Descripcion de la Propiedad</h4>
           <p>

@@ -45,7 +45,6 @@ const farmsFromLocation = ({ farms }: farmsFromLocationProps) => {
 
 export async function getStaticProps() {
   const farms = await client.fetch(`*[_type == "farms"]`);
-
   return {
     props: {
       farms

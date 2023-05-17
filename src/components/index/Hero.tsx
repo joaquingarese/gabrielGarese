@@ -27,7 +27,7 @@ function Hero() {
           </h3>
         </div> */}
         <div className="absolute top-[15%] right-[10%] lg:top-[20%] lg:right-[10%] w-3/4 lg:w-1/2">
-          <h3 className=" text-slate-200  text-5xl lg:text-7xl  font-title ml-auto">
+          <h3 className=" text-white  text-5xl lg:text-7xl  font-card ml-auton ">
             Compre y Venda Campos en Uruguay y alrededores
           </h3>
           <button className="absolute bottom-[-35%] left-[8%] xs:bottom-[-40%] sm:bottom-[-65%] md:bottom-[-65%] lg:bottom-[-63%] md:left-[18%] lg:left-[14%] xl:left-[18%] w-30 lg:w-40 text-xl sm:text-2xl lg:text-3xl  bg-gray-800 text-slate-100 p-3 rounded-full hover:bg-gray-600">

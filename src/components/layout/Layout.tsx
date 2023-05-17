@@ -11,9 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <div className="flex-grow mt-[28%] sm:mt-[22%] md:mt-[16%] lg:mt-[14%] xl:mt-[11%] 2xl:mt-[9%]">
-          {children}
-        </div>
+        <div className="flex-grow mt-30 md:mt-32">{children}</div>
         <Footer />
       </div>
     </>

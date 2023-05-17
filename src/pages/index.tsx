@@ -16,9 +16,10 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ farms }) => {
+  console.log(farms);
   return (
     <>
-      <div className="flex-grow mt-[-13%] sm:mt-[-8%] md:mt-[-5%] lg:mt-[-4%] xl:mt-[-3%] 2xl:mt-[-2%]">
+      <div className="flex-grow">
         <Hero />
         <hr className="border-2 border-gray-300 mt-8 mx-8" />
         <hr className="mt-4 mb-10 w-3/4 mx-auto border-gray-300" />
