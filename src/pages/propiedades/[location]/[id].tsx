@@ -1,10 +1,10 @@
 import React from 'react';
-import PropertyView from '~/components/properties/PropertyView';
+import HouseView from '~/components/houses/HouseView';
 
 function HouseDetails() {
   return (
     <>
-      <PropertyView />
+      <HouseView />
     </>
   );
 }

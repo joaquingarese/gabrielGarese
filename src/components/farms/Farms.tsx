@@ -26,11 +26,11 @@ const Farms = ({ farms }: FarmProps) => {
 
   return (
     <>
-      <div className="container mt-1 flex-column">
+      <div className="container mt-28 md:mt-10 flex-column">
         <h2 className=" text-2xl md:text-3xl font-title mt-4 font-medium">
-          Campos en Uruguay o Paraguay
+          CAMPOS EN URUGUAY O PARAGUAY
         </h2>
-        <p className="font-navbar mt-4  xs:w-3/4  lg:w-1/3 text-textNotes font-thin">
+        <p className="font-navbar mt-4 xs:w-3/4 lg:w-1/3 text-textNotes font-thin">
           Seleccione localidad:
         </p>
         <section className="mb-10 mt-5">
@@ -86,7 +86,7 @@ const Farms = ({ farms }: FarmProps) => {
         <hr className="border-2 border-gray-300 mt-8 mx-8" />
         <hr className="mt-4 mb-10 w-3/4 mx-auto border-gray-300" />
         <div className="flex container">
-          <h3 className="text-2xl md:text-3xl mb-6 font-navbar  font-medium">Campos Destacados</h3>
+          <h3 className="text-2xl md:text-3xl mb-6 font-title">CAMPOS DESTACADOS</h3>
         </div>
         <PropertiesContainer propertyType={'farm'} properties={farms} />
       </div>

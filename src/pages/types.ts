@@ -11,3 +11,10 @@ export interface House2 {
   type: string;
   id: string;
 }
+
+export interface CattlesType {
+  race: string;
+  quantity: number;
+  information: string;
+  id: string;
+}

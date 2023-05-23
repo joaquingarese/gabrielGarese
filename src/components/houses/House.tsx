@@ -4,15 +4,9 @@ import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
+import { House2 } from '~/pages/types';
 
-interface Property {
-  state: string;
-  town: string;
-  type: string;
-  id: string;
-}
-
-function House({ property }: { property: Property }) {
+function House({ property }: { property: House2 }) {
   return (
     <Link
       href={{

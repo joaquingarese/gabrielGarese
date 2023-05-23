@@ -22,7 +22,7 @@ function FarmView() {
 
   return (
     <>
-      <div className="flex flex-col container">
+      <div className="flex flex-col container mt-32 md:mt-10">
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">
           Estancia Forestal y Agricola
         </h3>
@@ -30,7 +30,9 @@ function FarmView() {
           <MdLocationOn size={24} className="text-secondary inline" /> {country} {'>'} {state} {'>'}{' '}
           Campos
         </span>
-        <div className="w-full md:w-3/4">{/* <ImageGallery images={images} /> */}</div>
+        <div className="w-full md:w-3/4">
+          <ImageGallery images={images} />
+        </div>
         <section className="my-5 mb-10">
           <h4 className="text-2xl text-secondary font-medium my-2">Descripcion de la Propiedad</h4>
           <p>

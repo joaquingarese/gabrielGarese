@@ -2,7 +2,7 @@ import React from 'react';
 
 function Company() {
   return (
-    <div className="container mb-12">
+    <div className="container mb-12 mt-32 md:mt-12">
       <h2 className="font-title text-2xl md:text-3xl ml-3 text-center">NOSOTROS</h2>
       <div className="flex flex-col lg:flex-row mt-6 p-4">
         <div className="w-full lg:w-1/4">

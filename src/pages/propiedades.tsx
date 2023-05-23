@@ -1,5 +1,5 @@
 import React from 'react';
-import Properties from '~/components/properties/Properties';
+import Houses from '~/components/houses/Houses';
 import { createClient } from 'next-sanity';
 import { House2 } from '~/pages/types';
 
@@ -17,7 +17,7 @@ interface PropiedadesProps {
 const Propiedades = ({ houses }: PropiedadesProps) => {
   return (
     <>
-      <Properties houses={houses} />
+      <Houses houses={houses} />
     </>
   );
 };

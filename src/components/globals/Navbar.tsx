@@ -10,7 +10,7 @@ const Navbar = () => {
     { href: '/', label: 'INICIO' },
     { href: '/campos', label: 'CAMPOS' },
     { href: '/propiedades', label: 'PROPIEDADES' },
-    { href: '/ganados', label: 'GANADOS' },
+    { href: '/ganado', label: 'GANADO' },
     { href: '/informacion', label: 'INFORMACION' },
     { href: '/nosotros', label: 'NOSOTROS' },
     { href: '/contacto', label: 'CONTACTO' }

@@ -1,11 +1,12 @@
 import React from 'react';
 import Farm from '../farms/Farm';
 import House from '../houses/House';
-import { Farm2, House2 } from '~/pages/types';
+import { Farm2, House2, CattlesType } from '~/pages/types';
+import Cattle from '../cattle/Cattle';
 
 interface PropertiesContainerProps {
   propertyType: string;
-  properties: Array<Farm2> | Array<House2>;
+  properties: Array<Farm2> | Array<House2> | Array<CattlesType>;
 }
 
 const PropertiesContainer = ({ propertyType, properties }: PropertiesContainerProps) => {
@@ -49,13 +50,35 @@ const PropertiesContainer = ({ propertyType, properties }: PropertiesContainerPr
       id: '31145551'
     }
   ];
+  const cattelPropertiesExample = [
+    {
+      race: 'Hereford',
+      quantity: 20,
+      information: 'Ganado bien gordo',
+      id: 'qhobdeob'
+    },
+    {
+      race: 'Normando',
+      quantity: 29,
+      information: 'Ganado bien buenaso',
+      id: 'qhobdeobdd'
+    },
+    {
+      race: 'Angus',
+      quantity: 20,
+      information: 'Espectacular Ganado',
+      id: 'qhsdwobdeob'
+    }
+  ];
 
   return (
     <div className="container font-navbar mb-16">
       {propertyType === 'farm'
         ? farmsPropertiesExample.map((property) => <Farm key={property.id} property={property} />)
-        : housesPropertiesExample.map((property) => (
-            <House key={property.id} property={property} />
+        : propertyType === 'house'
+        ? housesPropertiesExample.map((property) => <House key={property.id} property={property} />)
+        : cattelPropertiesExample.map((property) => (
+            <Cattle key={property.id} property={property} />
           ))}
     </div>
   );

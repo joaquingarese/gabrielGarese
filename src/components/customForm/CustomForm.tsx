@@ -20,7 +20,7 @@ function CustomForm({ endpoint, fields, onSubmit }: CustomFormProps) {
   };
 
   return (
-    <div className="flex flex-col items-center mb-10 ">
+    <div className="flex flex-col items-center mb-10 mt-28 md:mt-16">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center w-11/12 md:w-7/12 xl:w-6/12 2xl:w-5/12 bg-gray-100 p-3 m-8 lg:m-0 md:m-3 flex-grow mt-20"

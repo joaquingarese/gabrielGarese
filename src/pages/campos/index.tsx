@@ -18,7 +18,7 @@ interface farmsFromLocationProps {
 }
 
 const farmsFromLocation = ({ farms }: farmsFromLocationProps) => {
-  console.log(farms);
+  console.log('farms');
   const [selectedCity, setSelectedCity] = useState('');
   const router = useRouter();
   const { location } = router.query;
