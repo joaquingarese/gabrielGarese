@@ -1,19 +1,3 @@
-// import { groq } from 'next-sanity';
-
-// export default groq`{
-//     "farms": *[_type == "farms"] {
-//         ...,
-//         mainImage {
-//             ...,
-//             image {
-//             "width": asset->metadata.dimensions.width,
-//             "height": asset->metadata.dimensions.height,
-//             asset->
-//             }
-//         }
-//     }
-// }`;
-
 import { groq } from 'next-sanity';
 
 export default groq`{
@@ -23,6 +7,15 @@ export default groq`{
             "width": asset->metadata.dimensions.width,
             "height": asset->metadata.dimensions.height,
             asset->
+            },
+            country->,
+            gallery[] {
+                ...,
+                image {
+                "width": asset->metadata.dimensions.width,
+                "height": asset->metadata.dimensions.height,
+                asset->
             }
+    },
     }
 }`;
