@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperClass from 'swiper/types/swiper-class';
 import 'swiper/swiper-bundle.min.css';
 
-// SwiperCore.use([Navigation, Thumbs]);
-
 interface ImageGalleryProps {
   images: string[];
 }
@@ -17,7 +15,6 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [swiperHeight, setSwiperHeight] = useState('500px');
 
   const updateActiveIndex = (index: number) => {
-    console.log(index);
     setActiveIndex(index);
   };
 
@@ -52,7 +49,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={images[activeIndex]} alt="Selected" />
+                <img src={images[activeIndex]} alt="Selected" className="object-cover " />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -64,7 +61,12 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} onClick={() => updateActiveIndex(index)}>
-                <img src={image} alt={`Thumbnail ${index}`} className="mt-2 mb-4" role="button" />
+                <img
+                  src={image}
+                  alt={`Thumbnail ${index}`}
+                  className="mt-2 mb-4 max-h-20 object-cover w-full"
+                  role="button"
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -84,7 +86,11 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 key={index}
                 className="text-center text-lg flex justify-center items-center"
               >
-                <img src={image} alt={`Thumbnail ${index}`} />
+                <img
+                  src={image}
+                  alt={`Thumbnail ${index}`}
+                  className="object-cover h-[250px] sm:h-[350px] w-full"
+                />
               </SwiperSlide>
             ))}
           </Swiper>

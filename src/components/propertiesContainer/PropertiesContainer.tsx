@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Farm from '../farms/Farm';
 import House from '../houses/House';
 import { Farm2, House2, CattlesType } from '~/pages/types';
+import { FarmsData } from '~/pages/types';
 import Cattle from '../cattle/Cattle';
+import { useSetAtom } from 'jotai';
 
 interface PropertiesContainerProps {
   propertyType: string;
-  properties: Array<Farm2> | Array<House2> | Array<CattlesType>;
+  properties: Farm2[];
 }
 
 const PropertiesContainer = ({ propertyType, properties }: PropertiesContainerProps) => {
@@ -74,7 +76,7 @@ const PropertiesContainer = ({ propertyType, properties }: PropertiesContainerPr
   return (
     <div className="container font-navbar mb-16">
       {propertyType === 'farm'
-        ? farmsPropertiesExample.map((property) => <Farm key={property.id} property={property} />)
+        ? properties.map((property, index) => <Farm key={index} property={property} />)
         : propertyType === 'house'
         ? housesPropertiesExample.map((property) => <House key={property.id} property={property} />)
         : cattelPropertiesExample.map((property) => (

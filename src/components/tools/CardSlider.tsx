@@ -70,7 +70,6 @@ function CardSlider() {
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
-          // centeredSlides={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false
@@ -109,8 +108,11 @@ function CardSlider() {
           className="mySwiper"
           loop={true}
         >
-          {farmsPropertiesExample.map((farm) => (
-            <SwiperSlide className="text-center text-2xl flex justify-center items-center p-6">
+          {farmsPropertiesExample.map((farm, index) => (
+            <SwiperSlide
+              key={index}
+              className="text-center text-2xl flex justify-center items-center p-6"
+            >
               <CardFarm property={farm} />
             </SwiperSlide>
           ))}

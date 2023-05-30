@@ -1,37 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardSlider from '../tools/CardSlider';
 import ImageGallery from '../tools/ImageGallery';
 import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { MdWaterDrop } from 'react-icons/md';
+import { Farm2 } from '~/pages/types';
 
-function FarmView() {
+function FarmView({ farm }: { farm: Farm2 }) {
+  const [imagesSt, setImagesSt] = useState<string[]>([]);
   const router = useRouter();
-  const { state, country } = router.query;
+  const { state, country, id } = router.query;
 
-  const images = [
-    '/images/cascoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/cascoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/campoPrueba.jpg'
-  ];
+  // console.log(farm.image.asset.url);
+  // console.log(farm.gallery[0].image.asset.url);
+
+  useEffect(() => {
+    let imageURLS = [farm.image.asset.url];
+
+    farm.gallery.forEach((item, i) => {
+      imageURLS.push(item.image.asset.url);
+    });
+
+    setImagesSt(imageURLS);
+  }, []);
 
   return (
     <>
       <div className="flex flex-col container mt-32 md:mt-10">
-        <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">
-          Estancia Forestal y Agricola
-        </h3>
+        <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{farm.name}</h3>
         <span className="mb-2">
           <MdLocationOn size={24} className="text-secondary inline" /> {country} {'>'} {state} {'>'}{' '}
           Campos
         </span>
         <div className="w-full md:w-3/4">
-          <ImageGallery images={images} />
+          <ImageGallery images={imagesSt} />
         </div>
         <section className="my-5 mb-10">
           <h4 className="text-2xl text-secondary font-medium my-2">Descripcion de la Propiedad</h4>

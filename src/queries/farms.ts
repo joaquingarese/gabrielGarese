@@ -3,12 +3,13 @@ import { groq } from 'next-sanity';
 export default groq`{
     "farms": *[_type == "farms"] {
         ...,
-            imagen {
+            image {
             "width": asset->metadata.dimensions.width,
             "height": asset->metadata.dimensions.height,
             asset->
             },
             country->,
+            state->,
             gallery[] {
                 ...,
                 image {
