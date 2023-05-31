@@ -17,8 +17,6 @@ function FarmDetails({ farm }: { farm: Farm2 }) {
 export async function getStaticPaths() {
   const farmIds = await getClient().fetch('*[_type == "farm"]._id');
 
-  console.log(farmIds);
-
   // construct paths with params (the object keys should match dynamic route names)
   const paths = farmIds.map((id: string) => ({
     params: { id }

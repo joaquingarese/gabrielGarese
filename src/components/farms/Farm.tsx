@@ -8,7 +8,7 @@ import { MdMail } from 'react-icons/md';
 import { MdOutlineAgriculture } from 'react-icons/md';
 import { MdForest } from 'react-icons/md';
 import { GiCow } from 'react-icons/gi';
-import { SiHappycow } from 'react-icons/si';
+import { TbMeat } from 'react-icons/tb';
 
 function Farm({ property }: { property: Farm2 }) {
   return (
@@ -56,7 +56,7 @@ function Farm({ property }: { property: Farm2 }) {
                 emoticon = <GiCow size={30} className="inline" />;
                 name = 'Lechería';
               } else if (speciality === 'cattle') {
-                emoticon = <SiHappycow size={30} className="inline" />;
+                emoticon = <TbMeat size={30} className="inline" />;
                 name = 'Ganadero';
               } else if (speciality === 'forestry') {
                 emoticon = <MdForest size={30} className="inline" />;

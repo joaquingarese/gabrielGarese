@@ -6,12 +6,14 @@ import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { MdWaterDrop } from 'react-icons/md';
 import { Farm2 } from '~/pages/types';
+import BlockContent from '@sanity/block-content-to-react';
 
 function FarmView({ farm }: { farm: Farm2 }) {
   const [imagesSt, setImagesSt] = useState<string[]>([]);
   const router = useRouter();
   const { state, country, id } = router.query;
 
+  console.log(farm);
   // console.log(farm.image.asset.url);
   // console.log(farm.gallery[0].image.asset.url);
 
@@ -38,35 +40,16 @@ function FarmView({ farm }: { farm: Farm2 }) {
         </div>
         <section className="my-5 mb-10">
           <h4 className="text-2xl text-secondary font-medium my-2">Descripcion de la Propiedad</h4>
-          <p>
-            Excelente Campo Forestal / Ganadero Toda las comodidades. Batlle y Ordoñez Lavalleja
-          </p>
+          <p>{farm.description}</p>
           <span className="flex items-center mt-2">
-            <BsArrowsMove size={20} className="text-secondary inline mr-2" /> 2000 hectáreas
-            <span className="ml-4"> USD3.300/ha</span>{' '}
+            <BsArrowsMove size={20} className="text-secondary inline mr-2" /> {farm.size} hectáreas
+            <span className="ml-4"> USD{farm.price}/ha</span>{' '}
             <span className="ml-4">
               <MdWaterDrop className="inline" /> Riego
             </span>
           </span>
           <h4 className="text-2xl text-secondary font-medium mt-10 my-2">Detalle</h4>
-          <p>
-            ^^**CON VÍDEO DRON Y VISITA VIRTUAL 3D**^^**ESPECTACULAR Y EXCLUSIVA FINCA DE LUJO CON
-            TRES EDIFICACIONES, VIVIENDA PRINCIPAL, CASA PARA INVITADOS Y CASA PARA EL SERVICIO.
-            SITUADO EN UN ENCLAVE ÚNICO RODEADO DE LA NATURALEZA. IMPECABLE CON MÁXIMAS CALIDADES Y
-            PRIVACIDAD. PISICINA CLIMATIZADA**^^ DATOS BÁSICOS Casa principal de 475 m2 Casa de
-            invitados (Pabellón de Caza) con 111 m2 Casa para personal de servicio de 90 m2 Dos
-            secaderos de 198 y 151 m2 respectivamente Casetas de motores, de generadores, de
-            calderas, etc. Piscina climatizada de agua salada Pista de tenis 3.5 ha de EXPLOTACIÓN
-            DE CEREZOS Y OTROS FRUTOS. 1.4 ha de bosque de roble 2.000 m2 de zonas verdes
-            ajardinadas Completamente amueblada y equipada con mobiliario y materiales de gran
-            valor. LA TIERRA: Finca con cerramiento perimetral de malla y piedra vista. Finca de
-            PRODUCIÓN DE CEREZAS plantadas en calles delimitadas. Finca con riego por goteo
-            automático aproximadamente 1.100 árboles en espaldera y 400 en vaso tradicional. También
-            CIRUELOS, HIGUERAS, KIWIS, PERALES, MANZANOS, MEMBRILLOS, etc. VIVIENDA PRINCIPAL: 6
-            dormitorios. 5 baños. - Planta baja: Porche de acceso, vestíbulo, gran salón con doble
-            altura y chimenea, comedor, cocina, 3 dormitorios, 2 baños, 1 aseo y terraza acristalada
-            con dos ambientes ideal para grandes banquetes y fiestas.
-          </p>
+          <BlockContent blocks={farm.detail} />
         </section>
       </div>
       <div className="flex flex-col items-center">

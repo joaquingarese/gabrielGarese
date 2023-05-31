@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
+    "@portabletext/react": "^1.0.6",
+    "@portabletext/types": "^2.0.0",
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/image-url": "^1.0.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.9",
     "jotai": "^1.8.0",
@@ -20,10 +24,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "swiper": "^9.2.4",
-    "tailwindcss": "^3.3.2",
-    "@portabletext/react": "^1.0.6",
-    "@portabletext/types": "^2.0.0",
-    "@sanity/image-url": "^1.0.1"
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "18.0.0",

@@ -1,9 +1,9 @@
-interface Block {
+export interface Block {
   _key: string;
   _type: string;
   style: string;
   list: string;
-  children: any[]; // specify more concrete type if possible
+  children: any[];
 }
 
 interface ImageWithAlt {

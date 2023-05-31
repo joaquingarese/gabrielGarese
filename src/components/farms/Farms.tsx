@@ -4,18 +4,11 @@ import Link from 'next/link';
 import { createClient } from 'next-sanity';
 import { Farm2 } from '~/pages/types';
 
-const client = createClient({
-  projectId: 'c7nn4dit',
-  dataset: 'production',
-  apiVersion: '2022-05-15',
-  useCdn: false
-});
-
-interface FarmProps {
-  farms: Array<Farm2>;
+interface FarmsProps {
+  farms: Farm2[];
 }
 
-const Farms = ({ farms }: FarmProps) => {
+const Farms = ({ farms }: FarmsProps) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -93,15 +86,5 @@ const Farms = ({ farms }: FarmProps) => {
     </>
   );
 };
-
-export async function getStaticProps() {
-  const farms = await client.fetch(`*[_type == "farms"]`);
-
-  return {
-    props: {
-      farms
-    }
-  };
-}
 
 export default Farms;
