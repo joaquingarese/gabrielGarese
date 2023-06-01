@@ -28,7 +28,7 @@ const Farms = ({ farms }: FarmsProps) => {
         </p>
         <section className="mb-10 mt-5">
           <div className="flex flex-wrap justify-center  md:my-18">
-            <Link href={'/campos/Uruguay'}>
+            <Link href={'/location/Uruguay'}>
               <div
                 role="button"
                 className={`relative w-3/4 lg:w-1/3 md:h-auto lg:max-h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
@@ -45,7 +45,7 @@ const Farms = ({ farms }: FarmsProps) => {
                 </div>
               </div>
             </Link>
-            <Link href={'/campos/paraguay'}>
+            <Link href={'/location/Paraguay'}>
               <div
                 role="button"
                 className={`relative w-3/4 lg:w-1/3 md:h-auto lg:max-h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${

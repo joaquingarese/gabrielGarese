@@ -13,10 +13,6 @@ function FarmView({ farm }: { farm: Farm2 }) {
   const router = useRouter();
   const { state, country, id } = router.query;
 
-  console.log(farm);
-  // console.log(farm.image.asset.url);
-  // console.log(farm.gallery[0].image.asset.url);
-
   useEffect(() => {
     let imageURLS = [farm.image.asset.url];
 

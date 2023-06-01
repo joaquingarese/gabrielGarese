@@ -10,7 +10,6 @@ interface HomeProps {
 }
 
 const Home = ({ farms }: HomeProps) => {
-  // console.log(farms);
   return (
     <>
       <div className="flex-grow">
