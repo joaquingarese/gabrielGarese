@@ -9,6 +9,7 @@ import { MdOutlineAgriculture } from 'react-icons/md';
 import { MdForest } from 'react-icons/md';
 import { GiCow } from 'react-icons/gi';
 import { TbMeat } from 'react-icons/tb';
+import { GiBull } from 'react-icons/gi';
 
 function Farm({ property }: { property: Farm2 }) {
   return (
@@ -39,7 +40,7 @@ function Farm({ property }: { property: Farm2 }) {
           </div>
         </div>
         <div className="col-span-2 pt-6 px-8 w-full flex flex-col items-start">
-          <h3 className="text-2xl font-card">{property.name}</h3>
+          <h3 className="text-2xl font-car">{property.name}</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
             <span className="ml-2 mt-5">{property.state.name}</span>
@@ -56,7 +57,7 @@ function Farm({ property }: { property: Farm2 }) {
                 emoticon = <GiCow size={30} className="inline" />;
                 name = 'Lechería';
               } else if (speciality === 'cattle') {
-                emoticon = <TbMeat size={30} className="inline" />;
+                emoticon = <GiBull size={30} className="inline" />;
                 name = 'Ganadero';
               } else if (speciality === 'forestry') {
                 emoticon = <MdForest size={30} className="inline" />;

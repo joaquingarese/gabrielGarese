@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full left-0 fixed mx-auto z-20 bg-gray-100 h-24 md:h-32">
+      <nav className="w-full left-0 fixed mx-auto z-20 bg-navbarBackground h-24 md:h-32">
         <div className="container flex items-center justify-between h-full">
           {' '}
           <Link href="/">
@@ -50,7 +50,7 @@ const Navbar = () => {
           <div className="xl:hidden z-10">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center p-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white"
+              className="flex items-center p-3 py-2 border rounded text-black border-gray-400 "
             >
               {isOpen === false ? (
                 <svg

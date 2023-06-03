@@ -12,26 +12,6 @@ interface PropertiesContainerProps {
 }
 
 const PropertiesContainer = ({ propertyType, properties }: PropertiesContainerProps) => {
-  const farmsPropertiesExample = [
-    {
-      state: 'Soriano',
-      country: 'Uruguay',
-      type: 'farm',
-      id: '583309'
-    },
-    {
-      state: 'Artigas',
-      country: 'Paraguay',
-      type: 'farm',
-      id: '19471'
-    },
-    {
-      state: 'Florida',
-      country: 'Uruguay',
-      type: 'farm',
-      id: '311551'
-    }
-  ];
   const housesPropertiesExample = [
     {
       state: 'Soriano',

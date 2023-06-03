@@ -24,7 +24,7 @@ function Hero() {
           className="absolute inset-0 w-full h-full object-cover object-center filter brightness-75"
         />
         <div className="absolute top-[15%] right-[10%] lg:top-[20%] lg:right-[10%] w-3/4 lg:w-1/2">
-          <h3 className=" text-white  text-5xl md:text-7xl lg:text-7xl  font-title mt-12 md:mt-[-70px] xl:mt-5 ml-auto animate-fadeIn">
+          <h3 className=" text-white  text-5xl md:text-7xl lg:text-7xl font-header mt-12 md:mt-[-70px] xl:mt-5 ml-auto animate-fadeIn">
             Compre y Venda Campos en Uruguay y alrededores
           </h3>
           <div className="flex justify-end">

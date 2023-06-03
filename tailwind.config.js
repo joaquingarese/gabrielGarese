@@ -20,32 +20,6 @@ module.exports = {
       card: ['Dosis', 'sans-serif'],
       title: '"Montserrat", sans-serif'
     },
-    colors: {
-      white: colors.white,
-      gray: colors.coolGray,
-      blue: colors.sky,
-      red: colors.rose,
-      primary: '#a67e58',
-      secondary: '#8D7449',
-      tertiary: '#725B32',
-      green: '#777C50',
-      green2: '#8fb360',
-      'green-soft': '#7c854d',
-      'green-small': '#a9d175',
-      'green-button': '#435644',
-      caqui: '#707070',
-      slate: {
-        100: '#C6D1DE',
-        200: '#9CB6CC',
-        300: '#719AB9',
-        400: '#487EA6',
-        500: '#236391',
-        600: '#1A5276',
-        700: '#143D5C',
-        800: '#0D2742',
-        900: '#051128'
-      }
-    },
 
     extend: {
       maxWidth: {
@@ -76,6 +50,34 @@ module.exports = {
         'green-soft': '#7c854d',
         'green-small': '#a9d175',
         caqui: '#707070'
+      },
+      colors: {
+        white: colors.white,
+        gray: colors.coolGray,
+        blue: colors.sky,
+        red: colors.rose,
+        navbarBackground: '#f5f1ee',
+        bodyBackground: '#f8f6f4',
+        primary: '#a67e58',
+        secondary: '#8D7449',
+        tertiary: '#725B32',
+        green: '#777C50',
+        green2: '#8fb360',
+        'green-soft': '#7c854d',
+        'green-small': '#a9d175',
+        'green-button': '#435644',
+        caqui: '#707070',
+        slate: {
+          100: '#C6D1DE',
+          200: '#9CB6CC',
+          300: '#719AB9',
+          400: '#487EA6',
+          500: '#236391',
+          600: '#1A5276',
+          700: '#143D5C',
+          800: '#0D2742',
+          900: '#051128'
+        }
       }
     }
   },
