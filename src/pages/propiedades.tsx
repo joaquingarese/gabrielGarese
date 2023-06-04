@@ -1,20 +1,15 @@
 import React from 'react';
 import Houses from '~/components/houses/Houses';
-import { createClient } from 'next-sanity';
+import { getClient } from '~/lib/sanity.server';
+import housesQuery from '~/queries/houses';
 import { House2 } from '~/pages/types';
-
-const client = createClient({
-  projectId: 'c7nn4dit',
-  dataset: 'production',
-  apiVersion: '2022-05-15',
-  useCdn: false
-});
 
 interface PropiedadesProps {
   houses: Array<House2>;
 }
 
 const Propiedades = ({ houses }: PropiedadesProps) => {
+  console.log(houses);
   return (
     <>
       <Houses houses={houses} />
@@ -23,11 +18,11 @@ const Propiedades = ({ houses }: PropiedadesProps) => {
 };
 
 export async function getStaticProps() {
-  const houses = await client.fetch(`*[_type == "houses"]`);
+  const houses = await getClient().fetch(housesQuery);
 
   return {
     props: {
-      houses
+      houses: houses.houses || []
     }
   };
 }
