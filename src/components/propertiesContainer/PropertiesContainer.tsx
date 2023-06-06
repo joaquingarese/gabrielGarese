@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Farm from '../farms/Farm';
 import House from '../houses/House';
-import { Farm2, House2, CattlesType } from '~/pages/types';
+import { Farm2, House2, CattleType } from '~/pages/types';
 import { FarmsData } from '~/pages/types';
 import Cattle from '../cattle/Cattle';
 import { useSetAtom } from 'jotai';

@@ -40,7 +40,7 @@ function Farm({ property }: { property: Farm2 }) {
           </div>
         </div>
         <div className="col-span-2 pt-6 px-8 w-full flex flex-col items-start">
-          <h3 className="text-2xl font-car">{property.name}</h3>
+          <h3 className="text-2xl">{property.name}</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
             <span className="ml-2 mt-5">{property.state.name}</span>

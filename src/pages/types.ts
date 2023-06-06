@@ -36,6 +36,10 @@ interface Image {
   };
 }
 
+interface Video {
+  url: string;
+}
+
 export interface Farm2 {
   _id: string;
   name: string;
@@ -64,9 +68,22 @@ export interface House2 {
   id: string;
 }
 
-export interface CattlesType {
+export interface CattleType {
+  _id: string;
+  name: string;
   race: string;
-  quantity: number;
-  information: string;
-  id: string;
+  slug: {
+    _type: string;
+    current: string;
+  };
+  state: Reference;
+  size: number;
+  transaction: string;
+  detail: Block[];
+  shortDescription: string;
+  category: string;
+  gallery: ImageWithAlt[];
+  image: Image;
+  video: Video;
+  _updatedAt: String;
 }

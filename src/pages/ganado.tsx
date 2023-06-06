@@ -1,33 +1,30 @@
 import React from 'react';
 import Cattles from '~/components/cattle/Cattles';
 import { createClient } from 'next-sanity';
-import { CattlesType } from './types';
+import { getClient } from '~/lib/sanity.server';
+import cattleQuery from '~/queries/cattle';
+import { CattleType } from '~/pages/types';
 
-const client = createClient({
-  projectId: 'c7nn4dit',
-  dataset: 'production',
-  apiVersion: '2022-05-15',
-  useCdn: false
-});
-
-interface CattleProps {
-  cattles: Array<CattlesType>;
+interface cattleDetailsProps {
+  cattle: CattleType[];
 }
 
-const ganado = ({ cattles }: CattleProps) => {
+const ganado = ({ cattle }: cattleDetailsProps) => {
+  console.log(cattle);
+
   return (
     <>
-      <Cattles cattles={cattles} />
+      <Cattles cattle={cattle} />
     </>
   );
 };
 
 export async function getStaticProps() {
-  const cattles = await client.fetch(`*[_type == "cattles"]`);
+  const cattle = await getClient().fetch(cattleQuery);
 
   return {
     props: {
-      cattles
+      cattle: cattle.cattle || []
     }
   };
 }
