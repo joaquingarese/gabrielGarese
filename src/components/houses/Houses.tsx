@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropertiesContainer from '../propertiesContainer/PropertiesContainer';
+import HouseContainer from './HouseContainer';
 import { House2 } from '~/pages/types';
 
 interface PropertiesProps {
@@ -8,8 +9,6 @@ interface PropertiesProps {
 
 // function Properties({ houses }) {
 const Houses = ({ houses }: PropertiesProps) => {
-  console.log('A ver si trae las casas');
-  console.log(houses);
   return (
     <>
       <div className="container mt-32 md:mt-10 flex-column">
@@ -17,7 +16,7 @@ const Houses = ({ houses }: PropertiesProps) => {
         <p className="font-navbar mt-4  xs:w-3/4  lg:w-1/3 text-textNotes font-thin">
           Seleccione localidad:
         </p>
-        <PropertiesContainer propertyType={'house'} properties={houses} />
+        <HouseContainer properties={houses} />
       </div>
     </>
   );

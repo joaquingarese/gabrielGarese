@@ -11,7 +11,7 @@ const Cattles = ({ cattle }: cattleDetailsProps) => {
     <>
       <div className="container mt-28 md:mt-10 flex-column">
         <h2 className=" text-2xl md:text-3xl font-title mt-4 ml-3 font-medium">GANADO</h2>
-        <CattleContainer propertyType={'cattle'} properties={cattle} />
+        <CattleContainer properties={cattle} />
       </div>
     </>
   );

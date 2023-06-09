@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropertiesContainer from '../propertiesContainer/PropertiesContainer';
+import FarmContainer from './FarmContainer';
 import Link from 'next/link';
-import { createClient } from 'next-sanity';
 import { Farm2 } from '~/pages/types';
 
 interface FarmsProps {
@@ -63,25 +63,13 @@ const Farms = ({ farms }: FarmsProps) => {
               </div>
             </Link>
           </div>
-          <div className="flex justify-center">
-            {/* <img
-              src="/images/uruguayMarron3.png"
-              alt="mapa uruguay"
-              className="text-primary w-full h-full object-cover"
-            />
-            <img
-              src="/images/paraguay6.png"
-              alt="mapa uruguay"
-              className="text-primary w-full h-full object-cover"
-            /> */}
-          </div>
         </section>
         <hr className="border-2 border-gray-300 mt-8 mx-8" />
         <hr className="mt-4 mb-10 w-3/4 mx-auto border-gray-300" />
         <div className="flex container">
           <h3 className="text-2xl md:text-3xl mb-6 font-title">CAMPOS DESTACADOS</h3>
         </div>
-        <PropertiesContainer propertyType={'farm'} properties={farms} />
+        <FarmContainer properties={farms} />
       </div>
     </>
   );

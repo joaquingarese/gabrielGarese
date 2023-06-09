@@ -9,7 +9,6 @@ interface PropiedadesProps {
 }
 
 const Propiedades = ({ houses }: PropiedadesProps) => {
-  console.log(houses);
   return (
     <>
       <Houses houses={houses} />

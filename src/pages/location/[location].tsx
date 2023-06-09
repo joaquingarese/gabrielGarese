@@ -1,5 +1,6 @@
 import React from 'react';
 import PropertiesContainer from '~/components/propertiesContainer/PropertiesContainer';
+import FarmContainer from '~/components/farms/FarmContainer';
 import Selector from '~/components/tools/Selector';
 import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';
@@ -20,7 +21,7 @@ const farmsFromLocation = ({ farms, location }: farmsFromLocationProps) => {
           {/* <Selector selectedCity={selectedCity} setSelectedCity={setSelectedCity} cities={cities} /> */}
         </div>
       </div>
-      <PropertiesContainer propertyType={'farm'} properties={farms} />
+      <FarmContainer properties={farms} />
     </>
   );
 };

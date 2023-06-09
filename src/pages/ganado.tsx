@@ -10,8 +10,6 @@ interface cattleDetailsProps {
 }
 
 const ganado = ({ cattle }: cattleDetailsProps) => {
-  console.log(cattle);
-
   return (
     <>
       <Cattles cattle={cattle} />
