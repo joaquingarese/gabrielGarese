@@ -62,10 +62,20 @@ export interface Farm2 {
 export type FarmsData = Farm2[];
 
 export interface House2 {
-  state: string;
-  town: string;
-  type: string;
-  id: string;
+  _id: string;
+  name: string;
+  slug: {
+    _type: string;
+    current: string;
+  };
+  state: Reference;
+  price: number;
+  size: number;
+  transaction: string;
+  description: string;
+  detail: Block[];
+  gallery: ImageWithAlt[];
+  image: Image;
 }
 
 export interface CattleType {
