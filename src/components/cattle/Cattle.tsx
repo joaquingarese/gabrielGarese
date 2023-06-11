@@ -36,14 +36,14 @@ function Cattle({ property }: { property: CattleType }) {
             </small> */}
           </div>
         </div>
-        <div className="col-span-2 pt-6 px-8 w-full flex flex-col items-start">
+        <div className="col-span-2 pt-6 px-8 w-full flex flex-col justify-between">
           <h3 className="text-2xl font-navbar">{property.name}</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
             <span className="ml-2 mt-5">{property.state.name}</span>
           </div>
-          <p className="mt-4 inline-block">{property.shortDescription}</p>
-          <hr className="border-1 w-full bg-slate-100 mt-2 2xl:mt-4" />
+          <p className="mt-1 inline-block">{property.shortDescription}</p>
+          <hr className="border-1 w-full bg-slate-100 mt-2 2xl:mt-4 3xl:mb-[-25px]" />
           <div className="flex justify-between flex-col md:flex-row  w-full my-3 ">
             <div className="flex ">
               <GiBull size={24} className="mt-2" />
