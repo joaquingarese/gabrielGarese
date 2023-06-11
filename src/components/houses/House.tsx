@@ -10,17 +10,13 @@ function House({ property }: { property: House2 }) {
   return (
     <Link
       href={{
-        pathname: `/propiedades/${property.town}/${property.id}`,
-        query: {
-          state: property.state,
-          town: property.town
-        }
+        pathname: `/propiedades/${property._id}`
       }}
     >
       <div
         className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none"
         role="button"
-        key={property.id}
+        key={property._id}
       >
         <div className="col-span-1 ">
           <div className="relative h-full">
@@ -34,13 +30,13 @@ function House({ property }: { property: House2 }) {
             </small>
           </div>
         </div>
-        <div className="col-span-2 pt-6 px-8 w-full flex flex-col items-start">
+        <div className="col-span-2 pt-6 px-8 w-full flex flex-col justify-between">
           <h3 className="text-2xl font-navbard">Campo Forestal y Ganadero</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
             <span className="ml-2 mt-5">{property.state}</span>
           </div>
-          <span className="text-primary text-2xl font-semibold mt-8 inline-block 2xl:mt-16">
+          <span className="text-primary text-2xl font-semibold inline-block mt-8 2xl:mt-10">
             USD 2.040.000
           </span>
           <hr className="border-1 w-full bg-slate-100 mt-2 2xl:mt-4" />
