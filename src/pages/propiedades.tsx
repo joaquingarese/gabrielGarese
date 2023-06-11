@@ -5,13 +5,13 @@ import housesQuery from '~/queries/houses';
 import { House2 } from '~/pages/types';
 
 interface PropiedadesProps {
-  houses: Array<House2>;
+  houses: House2[];
 }
 
 const Propiedades = ({ houses }: PropiedadesProps) => {
   return (
     <>
-      <Houses houses={houses} />
+      <Houses houses={houses} />{' '}
     </>
   );
 };
