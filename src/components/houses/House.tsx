@@ -3,57 +3,60 @@ import Link from 'next/link';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';
+import { MdOutlineBedroomChild } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 import { House2 } from '~/pages/types';
 
-function House({ property }: { property: House2 }) {
+function House({ house }: { house: House2 }) {
+  console.log(house);
   return (
     <Link
       href={{
-        pathname: `/propiedades/${property._id}`
+        pathname: `/propiedades/${house._id}`
       }}
     >
       <div
-        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none"
+        className="bg-white grid grid-cols-1 my-7 shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-md md:rounded-none md:m-4"
         role="button"
-        key={property._id}
+        key={house._id}
       >
-        <div className="col-span-1 ">
+        <div className="col-span-1">
           <div className="relative h-full">
             <img
-              src="/images/campoPrueba.jpg"
+              src={house.image.asset.url}
               alt=""
-              className="w-full h-full object-cover rounded-t-md md:rounded-none"
+              className="w-full h-[300px] object-cover rounded-t-md md:rounded-none"
             />
             <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-2 text-white">
-              VENDE
+              {house.transaction === 'sell' ? 'VENDE' : 'ALQUILA'}
             </small>
           </div>
         </div>
         <div className="col-span-2 pt-6 px-8 w-full flex flex-col justify-between">
-          <h3 className="text-2xl font-navbard">Campo Forestal y Ganadero</h3>
+          <h3 className="text-2xl font-navbard">{house.name}</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
-            <span className="ml-2 mt-5">{property.state}</span>
+            <span className="ml-2 mt-5">{house.state.name}</span>
           </div>
-          <span className="text-primary text-2xl font-semibold inline-block mt-8 2xl:mt-10">
-            USD 2.040.000
+          <span className="text-2xl font-normal inline-block mt-8 2xl:mt-10">
+            USD {house.price}
           </span>
           <hr className="border-1 w-full bg-slate-100 mt-2 2xl:mt-4" />
-          <div className="flex justify-between flex-col md:flex-row  w-full my-3 ">
-            <div className="flex ">
-              <BsArrowsMove size={24} className="text-tertiary mt-2" />
-              <span className="mt-2 ml-2">550 Hectáreas</span>{' '}
-              <span className="mt-2 ml-4">
-                3.300 <strong>USD/Ha</strong>
+          <div className="flex flex-col justify-between w-full my-3">
+            <div className="flex justify-center">
+              <BsArrowsMove size={24} className="mt-2" />
+              <span className="mt-2 ml-2">
+                {house.size} m<sup>2</sup>
               </span>
+              <MdOutlineBedroomChild size={24} className="mt-2 ml-4 mr-1 text-gray-600" />
+              <span className="mt-2">{house.rooms} Cuartos</span>
             </div>
-            <div className="flex mt-3 md:mt-0">
+            <div className="flex pt-4 md:mt-0 justify-center">
               <BsFillTelephoneFill
                 size={44}
-                className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
+                className="bg-gray-200 p-2 text-tertiary mr-6 2xl:mr-2 rounded-md"
               />
-              <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
+              <MdMail size={44} className="bg-gray-200 p-2 ml-6 text-tertiary rounded-md" />
             </div>
           </div>
         </div>

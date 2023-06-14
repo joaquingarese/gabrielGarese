@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import CardSlider from '../tools/CardSlider';
-import ImageGallery from '../tools/ImageGallery';
-import { useRouter } from 'next/router';
+import CardSlider from '../UIElements/CardSlider';
+import ImageGallery from '../UIElements/ImageGallery';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { MdWaterDrop } from 'react-icons/md';
@@ -10,13 +9,11 @@ import BlockContent from '@sanity/block-content-to-react';
 
 function FarmView({ farm }: { farm: Farm2 }) {
   const [imagesSt, setImagesSt] = useState<string[]>([]);
-  const router = useRouter();
-  const { state, country, id } = router.query;
 
   useEffect(() => {
     let imageURLS = [farm.image.asset.url];
 
-    farm.gallery.forEach((item, i) => {
+    farm.gallery?.forEach((item, i) => {
       imageURLS.push(item.image.asset.url);
     });
 
@@ -28,14 +25,14 @@ function FarmView({ farm }: { farm: Farm2 }) {
       <div className="flex flex-col container mt-32 md:mt-10">
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{farm.name}</h3>
         <span className="mb-2">
-          <MdLocationOn size={24} className="text-secondary inline" /> {country} {'>'} {state} {'>'}{' '}
-          Campos
+          <MdLocationOn size={24} className="text-secondary inline" /> {farm.country.name} {'>'}{' '}
+          {farm.state.name} {'>'} Campos
         </span>
-        <div className="w-full md:w-3/4">
+        <div className="md:w-3/4 xl:w-8/12 3xl:w-6/12">
           <ImageGallery images={imagesSt} />
         </div>
         <section className="my-5 mb-10">
-          <h4 className="text-2xl text-secondary font-medium my-2">Descripcion de la Propiedad</h4>
+          <h4 className="text-xl text-secondary font-title my-2">Descripcion de la Propiedad</h4>
           <p>{farm.description}</p>
           <span className="flex items-center mt-2">
             <BsArrowsMove size={20} className="text-secondary inline mr-2" /> {farm.size} hectáreas
@@ -44,7 +41,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
               <MdWaterDrop className="inline" /> Riego
             </span>
           </span>
-          <h4 className="text-2xl text-secondary font-medium mt-10 my-2">Detalle</h4>
+          <h4 className="text-xl text-secondary font-title mt-10 my-2">Detalle</h4>
           <BlockContent blocks={farm.detail} />
         </section>
       </div>

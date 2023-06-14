@@ -1,7 +1,7 @@
 import React from 'react';
 import PropertiesContainer from '~/components/propertiesContainer/PropertiesContainer';
 import FarmContainer from '~/components/farms/FarmContainer';
-import Selector from '~/components/tools/Selector';
+import Selector from '~/components/UIElements/Selector';
 import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';
 import { Farm2 } from '~/pages/types';

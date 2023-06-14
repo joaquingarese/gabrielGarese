@@ -58,6 +58,7 @@ module.exports = {
         red: colors.rose,
         navbarBackground: '#f5f1ee',
         bodyBackground: '#f8f6f4',
+        lightBrown: '#e2d5c9',
         primary: '#a67e58',
         secondary: '#8D7449',
         tertiary: '#725B32',

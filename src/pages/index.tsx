@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Hero from '~/components/index/Hero';
-import PropertiesContainer from '~/components/propertiesContainer/PropertiesContainer';
+import FarmContainer from '~/components/farms/FarmContainer';
 import { getClient } from '~/lib/sanity.server';
 import { Farm2 } from './types';
 import farmsQuery from '~/queries/farms';
@@ -19,7 +19,7 @@ const Home = ({ farms }: HomeProps) => {
         <div className="container mt-10">
           <h3 className="text-2xl md:text-3xl mb-8 mt-20 font-title">CAMPOS DESTACADOS</h3>
         </div>
-        <PropertiesContainer propertyType={'farm'} properties={farms || []} />
+        <FarmContainer properties={farms || []} />
       </div>
     </>
   );

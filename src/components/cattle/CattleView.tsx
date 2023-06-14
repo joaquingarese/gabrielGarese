@@ -1,6 +1,6 @@
-import React from 'react';
-import CardSlider from '../tools/CardSlider';
-import ImageGallery from '../tools/ImageGallery';
+import React, { useEffect, useState } from 'react';
+import CardSlider from '../UIElements/CardSlider';
+import ImageGallery from '../UIElements/ImageGallery';
 import { CattleType } from '~/pages/types';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowRightShort } from 'react-icons/bs';
@@ -12,7 +12,17 @@ interface CattleDetailsProps {
 }
 
 function CattleView({ cattle }: CattleDetailsProps) {
-  console.log(cattle);
+  const [imagesSt, setImagesSt] = useState<string[]>([]);
+
+  useEffect(() => {
+    let imageURLS = [cattle.image.asset.url];
+
+    cattle.gallery?.forEach((item, i) => {
+      imageURLS.push(item.image.asset.url);
+    });
+
+    setImagesSt(imageURLS);
+  }, []);
 
   const images = [
     '/images/cascoPrueba.jpg',
@@ -36,7 +46,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
         </span>
         <div className="w-full md:w-3/4">
           {cattle.video.url === null ? (
-            <ImageGallery images={images} />
+            <ImageGallery images={imagesSt} />
           ) : (
             <div className="relative" style={{ paddingBottom: '56.25%' }}>
               <iframe
@@ -49,7 +59,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
             </div>
           )}
         </div>
-        <p className="mt-1">
+        <p className="mt-[-4px]">
           <small>
             <i>
               Fecha de publicación: {new Date(cattle._updatedAt.toString()).toLocaleDateString()}

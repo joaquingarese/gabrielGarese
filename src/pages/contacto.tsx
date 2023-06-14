@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomForm from '~/components/customForm/CustomForm';
+import CustomForm from '~/components/forms/CustomForm';
 
 function contacto() {
   const fields = [
@@ -15,7 +15,7 @@ function contacto() {
   return (
     <>
       <div className="flex-grow mt-[-4%] md:mt-[0%] ">
-        <CustomForm endpoint="1024" fields={fields} onSubmit={handleSubmit} />
+        <CustomForm fields={fields} onSubmit={handleSubmit} />
       </div>
     </>
   );

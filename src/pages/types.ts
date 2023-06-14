@@ -69,6 +69,8 @@ export interface House2 {
     current: string;
   };
   state: Reference;
+  rooms: number;
+  bathrooms: number;
   price: number;
   size: number;
   transaction: string;

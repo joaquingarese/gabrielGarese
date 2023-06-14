@@ -6,23 +6,23 @@ import cattleQuery from '~/queries/cattle';
 import { CattleType } from '~/pages/types';
 
 interface cattleDetailsProps {
-  cattle: CattleType[];
+  cattles: CattleType[];
 }
 
-const ganado = ({ cattle }: cattleDetailsProps) => {
+const ganado = ({ cattles }: cattleDetailsProps) => {
   return (
     <>
-      <Cattles cattle={cattle} />
+      <Cattles cattles={cattles} />
     </>
   );
 };
 
 export async function getStaticProps() {
-  const cattle = await getClient().fetch(cattleQuery);
+  const cattles = await getClient().fetch(cattleQuery);
 
   return {
     props: {
-      cattle: cattle.cattle || []
+      cattles: cattles.cattle || []
     }
   };
 }

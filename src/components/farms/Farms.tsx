@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropertiesContainer from '../propertiesContainer/PropertiesContainer';
 import FarmContainer from './FarmContainer';
 import Link from 'next/link';
 import { Farm2 } from '~/pages/types';

@@ -6,13 +6,13 @@ interface Field {
   name: string;
 }
 
-interface CustomFormProps {
+interface MiniFormProps {
   endpoint: string;
   fields: Field[];
   onSubmit: () => void;
 }
 
-function CustomForm({ endpoint, fields, onSubmit }: CustomFormProps) {
+function MiniForm({ fields, onSubmit }: MiniFormProps) {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     // Form submission logic here.
@@ -58,4 +58,4 @@ function CustomForm({ endpoint, fields, onSubmit }: CustomFormProps) {
   );
 }
 
-export default CustomForm;
+export default MiniForm;

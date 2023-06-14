@@ -33,7 +33,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   }, []);
 
   return (
-    <div>
+    <div className="">
       {isLargeScreen ? (
         <>
           <Swiper
@@ -49,7 +49,11 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={images[activeIndex]} alt="Selected" className="object-cover " />
+                <img
+                  src={images[activeIndex]}
+                  alt="Selected"
+                  className="object-cover object-center "
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -64,7 +68,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 <img
                   src={image}
                   alt={`Thumbnail ${index}`}
-                  className="mt-2 mb-4 max-h-20 object-cover w-full"
+                  className="mt-2 mb-4 max-h-20 max-w-[170px] object-cover w-full"
                   role="button"
                 />
               </SwiperSlide>

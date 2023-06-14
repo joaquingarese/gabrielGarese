@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Farm from '../farms/Farm';
 import House from '../houses/House';
-import { Farm2, House2, CattleType } from '~/pages/types';
-import { FarmsData } from '~/pages/types';
-import Cattle from '../cattle/Cattle';
+import { House2 } from '~/pages/types';
 import { useSetAtom } from 'jotai';
 
 interface HouseContainerProps {
-  properties: Farm2[];
+  houses: House2[];
 }
 
-const HouseContainer = ({ properties }: HouseContainerProps) => {
+const HouseContainer = ({ houses }: HouseContainerProps) => {
   return (
-    <div className="container font-navbar mb-16">
-      {properties.map((property) => (
-        <House key={property._id} property={property} />
+    <div className="container font-navbar mb-16 mt-6 flex flex-wrap justify-center">
+      {houses.map((house) => (
+        <House key={house._id} house={house} />
       ))}
     </div>
   );
