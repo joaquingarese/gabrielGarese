@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import CardSlider from '../UIElements/CardSlider';
 import ImageGallery from '../UIElements/ImageGallery';
+import MiniForm from '../forms/MiniForm';
+import ExtraMiniForm from '../forms/ExtraMiniForm';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { MdWaterDrop } from 'react-icons/md';
@@ -28,28 +30,41 @@ function FarmView({ farm }: { farm: Farm2 }) {
           <MdLocationOn size={24} className="text-secondary inline" /> {farm.country.name} {'>'}{' '}
           {farm.state.name} {'>'} Campos
         </span>
-        <div className="md:w-3/4 xl:w-8/12 3xl:w-6/12">
-          <ImageGallery images={imagesSt} />
+        <div className="flex">
+          <div className="w-full md:w-3/4 xl:w-8/12 3xl:w-6/12">
+            <ImageGallery images={imagesSt} />
+          </div>
+          <div className="w-1/4 mx-10 hidden xl:block">
+            <MiniForm height={400} />
+          </div>
         </div>
-        <section className="my-5 mb-10">
-          <h4 className="text-xl text-secondary font-title my-2">Descripcion de la Propiedad</h4>
-          <p>{farm.description}</p>
-          <span className="flex items-center mt-2">
-            <BsArrowsMove size={20} className="text-secondary inline mr-2" /> {farm.size} hectáreas
-            <span className="ml-4"> USD{farm.price}/ha</span>{' '}
-            <span className="ml-4">
-              <MdWaterDrop className="inline" /> Riego
+        <section className="my-5 mb-10 flex flex-col sm:flex-row">
+          <div className="w-full ">
+            <h4 className="text-xl text-secondary font-title my-2">Descripcion de la Propiedad</h4>
+            <p>{farm.description}</p>
+            <span className="flex items-center mt-2">
+              <BsArrowsMove size={20} className="text-secondary inline mr-2" /> {farm.size}{' '}
+              hectáreas
+              <span className="ml-4"> USD{farm.price}/ha</span>{' '}
+              <span className="ml-4">
+                <MdWaterDrop className="inline" /> Riego
+              </span>
             </span>
-          </span>
-          <h4 className="text-xl text-secondary font-title mt-10 my-2">Detalle</h4>
-          <BlockContent blocks={farm.detail} />
+            <h4 className="text-xl text-secondary font-title mt-10 my-2">Detalle</h4>
+            <BlockContent blocks={farm.detail} />
+          </div>
+          <div className="w-1/4 mx-16 hidden sm:block xl:hidden">
+            <MiniForm height={300} />
+          </div>
+          <div className="w-full block sm:hidden my-8">
+            <ExtraMiniForm />
+          </div>
         </section>
       </div>
       <div className="flex flex-col items-center">
         <hr className="border-solid border-2 border-gray-300 w-10/12 px-6" />
         <hr className="border-solid border-1 border-gray-400 w-3/4 mt-4 mb-6" />
       </div>
-
       <div className="mb-10 container">
         <h4 className="text-2xl text-secondary font-medium">
           Campos similares que te pueden interesar

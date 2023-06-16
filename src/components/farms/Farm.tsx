@@ -8,7 +8,6 @@ import { MdMail } from 'react-icons/md';
 import { MdOutlineAgriculture } from 'react-icons/md';
 import { MdForest } from 'react-icons/md';
 import { GiCow } from 'react-icons/gi';
-import { TbMeat } from 'react-icons/tb';
 import { GiBull } from 'react-icons/gi';
 
 function Farm({ property }: { property: Farm2 }) {
