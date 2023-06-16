@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import CardSlider from '../UIElements/CardSlider';
 import ImageGallery from '../UIElements/ImageGallery';
+import MiniForm from '../forms/MiniForm';
+import ExtraMiniForm from '../forms/ExtraMiniForm';
 import { CattleType } from '~/pages/types';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowRightShort } from 'react-icons/bs';
@@ -24,16 +25,6 @@ function CattleView({ cattle }: CattleDetailsProps) {
     setImagesSt(imageURLS);
   }, []);
 
-  const images = [
-    '/images/cascoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/cascoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/campoPrueba.jpg',
-    '/images/campoPrueba.jpg'
-  ];
-
   return (
     <>
       <div className="flex flex-col container mt-32 md:mt-10 ">
@@ -44,18 +35,33 @@ function CattleView({ cattle }: CattleDetailsProps) {
           {' > '} Ganado{' > '}
           {cattle.race}
         </span>
-        <div className="w-full md:w-3/4">
+        <div>
           {cattle.video.url === null ? (
-            <ImageGallery images={imagesSt} />
+            <div className="flex">
+              <div className="w-full md:w-3/4 xl:w-8/12 3xl:w-6/12">
+                <ImageGallery images={imagesSt} />
+              </div>
+              <div className="w-1/4 mx-10 hidden xl:block">
+                <MiniForm type={'cattle'} />
+              </div>
+            </div>
           ) : (
-            <div className="relative" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`${cattle.video.url}?autoplay=1&mute=1&loop=1&playlist=<Video_ID>`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+            <div className="flex flex-wrap">
+              <div
+                className="relative w-full md:w-3/4 xl:w-8/12 3xl:w-6/12"
+                style={{ paddingBottom: '56.25%' }}
+              >
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`${cattle.video.url}?autoplay=1&mute=1&loop=1&playlist=<Video_ID>`}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="w-1/4 mx-10 hidden xl:block">
+                <MiniForm type={'cattle'} />
+              </div>
             </div>
           )}
         </div>
@@ -68,28 +74,20 @@ function CattleView({ cattle }: CattleDetailsProps) {
         </p>
         <section className="my-3 mb-10">
           <div className="mb-4">
-            <h4 className="text-2xl text-secondary font-medium my-2">Descripción</h4>
+            <h4 className="text-2xl font-title text-secondary font-medium my-2">Descripción</h4>
             <BlockContent blocks={cattle.detail} />
           </div>
-          <h4 className="text-secondary font-medium my-2">Información Adicional</h4>
+          <h4 className="text-xl text-secondary font-title my-2">Información Adicional</h4>
           <span className="flex items-center mt-2">
             <GiBull size={24} className="mt-2 mr-2" /> {cattle.size} Cabezas de Ganado
             <BsArrowRightShort size={26} className="mt-1 ml-4 mr-1" />
             <span className="">{cattle.category}</span>{' '}
           </span>
+          <div className="w-full md:w-3/4 block xl:hidden my-8 m-auto">
+            <ExtraMiniForm type={'cattle'} />
+          </div>
         </section>
       </div>
-      {/* <div className="flex flex-col items-center">
-        <hr className="border-solid border-2 border-gray-300 w-10/12 px-6" />
-        <hr className="border-solid border-1 border-gray-400 w-3/4 mt-4 mb-6" />
-      </div> */}
-
-      {/* <div className="mb-10 container">
-        <h4 className="text-2xl text-secondary font-medium">
-          Campos similares que te pueden interesar
-        </h4>
-        <CardSlider />
-      </div> */}
     </>
   );
 }

@@ -35,10 +35,10 @@ function FarmView({ farm }: { farm: Farm2 }) {
             <ImageGallery images={imagesSt} />
           </div>
           <div className="w-1/4 mx-10 hidden xl:block">
-            <MiniForm height={400} />
+            <MiniForm type={'farm'} />
           </div>
         </div>
-        <section className="my-5 mb-10 flex flex-col sm:flex-row">
+        <section className="my-5 mb-10 flex flex-col">
           <div className="w-full ">
             <h4 className="text-xl text-secondary font-title my-2">Descripcion de la Propiedad</h4>
             <p>{farm.description}</p>
@@ -50,14 +50,11 @@ function FarmView({ farm }: { farm: Farm2 }) {
                 <MdWaterDrop className="inline" /> Riego
               </span>
             </span>
-            <h4 className="text-xl text-secondary font-title mt-10 my-2">Detalle</h4>
+            <h4 className="text-xl text-secondary font-title mt-6 mb-2">Detalle</h4>
             <BlockContent blocks={farm.detail} />
           </div>
-          <div className="w-1/4 mx-16 hidden sm:block xl:hidden">
-            <MiniForm height={300} />
-          </div>
-          <div className="w-full block sm:hidden my-8">
-            <ExtraMiniForm />
+          <div className="w-full md:w-3/4 block xl:hidden my-8 m-auto">
+            <ExtraMiniForm type={'farm'} />
           </div>
         </section>
       </div>

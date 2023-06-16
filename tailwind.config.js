@@ -63,6 +63,8 @@ module.exports = {
         secondary: '#8D7449',
         tertiary: '#725B32',
         green: '#777C50',
+        greenTest: '#95af32',
+        greenFooter: '#8faf45',
         green2: '#8fb360',
         'green-soft': '#7c854d',
         'green-small': '#a9d175',

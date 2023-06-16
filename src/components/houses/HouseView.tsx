@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import CardSlider from '../UIElements/CardSlider';
 import ImageGallery from '../UIElements/ImageGallery';
+import MiniForm from '../forms/MiniForm';
+import ExtraMiniForm from '../forms/ExtraMiniForm';
 import BlockContent from '@sanity/block-content-to-react';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
-import { MdWaterDrop } from 'react-icons/md';
 import { MdOutlineBedroomChild } from 'react-icons/md';
 import { FaShower } from 'react-icons/fa';
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -39,8 +40,13 @@ function HouseView({ house }: HouseViewProps) {
           <MdLocationOn size={24} className="text-secondary inline" /> Propiedades{' >'}{' '}
           {house.state.name}
         </span>
-        <div className="md:w-3/4 xl:w-8/12 3xl:w-6/12">
-          <ImageGallery images={imagesSt} />
+        <div className="flex">
+          <div className="w-full md:w-3/4 xl:w-8/12 3xl:w-6/12">
+            <ImageGallery images={imagesSt} />
+          </div>
+          <div className="w-1/4 mx-10 hidden xl:block">
+            <MiniForm type={'house'} />
+          </div>
         </div>
         <section className="mb-12">
           {/* <hr className="border-solid border-1 border-gray-400 w-3/4" /> */}
@@ -71,15 +77,8 @@ function HouseView({ house }: HouseViewProps) {
           <p className="w-full lg:w-3/4 xl:w-1/2">
             <BlockContent blocks={house.detail} />
           </p>
-          <div className="flex flex-col pt-4 md:mt-0">
-            <h4 className="text-2xl text-secondary font-title my-2">Contacto</h4>
-            <div className="flex">
-              <BsFillTelephoneFill
-                size={54}
-                className="bg-gray-200 p-2 text-tertiary mr-2 rounded-md"
-              />
-              <MdMail size={54} className="bg-gray-200 p-2 ml-2 text-tertiary rounded-md" />
-            </div>
+          <div className="w-full md:w-3/4 block xl:hidden my-8 m-auto">
+            <ExtraMiniForm type={'house'} />
           </div>
         </section>
       </div>
