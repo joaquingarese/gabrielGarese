@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Farm from '../farms/Farm';
 import CardFarm from '../farms/CardFarm';
-import House from '../houses/House';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper';
 

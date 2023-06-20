@@ -60,6 +60,7 @@ module.exports = {
         bodyBackground: '#f8f6f4',
         lightBrown: '#e2d5c9',
         primary: '#a67e58',
+        'primary-soft': '#e9ded5',
         secondary: '#8D7449',
         tertiary: '#725B32',
         green: '#777C50',

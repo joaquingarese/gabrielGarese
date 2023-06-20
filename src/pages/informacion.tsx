@@ -1,16 +1,27 @@
 import React from 'react';
+import Information from '~/components/information/Information';
+import { getClient } from '~/lib/sanity.server';
+import informationQuery from '~/queries/informationQuery';
 
-function informacion() {
+interface informationProps {
+  farms: Farm2[];
+}
+
+function informacion({ information }) {
   return (
-    <div className="flex">
-      <section id="ganado" className="w-1/3">
-        <div className="p-3">Mercado de Faenas</div>
-      </section>
-      <section id="lana" className="w-1/3">
-        <div className="p-3">Mercado de Ganado Gordo</div>
-      </section>
+    <div className="">
+      <Information />
     </div>
   );
+}
+export async function getStaticProps() {
+  const information = await getClient().fetch(informationQuery);
+
+  return {
+    props: {
+      information: information.information || []
+    }
+  };
 }
 
 export default informacion;

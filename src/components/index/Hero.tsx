@@ -1,18 +1,27 @@
 import React from 'react';
 import Link from 'next/link';
+import HeroSlider from '../UIElements/HeroSlider';
 import { useState, useEffect } from 'react';
 
 function Hero() {
   const [loaded, setLoaded] = useState(false);
   const [loaded2, setLoaded2] = useState(false);
+  const [loaded3, setLoaded3] = useState(false);
+  const [loaded4, setLoaded4] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setLoaded(true);
       setTimeout(() => {
+        setTimeout(() => {
+          setTimeout(() => {
+            setLoaded4(true);
+          }, 500);
+          setLoaded3(true);
+        }, 500);
         setLoaded2(true);
-      }, 1000);
-    }, 2000);
+      }, 500);
+    }, 1000);
   }, []);
 
   return (
@@ -23,28 +32,22 @@ function Hero() {
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-center filter brightness-75"
         />
-        <div className="absolute top-[15%] right-[10%] lg:top-[20%] lg:right-[10%] w-3/4 lg:w-1/2">
-          <h3 className=" text-white  text-5xl md:text-7xl lg:text-7xl font-header mt-12 md:mt-[-70px] xl:mt-5 ml-auto animate-fadeIn">
-            Compre y Venda Campos en Uruguay y alrededores
+        <div className="absolute top-[20%] right-[5%] lg:top-[30%] lg:right-[7%] w-11/12 lg:w-7/12 h-full">
+          <h3 className=" text-white text-5xl md:text-7xl lg:text-7xl font-body mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
+            Compre y Venda Campos en Uruguay y alrededores...
           </h3>
-          <div className="flex justify-end">
+          {/* <div className="flex justify-end">
             <Link href={'/contacto'}>
               <button className="text-xl sm:text-xl lg:text-2xl   bg-tertiary text-slate-100 p-2  hover:bg-secondary mt-4 rounded-full animate-fadeIn font-title">
                 CONTÁCTENOS
               </button>
             </Link>
-          </div>
-
-          {/* <button className="absolute bottom-[-35%] left-[8%] xs:bottom-[-40%] sm:bottom-[-65%] md:bottom-[-65%] lg:bottom-[-63%] md:left-[18%] lg:left-[14%] xl:left-[18%] w-30 lg:w-40 text-xl sm:text-2xl lg:text-3xl  bg-gray-800 text-slate-100 p-3 rounded-full hover:bg-gray-600">
-            Comprar
-          </button>
-          <button className="absolute bottom-[-35%] left-[48%]  xs:bottom-[-40%] sm:bottom-[-65%] md:bottom-[-65%] lg:bottom-[-63%] md:left-[45%] lg:left-[54%] xl:left-[48%] w-30 lg:w-40 text-xl sm:text-2xl lg:text-3xl  bg-gray-800 text-slate-100 p-3 rounded-full hover:bg-gray-600">
-            Vender
-          </button> */}
+          </div> */}
+          {/* <HeroSlider /> */}
         </div>
         <Link href={'/campos'}>
           <button
-            className={`absolute top-[75%] left-[10%] lg:top-[25%] lg:left-[10%] w-[190px] md:w-60 text-xl md:text-2xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[50%] left-[10%] lg:top-[25%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
             ${
               loaded ? 'translate-x-0' : '-translate-x-[190%]'
             } transition-all duration-500 ease-out`}
@@ -52,14 +55,36 @@ function Hero() {
             CAMPOS
           </button>
         </Link>
-        <button
-          className={`absolute top-[85%] left-[10%]  lg:top-[45%] lg:left-[10%] w-[190px] md:w-60 text-xl md:text-2xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+        <Link href={'/ganado'}>
+          <button
+            className={`absolute top-[59%] left-[10%]  lg:top-[38%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            ${
+              loaded2 ? 'translate-x-0' : '-translate-x-[190%]'
+            } transition-all duration-500 ease-out`}
+          >
+            GANADO
+          </button>
+        </Link>
+        <Link href={'/propiedades'}>
+          <button
+            className={`absolute top-[67%] left-[10%]  lg:top-[51%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
           ${
-            loaded2 ? 'translate-x-0' : '-translate-x-[190%]'
+            loaded3 ? 'translate-x-0' : '-translate-x-[190%]'
           } transition-all duration-500 ease-out`}
-        >
-          PROPIEDADES
-        </button>
+          >
+            PROPIEDADES
+          </button>
+        </Link>
+        <Link href={'/contacto'}>
+          <button
+            className={`absolute top-[76%] left-[10%]  lg:top-[64%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+          ${
+            loaded4 ? 'translate-x-0' : '-translate-x-[190%]'
+          } transition-all duration-500 ease-out`}
+          >
+            CONTACTO
+          </button>
+        </Link>
       </div>
     </>
   );
