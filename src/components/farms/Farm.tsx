@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { Farm2 } from '~/pages/types';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';

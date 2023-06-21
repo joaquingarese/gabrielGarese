@@ -4,13 +4,14 @@ import { getClient } from '~/lib/sanity.server';
 import informationQuery from '~/queries/informationQuery';
 
 interface informationProps {
-  farms: Farm2[];
+  information: informationType[];
 }
 
-function informacion({ information }) {
+function informacion({ information }: informationProps) {
+  console.log(information);
   return (
-    <div className="">
-      <Information />
+    <div>
+      <Information information={information} />
     </div>
   );
 }

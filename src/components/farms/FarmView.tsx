@@ -6,7 +6,6 @@ import ExtraMiniForm from '../forms/ExtraMiniForm';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { MdWaterDrop } from 'react-icons/md';
-import { Farm2 } from '~/pages/types';
 import BlockContent from '@sanity/block-content-to-react';
 
 function FarmView({ farm }: { farm: Farm2 }) {

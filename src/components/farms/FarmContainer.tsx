@@ -1,6 +1,5 @@
 import React from 'react';
 import Farm from '../farms/Farm';
-import { Farm2 } from '~/pages/types';
 
 interface FarmContainerProps {
   properties: Farm2[];

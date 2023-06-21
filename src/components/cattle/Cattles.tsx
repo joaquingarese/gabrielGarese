@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import CattleContainer from './CattleContainer';
-import { CattleType } from '~/pages/types';
 
 interface cattleDetailsProps {
   cattles: CattleType[];

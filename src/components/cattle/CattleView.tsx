@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ImageGallery from '../UIElements/ImageGallery';
 import MiniForm from '../forms/MiniForm';
 import ExtraMiniForm from '../forms/ExtraMiniForm';
-import { CattleType } from '~/pages/types';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { GiBull } from 'react-icons/gi';

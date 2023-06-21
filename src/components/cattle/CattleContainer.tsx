@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { CattleType } from '~/pages/types';
 import Cattle from '../cattle/Cattle';
 import { useSetAtom } from 'jotai';
 

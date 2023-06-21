@@ -5,10 +5,8 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 import { GiBull } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
-import { CattleType } from '~/pages/types';
 
 function Cattle({ cattle }: { cattle: CattleType }) {
-  console.log(cattle);
   return (
     <Link
       href={{

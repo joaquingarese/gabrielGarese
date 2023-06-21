@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FarmContainer from './FarmContainer';
 import Link from 'next/link';
-import { Farm2 } from '~/pages/types';
 
 interface FarmsProps {
   farms: Farm2[];
