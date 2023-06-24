@@ -5,12 +5,15 @@ function Company() {
     <div className="container mb-12 mt-32 md:mt-12">
       <h2 className="font-title text-2xl md:text-3xl ml-3 text-center">NOSOTROS</h2>
       <div className="flex flex-col lg:flex-row mt-6 p-4">
-        <div className="w-full lg:w-1/4">
-          <div className="w-full flex justify-center lg:justify-end px-6 mb-4">
+        <div className="w-full lg:w-1/3">
+          <div className="w-full flex flex-col justify-center lg:justify-end px-6 mb-4">
             <img src="/images/tata.png" alt="" />
+            <small>
+              <i> "Roberto José Garese Sosa Días"</i>
+            </small>
           </div>
         </div>
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-2/3">
           <p className="text-2xl mt-3 font-header text-caqui">
             <i>
               Transcurrían los años 60 cuando Don Roberto José Garese Sosa Días comienza con lo que
@@ -31,7 +34,7 @@ function Company() {
             </i>
           </p>
         </div>
-        <div className="w-full lg:w-1/4 lg:flex ">
+        {/* <div className="w-full lg:w-1/4 lg:flex ">
           <hr className="w-full lg:hidden border-l border-1 border-gray-400 mt-6 " />
           <hr className="hidden lg:block border-l border-1 border-gray-400 sm:h-64 m-2 " />
           <div>
@@ -45,7 +48,7 @@ function Company() {
             <p className="mt-3 font-header font-semibold text-gray-600">Secretaria</p>
             <p className="font-header text-secondary font-thin">Noel Alzaibar</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

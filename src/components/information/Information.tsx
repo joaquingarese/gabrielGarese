@@ -6,9 +6,9 @@ interface informationProps {
 
 function Information({ information }: informationProps) {
   return information.length > 0 ? (
-    <div className="flex flex-col items-center h-full w-auto bg-primary-soft bg-opacity-50 rounded p-8 mt-20 md:mt-0 pb-12">
+    <div className="flex flex-col items-center h-full w-auto bg-opacity-50 rounded p-8 mt-20 md:mt-0 pb-12">
       <h2 className="text-3xl text-center font-title mb-3">INFORMACIÓN</h2>
-      <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded">
+      <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded shadow">
         <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">
           MERCADO DE GANADO GORDO
         </h3>
@@ -23,7 +23,7 @@ function Information({ information }: informationProps) {
         <p className="text-sm lg:col-start-2">Vaquillonas:</p>
         <span className="lg:col-span-2 text-sm text-center">{information[0].vaquillonas}</span>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6">
+      <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6 shadow">
         <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">OVINOS</h3>
         <p className="text-sm lg:col-span-3"></p>
         <span className="lg:col-span-3 lg:col-start-3 text-sm text-center mr-10 truncate">
@@ -39,7 +39,7 @@ function Information({ information }: informationProps) {
         <p className="text-sm lg:col-start-2">Ovejas:</p>
         <span className="lg:col-span-2 text-sm text-center">{information[0].ovejas}</span>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6">
+      <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6 shadow">
         <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">MERCADO FAENAS</h3>
         <p className="text-sm lg:col-span-2"></p>
         <span className="lg:col-span-2 text-sm text-center">

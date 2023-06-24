@@ -6,16 +6,14 @@ function contacto() {
     { label: 'Nombre Completo*', type: 'text', name: 'name' },
     { label: 'Email*', type: 'mail', name: 'mail' },
     { label: 'Telefono', type: 'number', name: 'phone' },
-    { label: 'Mensaje*', type: 'text-area', name: 'message' }
+    { label: 'Mensaje*', type: 'text-area', name: 'message' },
+    { label: 'Mensaje*', type: 'hidden', name: 'interestedProperty' }
   ];
 
-  const handleSubmit = () => {
-    console.log('Form submitted');
-  };
   return (
     <>
       <div className="flex-grow mt-[-4%] md:mt-[0%] ">
-        <CustomForm fields={fields} onSubmit={handleSubmit} />
+        <CustomForm fields={fields} />
       </div>
     </>
   );

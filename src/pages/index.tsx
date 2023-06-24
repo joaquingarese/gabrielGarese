@@ -2,7 +2,6 @@ import { NextPage } from 'next';
 import Hero from '~/components/index/Hero';
 import FarmContainer from '~/components/farms/FarmContainer';
 import { getClient } from '~/lib/sanity.server';
-import { Farm2 } from './types';
 import farmsQuery from '~/queries/farms';
 
 interface HomeProps {
