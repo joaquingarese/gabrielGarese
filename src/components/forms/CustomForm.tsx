@@ -136,7 +136,7 @@ function CustomForm({ fields }: CustomFormProps) {
           <BsWhatsapp
             role="button"
             size={60}
-            className="bg-gray-100 p-2 text-tertiary rounded-md m-auto my-2"
+            className="bg-gray-100 p-2 text-green2 rounded-md m-auto my-2"
           />
         </div>
       </div>

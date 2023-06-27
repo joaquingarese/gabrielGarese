@@ -77,7 +77,7 @@ function Hero() {
         </Link>
         <Link href={'/contacto'}>
           <button
-            className={`absolute top-[76%] left-[10%]  lg:top-[64%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[86%] left-[10%]  lg:top-[74%] lg:left-[10%] w-[130px] md:w-50 text-xl md:text-xl rounded-3xl bg-tertiary text-white p-2 md:p-3 hover:bg-gray-600 
           ${
             loaded4 ? 'translate-x-0' : '-translate-x-[250%]'
           } transition-all duration-500 ease-out`}

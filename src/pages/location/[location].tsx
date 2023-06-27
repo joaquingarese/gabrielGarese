@@ -15,10 +15,8 @@ interface farmsFromLocationProps {
 const farmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) => {
   const [statesArray, setStatesArray] = useState<string[]>([]);
   const [selectedState, setSelectedState] = useState('');
-  const [stateFarms, setStateFarms] = useState(farms);
+  const [stateFarms, setStateFarms] = useState<Farm2[]>(farms);
   const [stateObject, setStateObject] = useState<Record<string, string>>({});
-  console.log(stateFarms);
-  console.log(selectedState);
 
   useEffect(() => {
     setStatesArray(states.map((state) => state.name));
@@ -27,11 +25,15 @@ const farmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
       initialStateObject[state.name] = state._id;
     });
     setStateObject(initialStateObject);
+    setStateFarms(farms);
   }, []);
 
   useEffect(() => {
     async function stateFarms() {
-      setStateFarms(await getClient().fetch(farmsByState(stateObject[selectedState])));
+      if (selectedState) {
+        const farms = await getClient().fetch(farmsByState(stateObject[selectedState]));
+        setStateFarms(farms);
+      }
     }
     stateFarms();
   }, [selectedState]);
@@ -42,15 +44,17 @@ const farmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
         <h3 className="text-2xl md:text-3xl mb-0 md:mb-10 font-title inline mt-24 md:mt-5">
           Campos de {location}
         </h3>
-        <div className="md:ml-auto w-1/2 md:w-1/4 mb-6 flex md:mt-5">
-          <Selector
-            selectedState={selectedState}
-            setSelectedState={setSelectedState}
-            cities={statesArray}
-          />
-        </div>
+        {location === 'Uruguay' && (
+          <div className="md:ml-auto w-1/2 md:w-1/4 mb-6 flex md:mt-5">
+            <Selector
+              selectedState={selectedState}
+              setSelectedState={setSelectedState}
+              cities={statesArray}
+            />
+          </div>
+        )}
       </div>
-      <FarmContainer properties={farms} />
+      <FarmContainer properties={stateFarms} />
     </>
   );
 };

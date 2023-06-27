@@ -24,7 +24,7 @@ function Farm({ property }: { property: Farm2 }) {
       href={{
         pathname: `/campos/${property.country.name}/${property._id}`,
         query: {
-          state: property.state.name,
+          state: property.state?.name,
           country: property.country.name,
           id: property._id
         }
@@ -50,7 +50,9 @@ function Farm({ property }: { property: Farm2 }) {
           <h3 className="text-2xl">{property.name}</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
-            <span className="ml-2 mt-5">{property.state.name}</span>
+            <span className="ml-2 mt-5">
+              {property.state?.name === undefined ? 'Paraguay' : property.state.name}
+            </span>
           </div>
           <span className="mt-8 inline-block 2xl:mt-8 2xl:mb-6">
             {property.specialities.map((speciality) => {
