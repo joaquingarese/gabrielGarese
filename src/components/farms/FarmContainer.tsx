@@ -7,7 +7,7 @@ interface FarmContainerProps {
 
 const FarmContainer = ({ properties }: FarmContainerProps) => {
   return (
-    <div className="container font-navbar mb-16">
+    <div className="2xs:container font-navbar mb-16 3xs:p-3 p-0">
       {properties.map((property, index) => (
         <Farm key={index} property={property} />
       ))}

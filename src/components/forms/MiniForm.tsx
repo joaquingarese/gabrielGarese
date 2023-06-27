@@ -1,16 +1,26 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 
 interface MiniFormProps {
   type: string;
+  property: Farm2 | House2 | CattleType;
 }
 
-function MiniForm({ type }: MiniFormProps) {
+function MiniForm({ type, property }: MiniFormProps) {
+  const router = useRouter();
+
   const entities: Record<string, string> = {
     farm: 'Te interesa este Campo?',
     house: 'Te interesa esta Propiedad?',
     cattle: 'Te interesa este Ganado?'
+  };
+
+  const onClickWhatsApp = () => {
+    const phoneNumber = '+59891271161';
+    const message = encodeURIComponent(`Hola! Estoy interesado en ${property.name}.`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
 
   return (
@@ -21,16 +31,36 @@ function MiniForm({ type }: MiniFormProps) {
         Te responderemos en menos de 24hs!
       </h3>
       <div className="flex justify-center mt-auto mb-3">
-        <BsFillTelephoneFill
-          role="button"
-          size={55}
-          className="bg-gray-200 p-2 text-secondary mr-6 rounded-md"
-        />
-        <MdMail
-          role="button"
-          size={55}
-          className="bg-gray-200 p-2 text-secondary rounded-md ml-6"
-        />
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            onClickWhatsApp();
+          }}
+        >
+          <BsFillTelephoneFill
+            role="button"
+            size={55}
+            className="bg-gray-200 p-2 text-secondary mr-6 rounded-md"
+          />
+        </div>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push({
+              pathname: `/contacto`,
+              query: {
+                name: property.name,
+                type: property._type
+              }
+            });
+          }}
+        >
+          <MdMail
+            role="button"
+            size={55}
+            className="bg-gray-200 p-2 text-secondary rounded-md ml-6"
+          />
+        </div>
       </div>
     </div>
   );

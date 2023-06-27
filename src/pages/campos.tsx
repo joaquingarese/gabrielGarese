@@ -2,7 +2,6 @@ import React from 'react';
 import Farms from '~/components/farms/Farms';
 import { getClient } from '~/lib/sanity.server';
 import farmsQuery from '~/queries/farms';
-import { Farm2 } from './types';
 
 interface CamposProps {
   farms: Farm2[];

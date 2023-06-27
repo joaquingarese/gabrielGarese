@@ -1,16 +1,25 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 
 interface ExtraMiniFormProps {
   type: string;
+  property: Farm2 | House2 | CattleType;
 }
 
-function ExtraMiniForm({ type }: ExtraMiniFormProps) {
+function ExtraMiniForm({ type, property }: ExtraMiniFormProps) {
+  const router = useRouter();
   const entities: Record<string, string> = {
     farm: 'Te interesa este Campo?',
     house: 'Te interesa esta Propiedad?',
     cattle: 'Te interesa este Ganado?'
+  };
+
+  const onClickWhatsApp = () => {
+    const phoneNumber = '+59891271161';
+    const message = encodeURIComponent(`Hola! Estoy interesado en ${property.name}.`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
 
   return (
@@ -23,12 +32,32 @@ function ExtraMiniForm({ type }: ExtraMiniFormProps) {
         <p className="font-title text-center">Te responderemos en menos de 24hs!</p>
       </div>
       <div className="flex justify-center mt-auto mr-2">
-        <BsFillTelephoneFill
-          role="button"
-          size={40}
-          className="bg-gray-200 p-2 text-tertiary rounded-md mr-2"
-        />
-        <MdMail role="button" size={40} className="bg-gray-200 p-1 text-tertiary rounded-md" />
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            onClickWhatsApp();
+          }}
+        >
+          <BsFillTelephoneFill
+            role="button"
+            size={40}
+            className="bg-gray-200 p-2 text-tertiary rounded-md mr-2"
+          />
+        </div>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push({
+              pathname: `/contacto`,
+              query: {
+                name: property.name,
+                type: property._type
+              }
+            });
+          }}
+        >
+          <MdMail role="button" size={40} className="bg-gray-200 p-1 text-tertiary rounded-md" />
+        </div>
       </div>
     </div>
   );

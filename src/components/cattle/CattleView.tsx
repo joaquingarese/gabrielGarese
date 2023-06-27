@@ -26,7 +26,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
 
   return (
     <>
-      <div className="flex flex-col container mt-32 md:mt-10 ">
+      <div className="flex flex-col 2xs:container 3xs:p-3 mt-32 md:mt-10 ">
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{cattle.name}</h3>
         <span className="mb-2">
           <MdLocationOn size={24} className="text-secondary inline mr-2" />
@@ -41,7 +41,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
                 <ImageGallery images={imagesSt} />
               </div>
               <div className="w-1/4 mx-10 hidden xl:block">
-                <MiniForm type={'cattle'} />
+                <MiniForm type={'cattle'} property={cattle} />
               </div>
             </div>
           ) : (
@@ -59,7 +59,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
                 ></iframe>
               </div>
               <div className="w-1/4 mx-10 hidden xl:block">
-                <MiniForm type={'cattle'} />
+                <MiniForm type={'cattle'} property={cattle} />
               </div>
             </div>
           )}
@@ -83,7 +83,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
             <span className="">{cattle.category}</span>{' '}
           </span>
           <div className="w-full md:w-3/4 block xl:hidden my-8 m-auto">
-            <ExtraMiniForm type={'cattle'} />
+            <ExtraMiniForm type={'cattle'} property={cattle} />
           </div>
         </section>
       </div>

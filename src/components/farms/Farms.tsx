@@ -17,7 +17,7 @@ const Farms = ({ farms }: FarmsProps) => {
 
   return (
     <>
-      <div className="container mt-28 md:mt-10 flex-column">
+      <div className="2xs:container 3xs:p-4 p-0 mt-28 md:mt-10 flex-column">
         <h2 className=" text-2xl md:text-3xl font-title mt-4 font-medium">
           CAMPOS EN URUGUAY O PARAGUAY
         </h2>
@@ -64,7 +64,7 @@ const Farms = ({ farms }: FarmsProps) => {
         </section>
         <hr className="border-2 border-gray-300 mt-8 mx-8" />
         <hr className="mt-4 mb-10 w-3/4 mx-auto border-gray-300" />
-        <div className="flex container">
+        <div className="flex 2xs:container">
           <h3 className="text-2xl md:text-3xl mb-6 font-title">CAMPOS DESTACADOS</h3>
         </div>
         <FarmContainer properties={farms} />

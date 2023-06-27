@@ -3,7 +3,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import FarmView from '~/components/farms/FarmView';
 import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';
-import { Farm2 } from '~/pages/types';
 import { farmById } from '~/queries/farmById';
 
 function FarmDetails({ farm }: { farm: Farm2 }) {
@@ -17,7 +16,6 @@ function FarmDetails({ farm }: { farm: Farm2 }) {
 export async function getStaticPaths() {
   const farmIds = await getClient().fetch('*[_type == "farm"]._id');
 
-  // construct paths with params (the object keys should match dynamic route names)
   const paths = farmIds.map((id: string) => ({
     params: { id }
   }));
@@ -25,7 +23,6 @@ export async function getStaticPaths() {
   return { paths, fallback: 'blocking' };
 }
 
-// fetch individual farm data
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { id } = context.params as { id: string };
 

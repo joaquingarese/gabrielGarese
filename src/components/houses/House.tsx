@@ -1,14 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdOutlineBedroomChild } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
-import { House2 } from '~/pages/types';
 
 function House({ house }: { house: House2 }) {
-  console.log(house);
+  const router = useRouter();
+
+  const onClickWhatsApp = () => {
+    const phoneNumber = '+59891271161';
+    const message = encodeURIComponent(`Hola! Estoy interesado en ${house.name}.`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+  };
+
   return (
     <Link
       href={{
@@ -52,11 +59,31 @@ function House({ house }: { house: House2 }) {
               <span className="mt-2">{house.rooms} Cuartos</span>
             </div>
             <div className="flex pt-4 md:mt-0 justify-center">
-              <BsFillTelephoneFill
-                size={44}
-                className="bg-gray-200 p-2 text-tertiary mr-6 2xl:mr-2 rounded-md"
-              />
-              <MdMail size={44} className="bg-gray-200 p-2 ml-6 text-tertiary rounded-md" />
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClickWhatsApp();
+                }}
+              >
+                <BsFillTelephoneFill
+                  size={44}
+                  className="bg-gray-200 p-2 text-tertiary mr-6 2xl:mr-2 rounded-md"
+                />
+              </div>
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push({
+                    pathname: `/contacto`,
+                    query: {
+                      name: house.name,
+                      type: house._type
+                    }
+                  });
+                }}
+              >
+                <MdMail size={44} className="bg-gray-200 p-2 ml-6 text-tertiary rounded-md" />
+              </div>
             </div>
           </div>
         </div>

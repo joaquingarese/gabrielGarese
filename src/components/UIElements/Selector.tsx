@@ -3,19 +3,19 @@ import { Listbox, Transition } from '@headlessui/react';
 import { BsChevronDown, BsCheck } from 'react-icons/bs';
 
 interface SelectorProps {
-  selectedCity: string;
-  setSelectedCity: (city: string) => void;
+  selectedState: string;
+  setSelectedState: (city: string) => void;
   cities: string[];
 }
 
-function Selector({ selectedCity, setSelectedCity, cities }: SelectorProps) {
+function Selector({ selectedState, setSelectedState, cities }: SelectorProps) {
   return (
     <>
       <div className="w-60 z-10">
-        <Listbox value={selectedCity} onChange={setSelectedCity}>
+        <Listbox value={selectedState} onChange={setSelectedState}>
           <div className="relative mt-1">
             <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-              <span className="block truncate">{selectedCity || 'Seleccione Localidad'}</span>
+              <span className="block truncate">{selectedState || 'Seleccione Localidad'}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <BsChevronDown className="w-5 h-5 text-gray-400" />
               </span>

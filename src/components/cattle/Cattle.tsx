@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
@@ -7,6 +8,14 @@ import { GiBull } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
 
 function Cattle({ cattle }: { cattle: CattleType }) {
+  const router = useRouter();
+
+  const onClickWhatsApp = () => {
+    const phoneNumber = '+59891271161';
+    const message = encodeURIComponent(`Hola! Estoy interesado en ${cattle.name}.`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+  };
+
   return (
     <Link
       href={{
@@ -50,11 +59,31 @@ function Cattle({ cattle }: { cattle: CattleType }) {
               <span className="mt-2">{cattle.category}</span>
             </div>
             <div className="flex mt-3 md:mt-0">
-              <BsFillTelephoneFill
-                size={44}
-                className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
-              />
-              <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClickWhatsApp();
+                }}
+              >
+                <BsFillTelephoneFill
+                  size={44}
+                  className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
+                />
+              </div>
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push({
+                    pathname: `/contacto`,
+                    query: {
+                      name: cattle.name,
+                      type: cattle._type
+                    }
+                  });
+                }}
+              >
+                <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
+              </div>
             </div>
           </div>
         </div>

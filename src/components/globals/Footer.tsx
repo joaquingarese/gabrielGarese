@@ -5,9 +5,14 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdLocationOn } from 'react-icons/md';
 
 function Footer() {
+  const onClickWhatsApp = () => {
+    const phoneNumber = '+59891271161';
+    const message = encodeURIComponent(`Hola! ¿En qué lo podemos ayudar?`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+  };
   return (
     <footer className="bg-gray-800 text-white py-12">
-      <div className=" container mx-auto px-4">
+      <div className=" 2xs:container mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           <div className="w-1/2 md:w-1/4 mb-6">
             <h3 className="text-lg font-semibold mb-4 ml-1">
@@ -15,17 +20,17 @@ function Footer() {
             </h3>
             <ul className="text-sm">
               <li className="mb-2">
-                <a href="#" className="hover:text-gray-300">
+                <a href="/nosotros" className="hover:text-gray-300">
                   Sobre Nosotros
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:text-gray-300">
+                <a href="/campos" className="hover:text-gray-300">
                   Campos
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="hover:text-gray-300">
+                <a href="/propiedades" className="hover:text-gray-300">
                   Propiedades
                 </a>
               </li>
@@ -46,15 +51,22 @@ function Footer() {
               <ul className="text-sm">
                 <li className="mb-2">
                   <MdMail size={15} className="text-white inline mr-1 mb-1 " />
-                  <a href="#" className="hover:text-gray-300">
+                  <a href="/contacto" className="hover:text-gray-300">
                     Contáctenos
                   </a>
                 </li>
                 <li className="mb-2">
-                  <BsFillTelephoneFill size={15} className="text-white inline mr-1 mb-1 " />
-                  <a href="#" className="hover:text-gray-300">
-                    099680911
-                  </a>
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onClickWhatsApp();
+                    }}
+                    className="inline"
+                    role="button"
+                  >
+                    <BsFillTelephoneFill size={15} className="text-white inline mr-1 mb-1 " />
+                    <p className="hover:text-gray-300 inline">099680911</p>
+                  </div>
                 </li>
                 <li className="mb-2">
                   <MdLocationOn size={15} className="text-white inline mr-1 mb-1 " />

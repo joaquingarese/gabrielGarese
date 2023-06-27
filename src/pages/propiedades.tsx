@@ -2,14 +2,12 @@ import React from 'react';
 import Houses from '~/components/houses/Houses';
 import { getClient } from '~/lib/sanity.server';
 import housesQuery from '~/queries/house';
-import { House2 } from '~/pages/types';
 
 interface PropiedadesProps {
   houses: House2[];
 }
 
 const Propiedades = ({ houses }: PropiedadesProps) => {
-  // console.log(houses);
   return (
     <>
       <Houses houses={houses} />{' '}

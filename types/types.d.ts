@@ -54,6 +54,7 @@ type Video = {
 
 type Farm2 = {
   _id: string;
+  _type: string;
   name: string;
   slug: {
     _type: string;
@@ -75,6 +76,7 @@ type FarmsData = Farm2[];
 
 type House2 = {
   _id: string;
+  _type: string;
   name: string;
   slug: {
     _type: string;
@@ -94,6 +96,7 @@ type House2 = {
 
 type CattleType = {
   _id: string;
+  _type: string;
   name: string;
   race: string;
   slug: {

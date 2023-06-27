@@ -3,11 +3,11 @@ import CustomForm from '~/components/forms/CustomForm';
 
 function contacto() {
   const fields = [
+    { label: 'Mensaje*', type: 'hidden', name: 'Interés en:' },
     { label: 'Nombre Completo*', type: 'text', name: 'name' },
-    { label: 'Email*', type: 'mail', name: 'mail' },
+    { label: 'Email*', type: 'email', name: 'mail' },
     { label: 'Telefono', type: 'number', name: 'phone' },
-    { label: 'Mensaje*', type: 'text-area', name: 'message' },
-    { label: 'Mensaje*', type: 'hidden', name: 'interestedProperty' }
+    { label: 'Mensaje*', type: 'text-area', name: 'message' }
   ];
 
   return (

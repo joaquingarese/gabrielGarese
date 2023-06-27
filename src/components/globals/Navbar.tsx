@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full left-0 fixed mx-auto z-20 bg-navbarBackground h-24 md:h-32">
-        <div className="container flex items-center justify-between h-full">
+        <div className="2xs:container 3xs:p-4 p-0 flex items-center justify-between h-full">
           {' '}
           <Link href="/">
             <a>

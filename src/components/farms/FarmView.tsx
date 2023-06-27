@@ -23,7 +23,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
 
   return (
     <>
-      <div className="flex flex-col container mt-32 md:mt-10">
+      <div className="flex flex-col 2xs:container 3xs:p-4 p-0 mt-32 md:mt-10">
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{farm.name}</h3>
         <span className="mb-2">
           <MdLocationOn size={24} className="text-secondary inline" /> {farm.country.name} {'>'}{' '}
@@ -34,7 +34,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
             <ImageGallery images={imagesSt} />
           </div>
           <div className="w-1/4 mx-10 hidden xl:block">
-            <MiniForm type={'farm'} />
+            <MiniForm type={'farm'} property={farm} />
           </div>
         </div>
         <section className="my-5 mb-10 flex flex-col">
@@ -53,7 +53,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
             <BlockContent blocks={farm.detail} />
           </div>
           <div className="w-full md:w-3/4 block xl:hidden my-8 m-auto">
-            <ExtraMiniForm type={'farm'} />
+            <ExtraMiniForm type={'farm'} property={farm} />
           </div>
         </section>
       </div>
@@ -61,7 +61,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
         <hr className="border-solid border-2 border-gray-300 w-10/12 px-6" />
         <hr className="border-solid border-1 border-gray-400 w-3/4 mt-4 mb-6" />
       </div>
-      <div className="mb-10 container">
+      <div className="mb-10 2xs:container 3xs:p-4 p-0">
         <h4 className="text-2xl text-secondary font-medium">
           Campos similares que te pueden interesar
         </h4>

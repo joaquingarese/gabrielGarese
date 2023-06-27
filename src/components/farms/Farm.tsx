@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -10,6 +11,14 @@ import { GiCow } from 'react-icons/gi';
 import { GiBull } from 'react-icons/gi';
 
 function Farm({ property }: { property: Farm2 }) {
+  const router = useRouter();
+
+  const onClickWhatsApp = () => {
+    const phoneNumber = '+59891271161';
+    const message = encodeURIComponent(`Hola! Estoy interesado en ${property.name}.`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
+  };
+
   return (
     <Link
       href={{
@@ -53,7 +62,7 @@ function Farm({ property }: { property: Farm2 }) {
                 name = 'Agrícola';
               } else if (speciality === 'milking') {
                 emoticon = <GiCow size={30} className="inline" />;
-                name = 'Lechería';
+                name = 'Lechero';
               } else if (speciality === 'cattle') {
                 emoticon = <GiBull size={30} className="inline" />;
                 name = 'Ganadero';
@@ -79,11 +88,31 @@ function Farm({ property }: { property: Farm2 }) {
               </span>
             </div>
             <div className="flex mt-3 md:mt-0">
-              <BsFillTelephoneFill
-                size={44}
-                className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
-              />
-              <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClickWhatsApp();
+                }}
+              >
+                <BsFillTelephoneFill
+                  size={44}
+                  className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
+                />
+              </div>
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push({
+                    pathname: `/contacto`,
+                    query: {
+                      name: property.name,
+                      type: property._type
+                    }
+                  });
+                }}
+              >
+                <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
+              </div>
             </div>
           </div>
         </div>

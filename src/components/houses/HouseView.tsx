@@ -10,14 +10,12 @@ import { MdOutlineBedroomChild } from 'react-icons/md';
 import { FaShower } from 'react-icons/fa';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
-import { House2 } from '~/pages/types';
 
 interface HouseViewProps {
   house: House2;
 }
 
 function HouseView({ house }: HouseViewProps) {
-  console.log(house);
   const [imagesSt, setImagesSt] = useState<string[]>([]);
 
   useEffect(() => {
@@ -34,7 +32,7 @@ function HouseView({ house }: HouseViewProps) {
 
   return (
     <>
-      <div className="flex flex-col container mt-32 md:mt-10 ">
+      <div className="flex flex-col 2xs:container 3xs:p-4 mt-32 md:mt-10 ">
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{house.name}</h3>
         <span className="mb-2">
           <MdLocationOn size={24} className="text-secondary inline" /> Propiedades{' >'}{' '}
@@ -45,7 +43,7 @@ function HouseView({ house }: HouseViewProps) {
             <ImageGallery images={imagesSt} />
           </div>
           <div className="w-1/4 mx-10 hidden xl:block">
-            <MiniForm type={'house'} />
+            <MiniForm type={'house'} property={house} />
           </div>
         </div>
         <section className="mb-12">
@@ -78,7 +76,7 @@ function HouseView({ house }: HouseViewProps) {
             <BlockContent blocks={house.detail} />
           </p>
           <div className="w-full md:w-3/4 block xl:hidden my-8 m-auto">
-            <ExtraMiniForm type={'house'} />
+            <ExtraMiniForm type={'house'} property={house} />
           </div>
         </section>
       </div>
@@ -87,7 +85,7 @@ function HouseView({ house }: HouseViewProps) {
         <hr className="border-solid border-1 border-gray-400 w-3/4 mt-4 mb-6" />
       </div>
 
-      <div className="my-10 container">
+      <div className="my-10 2xs:container 3xs:p-4 p-0">
         <h4 className="text-2xl text-secondary font-medium">
           Campos similares que te pueden interesar
         </h4>

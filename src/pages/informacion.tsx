@@ -8,7 +8,6 @@ interface informationProps {
 }
 
 function informacion({ information }: informationProps) {
-  console.log(information);
   return (
     <div>
       <Information information={information} />

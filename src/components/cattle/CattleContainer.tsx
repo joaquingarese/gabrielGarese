@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Cattle from '../cattle/Cattle';
-import { useSetAtom } from 'jotai';
 
 interface CattleContainerProps {
   cattles: CattleType[];
@@ -8,7 +7,7 @@ interface CattleContainerProps {
 
 const CattleContainer = ({ cattles }: CattleContainerProps) => {
   return (
-    <div className="container font-navbar mb-16">
+    <div className="2xs:container font-navbar mb-16 3xs:p-3 p-0">
       {cattles.map((cattle) => (
         <Cattle key={cattle._id} cattle={cattle} />
       ))}
