@@ -36,18 +36,18 @@ function Hero() {
           <h3 className=" text-white text-4xl 2xs:text-5xl md:text-7xl lg:text-7xl font-body mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
             Compre y Venda Campos en Uruguay y alrededores
           </h3>
-          {/* <div className="flex justify-end">
+          <div className="flex justify-end">
             <Link href={'/contacto'}>
-              <button className="text-xl sm:text-xl lg:text-2xl   bg-tertiary text-slate-100 p-2  hover:bg-secondary mt-4 rounded-full animate-fadeIn font-title">
+              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-2 md:p-3  hover:bg-gray-600 shadow-lg animate-fadeIn font-title mt-4">
                 CONTÁCTENOS
               </button>
             </Link>
-          </div> */}
+          </div>
           {/* <HeroSlider /> */}
         </div>
         <Link href={'/campos'}>
           <button
-            className={`absolute top-[50%] left-[10%] lg:top-[25%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[58%] left-[10%] lg:top-[25%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
             ${
               loaded ? 'translate-x-0' : '-translate-x-[2500%]'
             } transition-all duration-500 ease-out`}
@@ -57,7 +57,7 @@ function Hero() {
         </Link>
         <Link href={'/ganado'}>
           <button
-            className={`absolute top-[59%] left-[10%]  lg:top-[38%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[67%] left-[10%]  lg:top-[38%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
             ${
               loaded2 ? 'translate-x-0' : '-translate-x-[250%]'
             } transition-all duration-500 ease-out`}
@@ -67,7 +67,7 @@ function Hero() {
         </Link>
         <Link href={'/propiedades'}>
           <button
-            className={`absolute top-[67%] left-[10%]  lg:top-[51%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[76%] left-[10%]  lg:top-[51%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
           ${
             loaded3 ? 'translate-x-0' : '-translate-x-[250%]'
           } transition-all duration-500 ease-out`}
@@ -75,16 +75,16 @@ function Hero() {
             PROPIEDADES
           </button>
         </Link>
-        <Link href={'/contacto'}>
+        {/* <Link href={'/contacto'}>
           <button
-            className={`absolute top-[86%] left-[10%]  lg:top-[74%] lg:left-[10%] w-[130px] md:w-50 text-xl md:text-xl rounded-3xl bg-tertiary text-white p-2 md:p-3 hover:bg-gray-600 
-          ${
-            loaded4 ? 'translate-x-0' : '-translate-x-[250%]'
-          } transition-all duration-500 ease-out`}
+            className={`absolute top-[86%] left-[10%] lg:top-[74%] lg:left-[10%] w-[130px] md:w-80 text-xl md:text-xl bg-red-800 text-white p-2 md:p-3  hover:bg-gray-600 shadow-lg 
+    ${
+      loaded4 ? 'translate-x-0' : '-translate-x-[250%]'
+    } transition-all duration-500 ease-out transform hover:scale-105`}
           >
             CONTACTO
           </button>
-        </Link>
+        </Link> */}
       </div>
     </>
   );

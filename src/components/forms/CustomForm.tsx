@@ -58,7 +58,7 @@ function CustomForm({ fields }: CustomFormProps) {
   };
 
   const onClickWhatsApp = () => {
-    const phoneNumber = '+59891271161';
+    const phoneNumber = '+59899680911';
     const message = encodeURIComponent(`Hola! ¿En qué lo podemos ayudar?`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };

@@ -11,7 +11,7 @@ function House({ house }: { house: House2 }) {
   const router = useRouter();
 
   const onClickWhatsApp = () => {
-    const phoneNumber = '+59891271161';
+    const phoneNumber = '+59899680911';
     const message = encodeURIComponent(`Hola! Estoy interesado en ${house.name}.`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };

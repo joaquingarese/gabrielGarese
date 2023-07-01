@@ -17,7 +17,7 @@ function ExtraMiniForm({ type, property }: ExtraMiniFormProps) {
   };
 
   const onClickWhatsApp = () => {
-    const phoneNumber = '+59891271161';
+    const phoneNumber = '+59899680911';
     const message = encodeURIComponent(`Hola! Estoy interesado en ${property.name}.`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
