@@ -6,15 +6,10 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 import { GiBull } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
+import onClickWhatsApp from '~/utils/whatsAppFunction';
 
 function Cattle({ cattle }: { cattle: CattleType }) {
   const router = useRouter();
-
-  const onClickWhatsApp = () => {
-    const phoneNumber = '+59899680911';
-    const message = encodeURIComponent(`Hola! Estoy interesado en ${cattle.name}.`);
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
-  };
 
   return (
     <Link
@@ -62,7 +57,7 @@ function Cattle({ cattle }: { cattle: CattleType }) {
               <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  onClickWhatsApp();
+                  onClickWhatsApp(`Hola! Estoy interesado en ${cattle.name}.`);
                 }}
               >
                 <BsFillTelephoneFill
