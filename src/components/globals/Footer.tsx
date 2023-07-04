@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { MdMail } from 'react-icons/md';
 import { BsWhatsapp } from 'react-icons/bs';

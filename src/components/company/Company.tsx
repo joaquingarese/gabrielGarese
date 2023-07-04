@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Company() {
   return (
     <div className="2xs:container mb-12 mt-32 md:mt-12">

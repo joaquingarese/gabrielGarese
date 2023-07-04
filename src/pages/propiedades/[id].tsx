@@ -1,4 +1,3 @@
-import React from 'react';
 import HouseView from '~/components/houses/HouseView';
 import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';

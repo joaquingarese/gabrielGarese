@@ -1,4 +1,3 @@
-import React from 'react';
 import HouseContainer from './HouseContainer';
 
 interface PropertiesProps {

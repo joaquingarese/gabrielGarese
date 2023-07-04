@@ -1,4 +1,3 @@
-import React from 'react';
 import Farm from '../farms/Farm';
 
 interface FarmContainerProps {

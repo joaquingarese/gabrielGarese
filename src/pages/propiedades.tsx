@@ -1,4 +1,3 @@
-import React from 'react';
 import Houses from '~/components/houses/Houses';
 import { getClient } from '~/lib/sanity.server';
 import housesQuery from '~/queries/house';

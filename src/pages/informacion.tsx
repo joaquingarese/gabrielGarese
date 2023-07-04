@@ -1,4 +1,3 @@
-import React from 'react';
 import Information from '~/components/information/Information';
 import { getClient } from '~/lib/sanity.server';
 import informationQuery from '~/queries/informationQuery';

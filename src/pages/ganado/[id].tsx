@@ -1,4 +1,3 @@
-import React from 'react';
 import CattleView from '~/components/cattle/CattleView';
 import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';

@@ -1,4 +1,3 @@
-import React from 'react';
 import Cattles from '~/components/cattle/Cattles';
 import { createClient } from 'next-sanity';
 import { getClient } from '~/lib/sanity.server';

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsWhatsapp } from 'react-icons/bs';
 import { MdLocationOn } from 'react-icons/md';

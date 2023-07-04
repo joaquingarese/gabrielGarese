@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import { BsWhatsapp } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';

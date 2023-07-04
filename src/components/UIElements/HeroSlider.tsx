@@ -1,4 +1,4 @@
-// import React from 'react';
+//
 // import Information from '../information/Information';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Autoplay, Pagination, Navigation } from 'swiper';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import FarmView from '~/components/farms/FarmView';
 import { getClient } from '~/lib/sanity.server';
