@@ -24,16 +24,7 @@
 //       modules={[Autoplay, Pagination, Navigation]}
 //       className="mySwiper h-1/3 lg:h-[85%]"
 //       loop={true}
-//     >
-//       <SwiperSlide className="h-full text-2xl flex justify-center items-center p-9">
-//         <Information />
-//       </SwiperSlide>
-//       <SwiperSlide className="h-full text-2xl flex justify-center items-center p-9">
-//         <Information />
-//       </SwiperSlide>
-//       <SwiperSlide className="h-full text-2xl flex justify-center items-center p-9">
-//         <Information />
-//       </SwiperSlide>
+//     >//
 //       {/* <SwiperSlide className="h-full text-center text-2xl flex justify-center items-center p-9">
 //         <div className="h-full w-auto bg-primary-soft bg-opacity-50 rounded">Que</div>
 //       </SwiperSlide>
