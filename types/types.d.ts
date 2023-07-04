@@ -82,7 +82,7 @@ type House2 = {
     _type: string;
     current: string;
   };
-  state: Reference;
+  state: string;
   rooms: number;
   bathrooms: number;
   price: number;

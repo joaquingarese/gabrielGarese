@@ -38,7 +38,7 @@ function Hero() {
           </h3>
           <div className="flex justify-end">
             <Link href={'/contacto'}>
-              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-2 md:p-3  hover:bg-gray-600 shadow-lg animate-fadeIn font-title mt-4">
+              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-2 md:p-3  hover:bg-gray-600 shadow-lg animate-fadeIn font-title mt-4 md:mt-8">
                 CONTÁCTENOS
               </button>
             </Link>

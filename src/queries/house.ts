@@ -8,7 +8,7 @@ export default groq`{
             "height": asset->metadata.dimensions.height,
             asset->
             },
-            state->,
+            state,
             gallery[] {
                 ...,
                 image {

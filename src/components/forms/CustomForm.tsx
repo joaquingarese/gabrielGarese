@@ -32,7 +32,7 @@ function CustomForm({ fields }: CustomFormProps) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     try {
-      const response = await axios.post('https://formspree.io/f/xjvdnnag', new FormData(form));
+      const response = await axios.post('https://formspree.io/f/mbjvrvgb', new FormData(form));
       console.log('Form submission success:', response);
       setFormValues(initialFormState);
       toast.success(

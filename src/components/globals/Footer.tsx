@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { MdMail } from 'react-icons/md';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { MdLocationOn } from 'react-icons/md';
 
 function Footer() {
@@ -64,14 +64,14 @@ function Footer() {
                     className="inline"
                     role="button"
                   >
-                    <BsFillTelephoneFill size={15} className="text-white inline mr-1 mb-1 " />
+                    <BsWhatsapp size={15} className="text-white inline mr-1 mb-1 " />
                     <p className="hover:text-gray-300 inline">099680911</p>
                   </div>
                 </li>
                 <li className="mb-2">
                   <MdLocationOn size={15} className="text-white inline mr-1 mb-1 " />
                   <a href="#" className="hover:text-gray-300">
-                    Máximo Tajes 7234
+                    Máximo Tajes 7224
                   </a>
                 </li>
               </ul>

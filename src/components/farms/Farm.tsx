@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 import { MdOutlineAgriculture } from 'react-icons/md';
 import { MdForest } from 'react-icons/md';
@@ -64,7 +64,7 @@ function Farm({ property }: { property: Farm2 }) {
                 name = 'Agrícola';
               } else if (speciality === 'milking') {
                 emoticon = <GiCow size={30} className="inline" />;
-                name = 'Lechero';
+                name = 'Tambo';
               } else if (speciality === 'cattle') {
                 emoticon = <GiBull size={30} className="inline" />;
                 name = 'Ganadero';
@@ -81,25 +81,22 @@ function Farm({ property }: { property: Farm2 }) {
             })}
           </span>
           <hr className="border-1 w-full bg-slate-100 mt-2 2xl:mt-4" />
-          <div className="flex justify-between flex-col md:flex-row md:mt-6  w-full my-3 ">
-            <div className="flex ">
+          <div className="flex justify-between flex-col md:flex-row md:mt-6  w-full my-3">
+            <div className="flex">
               <BsArrowsMove size={24} className="text-tertiary mt-2" />
               <span className="mt-2 ml-2">{property.size} Hectáreas</span>
               <span className="mt-2 ml-4">
-                {property.price} <strong>USD/Ha </strong>(Negociable)
+                {property.price} <strong>USD/Ha </strong>
               </span>
             </div>
-            <div className="flex mt-3 md:mt-0">
+            <div className="flex my-4 md:mt-0 m-auto md:m-0">
               <div
                 onClick={(e) => {
                   e.stopPropagation();
                   onClickWhatsApp();
                 }}
               >
-                <BsFillTelephoneFill
-                  size={44}
-                  className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
-                />
+                <BsWhatsapp size={44} className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md" />
               </div>
               <div
                 onClick={(e) => {

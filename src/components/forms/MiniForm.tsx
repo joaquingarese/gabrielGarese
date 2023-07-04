@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 
 interface MiniFormProps {
@@ -37,7 +37,7 @@ function MiniForm({ type, property }: MiniFormProps) {
             onClickWhatsApp();
           }}
         >
-          <BsFillTelephoneFill
+          <BsWhatsapp
             role="button"
             size={55}
             className="bg-gray-200 p-2 text-secondary mr-6 rounded-md"

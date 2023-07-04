@@ -57,7 +57,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
           </div>
         </section>
       </div>
-      <div className="flex flex-col items-center">
+      {/* <div className="flex flex-col items-center">
         <hr className="border-solid border-2 border-gray-300 w-10/12 px-6" />
         <hr className="border-solid border-1 border-gray-400 w-3/4 mt-4 mb-6" />
       </div>
@@ -66,7 +66,7 @@ function FarmView({ farm }: { farm: Farm2 }) {
           Campos similares que te pueden interesar
         </h4>
         <CardSlider />
-      </div>
+      </div> */}
     </>
   );
 }

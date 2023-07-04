@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { MdMail } from 'react-icons/md';
 import { GiBull } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
@@ -60,10 +60,7 @@ function Cattle({ cattle }: { cattle: CattleType }) {
                   onClickWhatsApp(`Hola! Estoy interesado en ${cattle.name}.`);
                 }}
               >
-                <BsFillTelephoneFill
-                  size={44}
-                  className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
-                />
+                <BsWhatsapp size={44} className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md" />
               </div>
               <div
                 onClick={(e) => {

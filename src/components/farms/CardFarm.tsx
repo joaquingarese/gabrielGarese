@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { BsArrowsMove } from 'react-icons/bs';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { MdLocationOn } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 
@@ -59,10 +59,7 @@ function CardFarm({ property }: { property: Property }) {
               </span>
             </div>
             <div className="flex mt-4 p-2 justify-center">
-              <BsFillTelephoneFill
-                size={44}
-                className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md"
-              />
+              <BsWhatsapp size={44} className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md" />
               <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
             </div>
           </div>

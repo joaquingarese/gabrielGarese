@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsWhatsapp } from 'react-icons/bs';
 import { MdOutlineBedroomChild } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 
 function House({ house }: { house: House2 }) {
+  console.log(house);
   const router = useRouter();
 
   const onClickWhatsApp = () => {
@@ -43,7 +44,7 @@ function House({ house }: { house: House2 }) {
           <h3 className="text-2xl font-navbard">{house.name}</h3>
           <div className="flex">
             <MdLocationOn size={34} className="text-secondary mt-3" />
-            <span className="ml-2 mt-5">{house.state.name}</span>
+            <span className="ml-2 mt-5">{house.state}</span>
           </div>
           <span className="text-2xl font-normal inline-block mt-8 2xl:mt-10">
             USD {house.price}
@@ -65,7 +66,7 @@ function House({ house }: { house: House2 }) {
                   onClickWhatsApp();
                 }}
               >
-                <BsFillTelephoneFill
+                <BsWhatsapp
                   size={44}
                   className="bg-gray-200 p-2 text-tertiary mr-6 2xl:mr-2 rounded-md"
                 />
