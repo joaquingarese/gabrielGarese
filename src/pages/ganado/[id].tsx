@@ -3,7 +3,6 @@ import CattleView from '~/components/cattle/CattleView';
 import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';
 import { cattleById } from '~/queries/cattleById';
-import { CattleType } from '~/pages/types';
 
 interface CattleDetailsProps {
   cattle: CattleType;

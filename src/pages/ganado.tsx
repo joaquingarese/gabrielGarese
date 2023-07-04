@@ -3,7 +3,6 @@ import Cattles from '~/components/cattle/Cattles';
 import { createClient } from 'next-sanity';
 import { getClient } from '~/lib/sanity.server';
 import cattleQuery from '~/queries/cattle';
-import { CattleType } from '~/pages/types';
 
 interface cattleDetailsProps {
   cattles: CattleType[];
