@@ -52,13 +52,13 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 <img
                   src={images[activeIndex]}
                   alt="Selected"
-                  className="object-cover object-center "
+                  className="object-cover object-center"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
           <Swiper
-            onSwiper={setThumbsSwiper as Dispatch<SetStateAction<SwiperClass | null>>}
+            onSwiper={setThumbsSwiper}
             spaceBetween={10}
             slidesPerView={5}
             className="mySwiper"

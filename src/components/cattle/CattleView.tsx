@@ -1,11 +1,13 @@
+import BlockContent from '@sanity/block-content-to-react';
 import React, { useEffect, useState } from 'react';
-import ImageGallery from '../UIElements/ImageGallery';
-import MiniForm from '../forms/MiniForm';
-import ExtraMiniForm from '../forms/ExtraMiniForm';
-import { MdLocationOn } from 'react-icons/md';
+
 import { BsArrowRightShort } from 'react-icons/bs';
 import { GiBull } from 'react-icons/gi';
-import BlockContent from '@sanity/block-content-to-react';
+import { MdLocationOn } from 'react-icons/md';
+
+import ImageGallery from '../UIElements/ImageGallery';
+import ExtraMiniForm from '../forms/ExtraMiniForm';
+import MiniForm from '../forms/MiniForm';
 
 interface CattleDetailsProps {
   cattle: CattleType;
@@ -15,7 +17,7 @@ function CattleView({ cattle }: CattleDetailsProps) {
   const [imagesSt, setImagesSt] = useState<string[]>([]);
 
   useEffect(() => {
-    let imageURLS = [cattle.image.asset.url];
+    const imageURLS = [cattle.image.asset.url];
 
     cattle.gallery?.forEach((item, i) => {
       imageURLS.push(item.image.asset.url);

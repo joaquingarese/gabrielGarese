@@ -26,7 +26,18 @@ module.exports = {
   ],
   plugins: ['react'],
   rules: {
-    'prettier/prettier': 'off',
-    '@typescript-eslint/no-unused-vars': 'off'
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'type', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always-and-inside-groups',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: false
+        },
+        warnOnUnassignedImports: true
+      }
+    ]
   }
 };
