@@ -1,8 +1,8 @@
-import React, { SetStateAction, Dispatch, useState, useEffect } from 'react';
-import SwiperCore, { Navigation, Thumbs, Pagination } from 'swiper';
+import React, { useState, useEffect } from 'react';
+import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperClass from 'swiper/types/swiper-class';
 import 'swiper/swiper-bundle.min.css';
+import SwiperClass from 'swiper/types/swiper-class';
 
 interface ImageGalleryProps {
   images: string[];

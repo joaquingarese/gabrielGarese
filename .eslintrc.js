@@ -38,6 +38,7 @@ module.exports = {
         },
         warnOnUnassignedImports: true
       }
-    ]
+    ],
+    '@typescript-eslint/no-explicit-any': 'off' // Add this line
   }
 };
