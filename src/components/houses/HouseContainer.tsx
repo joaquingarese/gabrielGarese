@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import House from '../houses/House';
 
 interface HouseContainerProps {
