@@ -8,7 +8,7 @@ export const houseById = (id: string) => groq`
         "height": asset->metadata.dimensions.height,
         asset->
     },
-    state->,
+    state,
     gallery[] {
         ...,
         image {

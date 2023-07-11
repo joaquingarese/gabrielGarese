@@ -20,16 +20,20 @@ function HouseView({ house }: HouseViewProps) {
   const [imagesSt, setImagesSt] = useState<string[]>([]);
 
   useEffect(() => {
-    const imageURLS = [house.image.asset.url];
+    const imageURLS: string[] = [];
 
-    if (house.gallery !== null) {
+    if (house?.image?.asset?.url) {
+      imageURLS.push(house.image.asset.url);
+    }
+
+    if (house?.gallery) {
       house.gallery.forEach((item) => {
         imageURLS.push(item.image.asset.url);
       });
     }
 
     setImagesSt(imageURLS);
-  }, [house.gallery, house.image.asset.url]);
+  }, [house.gallery, house?.image?.asset?.url]);
 
   return (
     <>
@@ -37,7 +41,6 @@ function HouseView({ house }: HouseViewProps) {
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{house.name}</h3>
         <span className="mb-2">
           <MdLocationOn size={24} className="text-secondary inline" /> Propiedades{' >'}{' '}
-          {house.state}
         </span>
         <div className="flex">
           <div className="w-full md:w-3/4 xl:w-8/12 3xl:w-6/12">

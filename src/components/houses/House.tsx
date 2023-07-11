@@ -8,7 +8,6 @@ import { MdOutlineBedroomChild } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 
 function House({ house }: { house: House2 }) {
-  console.log(house);
   const router = useRouter();
 
   const onClickWhatsApp = () => {
