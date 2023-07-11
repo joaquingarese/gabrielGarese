@@ -1,13 +1,14 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsWhatsapp } from 'react-icons/bs';
+import { GiCow } from 'react-icons/gi';
+import { GiBull } from 'react-icons/gi';
+import { MdLocationOn } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 import { MdOutlineAgriculture } from 'react-icons/md';
 import { MdForest } from 'react-icons/md';
-import { GiCow } from 'react-icons/gi';
-import { GiBull } from 'react-icons/gi';
 
 function Farm({ property }: { property: Farm2 }) {
   const router = useRouter();
@@ -33,12 +34,14 @@ function Farm({ property }: { property: Farm2 }) {
         className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none md:h-[300px]"
         role="button"
       >
-        <div className="col-span-1 ">
+        <div className="col-span-1 h-[250px] md:h-[auto]">
           <div className="relative h-full">
-            <img
+            <Image
               src={property.image?.asset.url}
               alt=""
-              className="w-full h-full md:max-h-[300px] object-cover rounded-t-md md:rounded-none"
+              layout="fill"
+              objectFit="cover"
+              className="w-full h-full md:max-h-[300px] rounded-t-md md:rounded-none"
             />
             <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-2 text-white">
               {property.transaction === 'sell' ? 'VENDE' : 'ARRIENDA'}
@@ -56,7 +59,7 @@ function Farm({ property }: { property: Farm2 }) {
           <span className="mt-8 inline-block 2xl:mt-8 2xl:mb-6">
             {property.specialities.map((speciality) => {
               let emoticon: React.ReactNode;
-              let name: string = '';
+              let name = '';
 
               if (speciality === 'agriculture') {
                 emoticon = <MdOutlineAgriculture size={30} className="inline" />;
@@ -100,13 +103,17 @@ function Farm({ property }: { property: Farm2 }) {
               <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  router.push({
-                    pathname: `/contacto`,
-                    query: {
-                      name: property.name,
-                      type: property._type
-                    }
-                  });
+                  router
+                    .push({
+                      pathname: `/contacto`,
+                      query: {
+                        name: property.name,
+                        type: property._type
+                      }
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
                 }}
               >
                 <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />

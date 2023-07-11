@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-export const farmByLocation = (location: string) => groq`
+export const farmByLocation = () => groq`
   *[_type == "farms" && country->name == $location]{
     ...,
     image {

@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import FarmContainer from './FarmContainer';
+import Image from 'next/image';
 import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+
+import FarmContainer from './FarmContainer';
 
 interface FarmsProps {
   farms: Farm2[];
@@ -25,18 +27,20 @@ const Farms = ({ farms }: FarmsProps) => {
           Seleccione localidad:
         </p>
         <section className="mb-10 mt-5">
-          <div className="flex flex-wrap justify-center  md:my-18">
+          <div className="flex flex-wrap sm:flex-nowrap justify-center md:my-18 h-[500px] lg:h-[400px] xl:h-[600px]">
             <Link href={'/location/Uruguay'}>
               <div
                 role="button"
-                className={`relative w-3/4 lg:w-1/3 md:h-auto lg:max-h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
+                className={`relative w-3/4 lg:w-1/2 3xl:w-1/3 md:h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
                   loaded ? 'scale-100' : 'scale-0'
                 } transform transition-transform duration-1000`}
               >
-                <img
+                <Image
                   src="/images/uruguayMarron3.png"
                   alt="mapa uruguay"
-                  className="text-primary w-full h-full object-cover"
+                  layout="fill"
+                  objectFit="contain"
+                  className="text-primary"
                 />
                 <div className="absolute top-[45%] right-[5%] w-full h-full flex justify-center">
                   <p className="text-slate-100 text-base xl:text-xl font-header">URUGUAY</p>
@@ -46,17 +50,19 @@ const Farms = ({ farms }: FarmsProps) => {
             <Link href={'/location/Paraguay'}>
               <div
                 role="button"
-                className={`relative w-3/4 lg:w-1/3 md:h-auto lg:max-h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
+                className={`relative w-3/4 lg:w-1/2 3xl:w-1/3 md:h-auto lg:max-h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
                   loaded ? 'scale-100' : 'scale-0'
                 } transform transition-transform duration-1000`}
               >
-                <img
+                <Image
                   src="/images/paraguay6.png"
                   alt="mapa uruguay"
-                  className="text-primary w-full h-full object-cover"
+                  layout="fill"
+                  objectFit="contain"
+                  className="text-primary"
                 />
-                <div className="absolute top-[43%] right-[0%]  w-full h-full flex justify-center">
-                  <p className="text-slate-100 text-base xl:text-xl font-header">PARAGUAY</p>
+                <div className="absolute top-[41%] sm:top-[45%] right-[0%]  w-full h-full flex justify-center">
+                  <p className="text-slate-100 text-sm xl:text-xl font-header">PARAGUAY</p>
                 </div>
               </div>
             </Link>

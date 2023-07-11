@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
@@ -49,10 +51,12 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <img
+                <Image
                   src={images[activeIndex]}
                   alt="Selected"
-                  className="object-cover object-center"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
                 />
               </SwiperSlide>
             ))}
@@ -65,12 +69,16 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} onClick={() => updateActiveIndex(index)}>
-                <img
-                  src={image}
-                  alt={`Thumbnail ${index}`}
-                  className="mt-2 mb-4 max-h-20 max-w-[170px] object-cover w-full"
-                  role="button"
-                />
+                <div className="mt-2 mb-4" role="button">
+                  <Image
+                    src={image}
+                    alt={`Thumbnail ${index}`}
+                    layout="responsive"
+                    objectFit="cover"
+                    width={170}
+                    height={80}
+                  />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -90,11 +98,9 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 key={index}
                 className="text-center text-lg flex justify-center items-center"
               >
-                <img
-                  src={image}
-                  alt={`Thumbnail ${index}`}
-                  className="object-cover h-[250px] sm:h-[350px] w-full"
-                />
+                <div className="h-[250px] sm:h-[350px] w-full">
+                  <Image src={image} alt={`Thumbnail ${index}`} layout="fill" objectFit="cover" />
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

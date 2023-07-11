@@ -1,33 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import CardSlider from '../UIElements/CardSlider';
-import ImageGallery from '../UIElements/ImageGallery';
-import MiniForm from '../forms/MiniForm';
-import ExtraMiniForm from '../forms/ExtraMiniForm';
-import { MdLocationOn } from 'react-icons/md';
-import { BsArrowsMove } from 'react-icons/bs';
-import { MdWaterDrop } from 'react-icons/md';
 import BlockContent from '@sanity/block-content-to-react';
+import React, { useEffect, useState } from 'react';
+
+import { BsArrowsMove } from 'react-icons/bs';
+import { MdLocationOn } from 'react-icons/md';
+
+import { MdWaterDrop } from 'react-icons/md';
+
+// import CardSlider from '../UIElements/CardSlider';
+import ImageGallery from '../UIElements/ImageGallery';
+import ExtraMiniForm from '../forms/ExtraMiniForm';
+import MiniForm from '../forms/MiniForm';
 
 function FarmView({ farm }: { farm: Farm2 }) {
   const [imagesSt, setImagesSt] = useState<string[]>([]);
 
   useEffect(() => {
-    let imageURLS = [farm.image.asset.url];
+    const imageURLS = [farm.image.asset.url];
 
-    farm.gallery?.forEach((item, i) => {
+    farm.gallery?.forEach((item) => {
       imageURLS.push(item.image.asset.url);
     });
 
     setImagesSt(imageURLS);
-  }, []);
+  }, [farm.gallery, farm.image.asset.url]);
 
   return (
     <>
       <div className="flex flex-col 2xs:container 3xs:p-4 p-0 mt-32 md:mt-10">
         <h3 className="text-2xl md:text-3xl mb-6 font-navbar block">{farm.name}</h3>
         <span className="mb-2">
-          <MdLocationOn size={24} className="text-secondary inline" /> {farm.country.name} {'>'}{' '}
-          {farm.state.name} {'>'} Campos
+          <MdLocationOn size={24} className="text-secondary inline" /> {farm.country.name} {'>'}
+          {farm.state?.name && ` > ${farm.state.name} `} Campos
         </span>
         <div className="flex">
           <div className="w-full md:w-3/4 xl:w-8/12 3xl:w-6/12">

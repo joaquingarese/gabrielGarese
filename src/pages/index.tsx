@@ -1,6 +1,5 @@
-import { NextPage } from 'next';
-import Hero from '~/components/index/Hero';
 import FarmContainer from '~/components/farms/FarmContainer';
+import Hero from '~/components/index/Hero';
 import { getClient } from '~/lib/sanity.server';
 import farmsQuery from '~/queries/farms';
 

@@ -1,11 +1,12 @@
-import type { AppProps } from 'next/app';
-import Layout from '~/components/layout/Layout';
-import { ToastContainer } from 'react-toastify';
 import Router from 'next/router';
 import { useState, useEffect } from 'react';
 import { BeatLoader } from 'react-spinners';
-
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import type { AppProps } from 'next/app';
+
+import Layout from '~/components/layout/Layout';
 import '~/styles/global.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import FarmContainer from '~/components/farms/FarmContainer';
-import Selector from '~/components/UIElements/Selector';
-import { getClient } from '~/lib/sanity.server';
 import { GetStaticPropsContext } from 'next';
+import React, { useEffect, useState } from 'react';
+
+import Selector from '~/components/UIElements/Selector';
+import FarmContainer from '~/components/farms/FarmContainer';
+import { getClient } from '~/lib/sanity.server';
 import { farmByLocation } from '~/queries/farmByLocation';
 import { farmsByState } from '~/queries/selector/farmByState';
 
@@ -12,7 +13,7 @@ interface farmsFromLocationProps {
   states: { name: string; _id: string }[];
 }
 
-const farmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) => {
+const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) => {
   const [statesArray, setStatesArray] = useState<string[]>([]);
   const [selectedState, setSelectedState] = useState('');
   const [stateFarms, setStateFarms] = useState<Farm2[]>(farms);
@@ -20,23 +21,38 @@ const farmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
 
   useEffect(() => {
     setStatesArray(states.map((state) => state.name));
-    let initialStateObject: Record<string, string> = {};
+    const initialStateObject: Record<string, string> = {};
     states.forEach((state) => {
       initialStateObject[state.name] = state._id;
     });
     setStateObject(initialStateObject);
     setStateFarms(farms);
-  }, []);
+  }, [farms, states]);
 
   useEffect(() => {
     async function stateFarms() {
-      if (selectedState) {
-        const farms = await getClient().fetch(farmsByState(stateObject[selectedState]));
-        setStateFarms(farms);
+      try {
+        if (selectedState) {
+          const farms = await getClient().fetch(farmsByState(stateObject[selectedState]));
+          // setStateFarms(farms);
+          if (Array.isArray(farms)) {
+            // Make sure that each item in the array is of the expected type
+            const validFarms: Farm2[] = farms.filter((farm): farm is Farm2 => {
+              return (farm as Farm2) && typeof farm === 'object';
+            });
+            setStateFarms(validFarms);
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        // Handle the error appropriately here
       }
     }
-    stateFarms();
-  }, [selectedState]);
+
+    stateFarms().catch((error) => {
+      console.error('Error fetching farms:', error);
+    });
+  }, [selectedState, stateObject]);
 
   return (
     <>
@@ -60,7 +76,7 @@ const farmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
 };
 
 export async function getStaticPaths() {
-  const farms = await getClient().fetch('*[_type == "farms"].country->name');
+  const farms: string[] = await getClient().fetch('*[_type == "farms"].country->name');
   const countryNames = Array.from(new Set<string>(farms));
 
   const paths = countryNames.map((name: string) => ({
@@ -73,7 +89,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { location } = context.params as { location: string };
 
-  const farms = await getClient().fetch(farmByLocation(location), { location });
+  const farms = await getClient().fetch(farmByLocation(), { location });
   const states = await getClient().fetch(`*[_type == "states"]`);
 
   return {
@@ -86,4 +102,4 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   };
 }
 
-export default farmsFromLocation;
+export default FarmsFromLocation;

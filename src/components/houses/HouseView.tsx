@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import CardSlider from '../UIElements/CardSlider';
-import ImageGallery from '../UIElements/ImageGallery';
-import MiniForm from '../forms/MiniForm';
-import ExtraMiniForm from '../forms/ExtraMiniForm';
 import BlockContent from '@sanity/block-content-to-react';
-import { MdLocationOn } from 'react-icons/md';
+import React, { useEffect, useState } from 'react';
+
 import { BsArrowsMove } from 'react-icons/bs';
-import { MdOutlineBedroomChild } from 'react-icons/md';
 import { FaShower } from 'react-icons/fa';
+import { MdLocationOn } from 'react-icons/md';
+
+import { MdOutlineBedroomChild } from 'react-icons/md';
+
+// import CardSlider from '../UIElements/CardSlider';
+import ImageGallery from '../UIElements/ImageGallery';
+import ExtraMiniForm from '../forms/ExtraMiniForm';
+import MiniForm from '../forms/MiniForm';
 
 interface HouseViewProps {
   house: House2;
@@ -17,16 +20,16 @@ function HouseView({ house }: HouseViewProps) {
   const [imagesSt, setImagesSt] = useState<string[]>([]);
 
   useEffect(() => {
-    let imageURLS = [house.image.asset.url];
+    const imageURLS = [house.image.asset.url];
 
     if (house.gallery !== null) {
-      house.gallery.forEach((item, i) => {
+      house.gallery.forEach((item) => {
         imageURLS.push(item.image.asset.url);
       });
     }
 
     setImagesSt(imageURLS);
-  }, []);
+  }, [house.gallery, house.image.asset.url]);
 
   return (
     <>

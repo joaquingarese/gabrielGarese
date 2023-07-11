@@ -1,15 +1,23 @@
+import Image from 'next/image';
+
 function Company() {
   return (
     <div className="2xs:container mb-12 mt-32 md:mt-12">
       <h2 className="font-title text-2xl md:text-3xl ml-3 text-center">NOSOTROS</h2>
       <div className="flex flex-col lg:flex-row mt-6 p-4">
-        <div className="w-full lg:w-1/3">
-          <div className="w-full flex flex-col justify-center lg:justify-end px-6 mb-4">
-            <img src="/images/tata.png" alt="" />
-            <small>
-              <i> "Roberto José Garese Sosa Días"</i>
-            </small>
+        <div className="w-full lg:w-1/3 mb-8">
+          <div className="w-full flex flex-col justify-center lg:justify-end px-6 mb-4 aspect-[1/1] relative">
+            <Image
+              src="/images/tata.png"
+              alt=""
+              layout="fill"
+              objectFit="contain"
+              className="absolute inset-0"
+            />
           </div>
+          <small className="absolute ml-10 sm:ml-20 mt-[-9px]">
+            <i>&apos;Roberto José Garese Sosa Días&apos;</i>
+          </small>
         </div>
         <div className="w-full lg:w-2/3">
           <p className="text-2xl mt-3 font-header text-caqui">

@@ -1,5 +1,3 @@
-import { createClient } from 'next-sanity';
-
 import Cattles from '~/components/cattle/Cattles';
 import { getClient } from '~/lib/sanity.server';
 import cattleQuery from '~/queries/cattle';

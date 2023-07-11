@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 // import HeroSlider from '../UIElements/HeroSlider';
 import { useState, useEffect } from 'react';
@@ -6,16 +7,12 @@ function Hero() {
   const [loaded, setLoaded] = useState(false);
   const [loaded2, setLoaded2] = useState(false);
   const [loaded3, setLoaded3] = useState(false);
-  const [loaded4, setLoaded4] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setLoaded(true);
       setTimeout(() => {
         setTimeout(() => {
-          setTimeout(() => {
-            setLoaded4(true);
-          }, 500);
           setLoaded3(true);
         }, 500);
         setLoaded2(true);
@@ -26,11 +23,16 @@ function Hero() {
   return (
     <>
       <div className="h-90vh relative flex items-end">
-        <img
-          src="images/campoHero2.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-75"
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/images/campoHero2.jpg"
+            alt=""
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            className="object-center filter brightness-75"
+          />
+        </div>
         <div className="absolute top-[20%] right-[5%] lg:top-[30%] lg:right-[7%] w-11/12 lg:w-7/12 h-full">
           <h3 className=" text-white text-4xl 2xs:text-5xl md:text-7xl lg:text-7xl font-body mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
             Compre y Venda Campos en Uruguay y alrededores

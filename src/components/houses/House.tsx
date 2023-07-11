@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MdLocationOn } from 'react-icons/md';
 import { BsArrowsMove } from 'react-icons/bs';
 import { BsWhatsapp } from 'react-icons/bs';
+import { MdLocationOn } from 'react-icons/md';
 import { MdOutlineBedroomChild } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 
@@ -23,19 +24,21 @@ function House({ house }: { house: House2 }) {
       }}
     >
       <div
-        className="bg-white grid grid-cols-1 my-7 shadow-md w-full md:w-1/2 lg:w-1/3 xl:w-1/4 rounded-md md:rounded-none md:m-4"
+        className="bg-white grid grid-cols-1 my-7 shadow-md w-full sm:w-3/4 lg:w-1/3 xl:w-1/4 rounded-md md:rounded-none md:m-4"
         role="button"
         key={house._id}
       >
-        <div className="col-span-1">
+        <div className="col-span-1 h-[250px]">
           <div className="relative h-full">
-            <img
-              src={house.image.asset.url}
+            <Image
+              src={house.image?.asset.url}
               alt=""
-              className="w-full h-[300px] object-cover rounded-t-md md:rounded-none"
+              layout="fill"
+              objectFit="cover"
+              className="w-full h-full md:max-h-[300px] rounded-t-md md:rounded-none"
             />
             <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-2 text-white">
-              {house.transaction === 'sell' ? 'VENDE' : 'ALQUILA'}
+              {house.transaction === 'sell' ? 'VENDE' : 'ARRIENDA'}
             </small>
           </div>
         </div>
@@ -73,13 +76,17 @@ function House({ house }: { house: House2 }) {
               <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  router.push({
-                    pathname: `/contacto`,
-                    query: {
-                      name: house.name,
-                      type: house._type
-                    }
-                  });
+                  router
+                    .push({
+                      pathname: `/contacto`,
+                      query: {
+                        name: house.name,
+                        type: house._type
+                      }
+                    })
+                    .catch((err) => {
+                      console.error('Oh no, error occured: ', err);
+                    });
                 }}
               >
                 <MdMail size={44} className="bg-gray-200 p-2 ml-6 text-tertiary rounded-md" />

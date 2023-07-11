@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,13 +21,14 @@ const Navbar = () => {
     <>
       <nav className="w-full left-0 fixed mx-auto z-20 bg-navbarBackground h-24 md:h-32">
         <div className="2xs:container 3xs:p-4 p-0 flex items-center justify-between h-full">
-          {' '}
           <Link href="/">
-            <a>
-              <img
+            <a className="w-[200px] md:w-[320px] ml-[-15px] sm:ml-[-18px]">
+              <Image
                 src="/images/logoCentrado.png"
                 alt="My Site Logo"
-                className="max-h-12 sm:max-h-16 lg:max-h-20 max-w-[200px] md:max-w-xs my-6"
+                layout="responsive"
+                width={300}
+                height={50}
               />
             </a>
           </Link>

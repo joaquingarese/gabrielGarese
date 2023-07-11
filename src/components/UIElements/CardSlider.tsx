@@ -1,11 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import CardFarm from '../farms/CardFarm';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useState } from 'react';
+
 import { Autoplay, Pagination, Navigation } from 'swiper';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import CardFarm from '../farms/CardFarm';
 
 function CardSlider() {
   const [isLargeScreen, setIsLargeScreen] = useState(false);

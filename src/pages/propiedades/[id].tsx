@@ -1,6 +1,7 @@
+import { GetStaticPropsContext } from 'next';
+
 import HouseView from '~/components/houses/HouseView';
 import { getClient } from '~/lib/sanity.server';
-import { GetStaticPropsContext } from 'next';
 import { houseById } from '~/queries/houseById';
 
 interface HouseDetailsProps {

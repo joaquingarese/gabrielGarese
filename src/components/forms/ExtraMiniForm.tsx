@@ -46,13 +46,17 @@ function ExtraMiniForm({ type, property }: ExtraMiniFormProps) {
         <div
           onClick={(e) => {
             e.stopPropagation();
-            router.push({
-              pathname: `/contacto`,
-              query: {
-                name: property.name,
-                type: property._type
-              }
-            });
+            router
+              .push({
+                pathname: `/contacto`,
+                query: {
+                  name: property.name,
+                  type: property._type
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
           }}
         >
           <MdMail role="button" size={40} className="bg-gray-200 p-1 text-tertiary rounded-md" />

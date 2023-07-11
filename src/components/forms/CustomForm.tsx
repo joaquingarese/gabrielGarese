@@ -1,9 +1,8 @@
-import React, { FormEvent, useState } from 'react';
-import { useRouter } from 'next/router';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
+import React, { FormEvent, useState } from 'react';
 import { BsWhatsapp } from 'react-icons/bs';
-import { MdMail } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 interface Field {
   label: string;
@@ -66,6 +65,7 @@ function CustomForm({ fields }: CustomFormProps) {
   return (
     <div className="flex flex-col items-center mb-16 mt-28 md:mt-16">
       <form
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit}
         className="flex flex-col justify-center bg-white w-11/12 md:w-7/12 xl:w-6/12 2xl:w-5/12 p-3 m-8 lg:m-0 md:m-3 flex-grow mt-20 rounded shadow"
       >
@@ -75,7 +75,7 @@ function CustomForm({ fields }: CustomFormProps) {
           ) : (
             <>
               <span>Consúltenos sobre: </span>
-              <span className="text-caqui font-bold"> "{name}"</span>
+              <span className="text-caqui font-bold">&quot;{name}&quot;</span>
             </>
           )}
         </h2>

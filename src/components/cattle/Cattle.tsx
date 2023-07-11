@@ -1,10 +1,12 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MdLocationOn } from 'react-icons/md';
 import { BsWhatsapp } from 'react-icons/bs';
-import { MdMail } from 'react-icons/md';
-import { GiBull } from 'react-icons/gi';
 import { BsArrowRightShort } from 'react-icons/bs';
+import { GiBull } from 'react-icons/gi';
+import { MdLocationOn } from 'react-icons/md';
+import { MdMail } from 'react-icons/md';
+
 import onClickWhatsApp from '~/utils/whatsAppFunction';
 
 function Cattle({ cattle }: { cattle: CattleType }) {
@@ -21,15 +23,17 @@ function Cattle({ cattle }: { cattle: CattleType }) {
       }}
     >
       <div
-        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none"
+        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none h-auto 3xl:h-[280px]"
         role="button"
       >
-        <div className="col-span-1 ">
+        <div className="col-span-1 max-h-[30vh] sm:max-h-auto h-screen md:h-auto">
           <div className="relative h-full">
-            <img
+            <Image
               src={cattle.image.asset.url}
               alt=""
-              className="w-full h-full object-cover rounded-t-md md:rounded-none"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-t-md md:rounded-none"
             />
             {/* Capaz que aca en vez de vende arrienda, pone algo asi como remate, o majada de ganado, o lo que sea. */}
             {/* <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-2 text-white">
@@ -64,13 +68,17 @@ function Cattle({ cattle }: { cattle: CattleType }) {
               <div
                 onClick={(e) => {
                   e.stopPropagation();
-                  router.push({
-                    pathname: `/contacto`,
-                    query: {
-                      name: cattle.name,
-                      type: cattle._type
-                    }
-                  });
+                  router
+                    .push({
+                      pathname: `/contacto`,
+                      query: {
+                        name: cattle.name,
+                        type: cattle._type
+                      }
+                    })
+                    .catch((error) => {
+                      console.error(error);
+                    });
                 }}
               >
                 <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />

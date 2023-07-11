@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { BsArrowsMove } from 'react-icons/bs';
@@ -30,10 +31,11 @@ function CardFarm({ property }: { property: Property }) {
       >
         <div className="col-span-1 ">
           <div className="relative h-full">
-            <img
+            <Image
               src="/images/campoPrueba.jpg"
               alt=""
-              className="w-full h-full object-cover rounded-t-md "
+              className="w-full h-full object-cover rounded-t-md"
+              layout="fill"
             />
             <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-3 text-white text-sm lg:text-base">
               VENDE

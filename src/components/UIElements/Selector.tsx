@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
+import React, { Fragment } from 'react';
 import { BsChevronDown, BsCheck } from 'react-icons/bs';
 
 interface SelectorProps {

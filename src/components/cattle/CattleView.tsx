@@ -19,12 +19,12 @@ function CattleView({ cattle }: CattleDetailsProps) {
   useEffect(() => {
     const imageURLS = [cattle.image.asset.url];
 
-    cattle.gallery?.forEach((item, i) => {
+    cattle.gallery?.forEach((item) => {
       imageURLS.push(item.image.asset.url);
     });
 
     setImagesSt(imageURLS);
-  }, []);
+  }, [cattle.gallery, cattle.image.asset.url]);
 
   return (
     <>

@@ -45,13 +45,17 @@ function MiniForm({ type, property }: MiniFormProps) {
         <div
           onClick={(e) => {
             e.stopPropagation();
-            router.push({
-              pathname: `/contacto`,
-              query: {
-                name: property.name,
-                type: property._type
-              }
-            });
+            router
+              .push({
+                pathname: `/contacto`,
+                query: {
+                  name: property.name,
+                  type: property._type
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
           }}
         >
           <MdMail

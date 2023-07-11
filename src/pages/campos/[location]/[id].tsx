@@ -1,7 +1,7 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPropsContext } from 'next';
+
 import FarmView from '~/components/farms/FarmView';
 import { getClient } from '~/lib/sanity.server';
-import { GetStaticPropsContext } from 'next';
 import { farmById } from '~/queries/farmById';
 
 function FarmDetails({ farm }: { farm: Farm2 }) {
