@@ -61,7 +61,7 @@ const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
           Campos en {location}
         </h3>
         {location === 'Uruguay' && (
-          <div className="md:ml-auto w-1/2 md:w-1/4 mb-6 flex md:mt-5">
+          <div className="md:ml-auto w-1/2 md:w-1/4 mb-6 flex mt-4 md:mt-5">
             <Selector
               selectedState={selectedState}
               setSelectedState={setSelectedState}
