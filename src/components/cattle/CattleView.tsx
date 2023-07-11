@@ -76,7 +76,9 @@ function CattleView({ cattle }: CattleDetailsProps) {
         <section className="my-3 mb-10">
           <div className="mb-4">
             <h4 className="text-2xl font-title text-secondary font-medium my-2">Descripción</h4>
-            <BlockContent blocks={cattle.detail} />
+            <div className="w-full lg:w-3/4 xl:w-1/2">
+              <BlockContent blocks={cattle.detail} />
+            </div>
           </div>
           <h4 className="text-xl text-secondary font-title my-2">Información Adicional</h4>
           <span className="flex items-center mt-2">

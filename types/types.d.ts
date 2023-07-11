@@ -112,5 +112,5 @@ type CattleType = {
   gallery: ImageWithAlt[];
   image: Image;
   video: Video;
-  _updatedAt: String;
+  _updatedAt: string;
 };
