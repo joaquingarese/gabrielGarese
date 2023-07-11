@@ -58,12 +58,12 @@ function CustomForm({ fields }: CustomFormProps) {
 
   const onClickWhatsApp = () => {
     const phoneNumber = '+59899680911';
-    const message = encodeURIComponent(`Hola! ¿En qué lo podemos ayudar?`);
+    const message = encodeURIComponent(`Hola! Quisiera hacer una consulta.`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
 
   return (
-    <div className="flex flex-col items-center mb-16 mt-28 md:mt-16">
+    <div className="flex flex-col items-center mb-16 mt-16 md:mt-16">
       <form
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit}

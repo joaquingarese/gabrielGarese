@@ -56,7 +56,7 @@ function Cattle({ cattle }: { cattle: CattleType }) {
               <BsArrowRightShort size={26} className="mt-2 ml-4 mr-1" />
               <span className="mt-2">{cattle.category}</span>
             </div>
-            <div className="flex mt-3 md:mt-0">
+            <div className="flex mt-3 md:mt-0 m-auto">
               <div
                 onClick={(e) => {
                   e.stopPropagation();
