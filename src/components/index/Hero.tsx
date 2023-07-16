@@ -34,12 +34,12 @@ function Hero() {
           />
         </div>
         <div className="absolute top-[20%] right-[5%] lg:top-[30%] lg:right-[7%] w-11/12 lg:w-7/12 h-full">
-          <h3 className=" text-white text-4xl 2xs:text-5xl md:text-7xl lg:text-7xl font-body mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
+          <h3 className=" text-white text-4xl sm:text-5xl lg:text-7xl font-body mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
             Compre y Venda Campos en Uruguay y alrededores
           </h3>
           <div className="flex justify-end">
             <Link href={'/contacto'}>
-              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-2 md:p-3  hover:bg-gray-600 shadow-lg animate-fadeIn font-title mt-4 md:mt-8">
+              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-1 md:p-2  hover:bg-gray-600 shadow-lg animate-fadeIn font-title mt-4 md:mt-8">
                 CONTÁCTENOS
               </button>
             </Link>
@@ -48,7 +48,7 @@ function Hero() {
         </div>
         <Link href={'/campos'}>
           <button
-            className={`absolute top-[58%] left-[10%] lg:top-[25%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[65%] left-[10%] lg:top-[25%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-1 md:p-2 hover:bg-gray-600
             ${
               loaded ? 'translate-x-0' : '-translate-x-[2500%]'
             } transition-all duration-500 ease-out`}
@@ -58,7 +58,7 @@ function Hero() {
         </Link>
         <Link href={'/ganado'}>
           <button
-            className={`absolute top-[67%] left-[10%]  lg:top-[38%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[74%] left-[10%]  lg:top-[38%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-1 md:p-2 hover:bg-gray-600
             ${
               loaded2 ? 'translate-x-0' : '-translate-x-[250%]'
             } transition-all duration-500 ease-out`}
@@ -68,7 +68,7 @@ function Hero() {
         </Link>
         <Link href={'/propiedades'}>
           <button
-            className={`absolute top-[76%] left-[10%]  lg:top-[51%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-2 md:p-3 hover:bg-gray-600
+            className={`absolute top-[83%] left-[10%]  lg:top-[51%] lg:left-[10%] w-[190px] md:w-50 text-xl md:text-xl rounded-lg bg-gray-800 text-slate-100 p-1 md:p-3 hover:bg-gray-600
           ${
             loaded3 ? 'translate-x-0' : '-translate-x-[250%]'
           } transition-all duration-500 ease-out`}

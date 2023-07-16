@@ -22,7 +22,7 @@ const Navbar = () => {
       <nav className="w-full left-0 fixed mx-auto z-20 bg-navbarBackground h-24 md:h-32">
         <div className="2xs:container 3xs:p-4 p-0 flex items-center justify-between h-full">
           <Link href="/">
-            <a className="w-[200px] md:w-[320px] ml-[-15px] sm:ml-[-18px]">
+            <a className="w-[250px] md:w-[350px] ml-[-15px] sm:ml-[-18px]">
               <Image
                 src="/images/logoCentrado.png"
                 alt="My Site Logo"
