@@ -23,13 +23,13 @@ function Cattle({ cattle }: { cattle: CattleType }) {
       }}
     >
       <div
-        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none h-auto 3xl:h-[280px]"
+        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none h-auto md:h-[290px]"
         role="button"
       >
-        <div className="col-span-1 max-h-[30vh] sm:max-h-auto h-screen md:h-auto">
+        <div className="col-span-1 h-[250px] md:h-[auto]">
           <div className="relative h-full">
             <Image
-              src={cattle.image.asset.url}
+              src={cattle.image?.asset.url}
               alt=""
               layout="fill"
               objectFit="cover"

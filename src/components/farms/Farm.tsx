@@ -31,7 +31,7 @@ function Farm({ property }: { property: Farm2 }) {
       }}
     >
       <div
-        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none md:h-[300px]"
+        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none h-auto md:h-[290px]"
         role="button"
       >
         <div className="col-span-1 h-[250px] md:h-[auto]">
@@ -41,7 +41,7 @@ function Farm({ property }: { property: Farm2 }) {
               alt=""
               layout="fill"
               objectFit="cover"
-              className="w-full h-full md:max-h-[300px] rounded-t-md md:rounded-none"
+              className="rounded-t-md md:rounded-none"
             />
             <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-2 text-white">
               {property.transaction === 'sell' ? 'VENDE' : 'ARRIENDA'}
