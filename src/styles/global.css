@@ -36,3 +36,85 @@
 .animate-slideIn {
   animation: slideIn 2s ease-in forwards;
 }
+
+/* Extra Fonts */
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-bolditalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-lightitalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-mediumitalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-regularitalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Volte';
+  src: url('/fonts/volte/Fontspring-DEMO-volte-semibolditalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}

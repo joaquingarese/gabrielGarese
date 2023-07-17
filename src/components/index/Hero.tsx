@@ -34,12 +34,12 @@ function Hero() {
           />
         </div>
         <div className="absolute top-[20%] right-[5%] lg:top-[30%] lg:right-[7%] w-11/12 lg:w-7/12 h-full">
-          <h3 className=" text-white text-4xl sm:text-5xl lg:text-7xl font-body mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
-            Compre y Venda Campos en Uruguay y alrededores
+          <h3 className=" text-white text-4xl sm:text-5xl lg:text-7xl font-volte font-semibold mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
+            COMPRE Y VENDA CAMPOS EN URUGUAY Y ALREDEDORES
           </h3>
           <div className="flex justify-end">
             <Link href={'/contacto'}>
-              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-1 md:p-2  hover:bg-gray-600 shadow-lg animate-fadeIn font-title mt-4 md:mt-8">
+              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-1 md:p-2  hover:bg-gray-600 shadow-lg animate-fadeIn font-title font-thin mt-4 md:mt-8">
                 CONTÁCTENOS
               </button>
             </Link>

@@ -20,7 +20,8 @@ module.exports = {
       navbar: '"Montserrat", sans-serif',
       body: '"Public Sans", Helvetica, Arial, sans-serif',
       card: ['Dosis', 'sans-serif'],
-      title: '"Montserrat", sans-serif'
+      title: '"Montserrat", sans-serif',
+      volte: ['Volte', 'sans-serif']
     },
 
     extend: {
@@ -84,6 +85,9 @@ module.exports = {
           800: '#0D2742',
           900: '#051128'
         }
+      },
+      fontWeight: {
+        medium: '500'
       }
     }
   },
