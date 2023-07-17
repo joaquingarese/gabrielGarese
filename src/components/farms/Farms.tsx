@@ -43,7 +43,9 @@ const Farms = ({ farms }: FarmsProps) => {
                   className="text-primary"
                 />
                 <div className="absolute top-[45%] right-[5%] w-full h-full flex justify-center">
-                  <p className="text-slate-100 text-base xl:text-xl font-header">URUGUAY</p>
+                  <p className="text-white text-base xl:text-3xl font-volte font-semibold">
+                    URUGUAY
+                  </p>
                 </div>
               </div>
             </Link>
@@ -62,7 +64,9 @@ const Farms = ({ farms }: FarmsProps) => {
                   className="text-primary"
                 />
                 <div className="absolute top-[41%] sm:top-[45%] right-[0%]  w-full h-full flex justify-center">
-                  <p className="text-slate-100 text-sm xl:text-xl font-header">PARAGUAY</p>
+                  <p className="text-white text-sm  xl:text-3xl font-volte font-semibold">
+                    PARAGUAY
+                  </p>
                 </div>
               </div>
             </Link>

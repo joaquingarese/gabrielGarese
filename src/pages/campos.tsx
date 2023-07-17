@@ -20,7 +20,8 @@ export async function getStaticProps() {
   return {
     props: {
       farms: farms.farms || []
-    }
+    },
+    revalidate: 60
   };
 }
 

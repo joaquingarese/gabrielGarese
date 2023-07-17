@@ -19,7 +19,8 @@ export async function getStaticProps() {
   return {
     props: {
       information: information.information || []
-    }
+    },
+    revalidate: 60
   };
 }
 

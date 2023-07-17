@@ -20,7 +20,8 @@ export async function getStaticProps() {
   return {
     props: {
       cattles: cattles.cattle || []
-    }
+    },
+    revalidate: 60
   };
 }
 
