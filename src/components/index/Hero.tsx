@@ -25,7 +25,7 @@ function Hero() {
       <div className="h-90vh relative flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/campoHero2.jpg"
+            src="/images/campoHero2.webp"
             alt=""
             layout="fill"
             objectFit="cover"
