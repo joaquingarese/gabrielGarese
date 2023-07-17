@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-// import HeroSlider from '../UIElements/HeroSlider';
 import { useState, useEffect } from 'react';
+import { BeatLoader } from 'react-spinners';
+// import HeroSlider from '../UIElements/HeroSlider';
 
 function Hero() {
   const [loaded, setLoaded] = useState(false);
   const [loaded2, setLoaded2] = useState(false);
   const [loaded3, setLoaded3] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -20,7 +22,11 @@ function Hero() {
     }, 1000);
   }, []);
 
-  return (
+  return loading ? (
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-10">
+      <BeatLoader size={50} />
+    </div>
+  ) : (
     <>
       <div className="h-90vh relative flex items-end">
         <div className="absolute inset-0 w-full h-full">
@@ -30,6 +36,7 @@ function Hero() {
             layout="fill"
             objectFit="cover"
             quality={100}
+            onLoadingComplete={() => setLoading(false)}
             className="object-center filter brightness-75"
           />
         </div>
