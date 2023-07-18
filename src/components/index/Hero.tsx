@@ -1,14 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { BeatLoader } from 'react-spinners';
 // import HeroSlider from '../UIElements/HeroSlider';
 
 function Hero() {
   const [loaded, setLoaded] = useState(false);
   const [loaded2, setLoaded2] = useState(false);
   const [loaded3, setLoaded3] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,11 +20,7 @@ function Hero() {
     }, 1000);
   }, []);
 
-  return loading ? (
-    <div className="fixed h-full inset-0 flex items-center justify-center z-50 bg-black bg-opacity-10">
-      <BeatLoader size={50} />
-    </div>
-  ) : (
+  return (
     <>
       <div className="h-90vh relative flex items-end">
         <div className="absolute inset-0 w-full h-full">
@@ -36,7 +30,6 @@ function Hero() {
             layout="fill"
             objectFit="cover"
             quality={100}
-            onLoadingComplete={() => setLoading(false)}
             className="object-center filter brightness-75"
           />
         </div>
@@ -83,16 +76,6 @@ function Hero() {
             PROPIEDADES
           </button>
         </Link>
-        {/* <Link href={'/contacto'}>
-          <button
-            className={`absolute top-[86%] left-[10%] lg:top-[74%] lg:left-[10%] w-[130px] md:w-80 text-xl md:text-xl bg-red-800 text-white p-2 md:p-3  hover:bg-gray-600 shadow-lg 
-    ${
-      loaded4 ? 'translate-x-0' : '-translate-x-[250%]'
-    } transition-all duration-500 ease-out transform hover:scale-105`}
-          >
-            CONTACTO
-          </button>
-        </Link> */}
       </div>
     </>
   );
