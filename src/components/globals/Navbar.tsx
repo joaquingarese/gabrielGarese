@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 
 const Navbar = () => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState<boolean | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const node = useRef<HTMLDivElement>(null);
 
   const links = [
