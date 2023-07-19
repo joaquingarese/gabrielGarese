@@ -2,11 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState<boolean | null>(null);
+  const node = useRef<HTMLDivElement>(null);
+
   const links = [
     { href: '/', label: 'INICIO' },
     { href: '/campos', label: 'CAMPOS' },
@@ -17,9 +19,31 @@ const Navbar = () => {
     { href: '/contacto', label: 'CONTACTO' }
   ];
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (node.current?.contains(e.target as Node)) {
+        // inside click
+        return;
+      }
+      // outside click
+      setIsOpen(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup function to remove event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
-      <nav className="w-full left-0 fixed mx-auto z-20 bg-navbarBackground h-24 md:h-32">
+      <nav className="w-full left-0 fixed mx-auto bg-navbarBackground h-24 md:h-32 z-20">
         <div className="2xs:container 3xs:p-4 p-0 flex items-center justify-between h-full">
           <Link href="/">
             <a className="w-[300px] md:w-[380px] xl:w-[450px] ml-[-15px] sm:ml-[-18px]">
@@ -49,10 +73,12 @@ const Navbar = () => {
               ))}
             </div>
           </div>
-          <div className="xl:hidden z-10">
+          <div className="xl:hidden ml-auto">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center p-3 py-2 border rounded text-black border-gray-400 "
+              onClick={() => {
+                toggleNavbar();
+              }}
+              className="flex items-center p-3 py-2 border rounded text-black border-gray-400"
             >
               {isOpen === false ? (
                 <svg
@@ -73,28 +99,36 @@ const Navbar = () => {
                 </svg>
               )}
             </button>
-            <div
-              className={`absolute top-6 right-0 mt-6 md:mt-10 w-full p-2 bg-gray-100 rounded transition-all duration-500 ease-in-out transform text-caqui ${
-                isOpen
-                  ? 'translate-y-10 opacity-100 pointer-events-auto'
-                  : 'translate-y-[-5%] opacity-0 pointer-events-none'
-              }`}
-            >
-              {links.map(({ href, label }) => (
-                <Link href={href} key={href}>
-                  <a
-                    className={`block py-2 px-4 ${
-                      router.pathname === href ? 'text-secondary font-bold' : ''
-                    } `}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {label}
-                  </a>
-                </Link>
-              ))}
+          </div>
+
+          <div className="xl:hidden z-30">
+            <div ref={node}>
+              <div
+                className={`absolute top-6 right-0 mt-6 md:mt-10 w-full p-2 bg-gray-100 rounded transition-all duration-500 ease-in-out transform text-caqui ${
+                  isOpen
+                    ? 'translate-y-10 opacity-100 pointer-events-auto'
+                    : 'translate-y-[-5%] opacity-0 pointer-events-none'
+                }`}
+              >
+                {links.map(({ href, label }) => (
+                  <Link href={href} key={href}>
+                    <a
+                      className={`block py-2 px-4 z-20 ${
+                        router.pathname === href ? 'text-secondary font-bold' : ''
+                      } `}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {label}
+                    </a>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+        {isOpen && (
+          <div className="fixed top-0 bottom-0 left-0 right-0 z-10" onClick={toggleNavbar} />
+        )}
       </nav>
     </>
   );
