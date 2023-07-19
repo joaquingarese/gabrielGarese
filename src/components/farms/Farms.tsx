@@ -2,13 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
-import FarmContainer from './FarmContainer';
+// import FarmContainer from './FarmContainer';
 
-interface FarmsProps {
-  farms: Farm2[];
-}
+// interface FarmsProps {
+//   farms: Farm2[];
+// }
 
-const Farms = ({ farms }: FarmsProps) => {
+// const Farms = ({ farms }: FarmsProps) => {
+const Farms = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -72,12 +73,12 @@ const Farms = ({ farms }: FarmsProps) => {
             </Link>
           </div>
         </section>
-        <hr className="border-2 border-gray-300 mt-8 mx-8" />
+        {/* <hr className="border-2 border-gray-300 mt-8 mx-8" />
         <hr className="mt-4 mb-10 w-3/4 mx-auto border-gray-300" />
         <div className="flex 2xs:container">
           <h3 className="text-xl md:text-3xl mb-6 font-title">CAMPOS DESTACADOS</h3>
         </div>
-        <FarmContainer properties={farms} />
+        <FarmContainer properties={farms} /> */}
       </div>
     </>
   );

@@ -73,7 +73,6 @@ const Navbar = () => {
                 </svg>
               )}
             </button>
-
             <div
               className={`absolute top-6 right-0 mt-6 md:mt-10 w-full p-2 bg-gray-100 rounded transition-all duration-500 ease-in-out transform text-caqui ${
                 isOpen
