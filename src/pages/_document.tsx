@@ -27,7 +27,7 @@ export default function Document() {
         {/* Pipe me ayuda */}
         {/* <meta property="og:image" content={'https://www.tresbe.com.uy/favicon.png'} /> */}
         {/* relacionado a pagina de papa en las dos */}
-        <meta property="og:description" content="Tresbe - Importamos lo que necesitás" />
+        <meta property="og:description" content="Gabriel Garese - Negocios Rurales" />
         <meta property="og:title" content="Tresbe" />
         {/* Pagina de papa */}
         <meta property="og:url" content="https://www.tresbe.com.uy/" />
