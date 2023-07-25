@@ -12,7 +12,7 @@ function Information({ information }: informationProps) {
         </h3>
         <p className="text-sm lg:col-span-2"></p>
         <span className="lg:col-span-2 text-sm text-center">
-          <strong> Precio (USD/kg en pie)</strong>
+          <strong> Precio (USD/kg 4ta balanza)</strong>
         </span>
         <p className="text-sm lg:col-start-2">Novillos:</p>
         <span className="lg:col-span-2 text-sm text-center">
@@ -48,7 +48,7 @@ function Information({ information }: informationProps) {
         </span>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6 shadow">
-        <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">MERCADO FAENAS</h3>
+        <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">FAENA</h3>
         <p className="text-sm lg:col-span-2"></p>
         <span className="lg:col-span-2 text-sm text-center">
           <strong>Semanal</strong>
