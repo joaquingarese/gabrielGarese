@@ -15,11 +15,15 @@ function Information({ information }: informationProps) {
           <strong> Precio (USD/kg en pie)</strong>
         </span>
         <p className="text-sm lg:col-start-2">Novillos:</p>
-        <span className="lg:col-span-2 text-sm text-center">{information[0].novillos}</span>
+        <span className="lg:col-span-2 text-sm text-center">
+          {information[0].novillos.toFixed(2)}
+        </span>
         <p className="text-sm lg:col-start-2">Vacas:</p>
-        <span className="lg:col-span-2 text-sm text-center">{information[0].cows}</span>
+        <span className="lg:col-span-2 text-sm text-center">{information[0].cows.toFixed(2)}</span>
         <p className="text-sm lg:col-start-2">Vaquillonas:</p>
-        <span className="lg:col-span-2 text-sm text-center">{information[0].vaquillonas}</span>
+        <span className="lg:col-span-2 text-sm text-center">
+          {information[0].vaquillonas.toFixed(2)}
+        </span>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6 shadow">
         <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">OVINOS</h3>
@@ -31,11 +35,17 @@ function Information({ information }: informationProps) {
         <p className="text-sm lg:col-start-2 truncate">
           Cordero<small> pesado</small>:
         </p>
-        <span className="lg:col-span-2 text-sm text-center">{information[0].corderoPesado}</span>
+        <span className="lg:col-span-2 text-sm text-center">
+          {information[0].corderoPesado.toFixed(2)}
+        </span>
         <p className="text-sm lg:col-start-2">Capones:</p>
-        <span className="lg:col-span-2 text-sm text-center">{information[0].capones}</span>
+        <span className="lg:col-span-2 text-sm text-center">
+          {information[0].capones.toFixed(2)}
+        </span>
         <p className="text-sm lg:col-start-2">Ovejas:</p>
-        <span className="lg:col-span-2 text-sm text-center">{information[0].ovejas}</span>
+        <span className="lg:col-span-2 text-sm text-center">
+          {information[0].ovejas.toFixed(2)}
+        </span>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6 shadow">
         <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">MERCADO FAENAS</h3>
