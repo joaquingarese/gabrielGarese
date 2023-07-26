@@ -11,7 +11,7 @@ function Information({ information }: informationProps) {
           MERCADO DE GANADO GORDO
         </h3>
         <p className="text-sm lg:col-span-2"></p>
-        <span className="lg:col-span-3 lg:col-start-3 text-sm text-center mr-10 truncate">
+        <span className="lg:col-span-3 lg:col-start-3 text-sm text-center mr-10">
           <strong> Precio (USD/kg 4ta balanza)</strong>
         </span>
         <p className="text-sm lg:col-start-2">Novillos:</p>
@@ -28,7 +28,7 @@ function Information({ information }: informationProps) {
       <div className="grid grid-cols-2 lg:grid-cols-5 h-3/8 w-11/12 sm:w-10/12 lg:w-1/3 bg-white bg-opacity-70 p-5 rounded mt-6 shadow">
         <h3 className="col-span-2 lg:col-span-5 font-title text-center mb-2">OVINOS</h3>
         <p className="text-sm lg:col-span-3"></p>
-        <span className="lg:col-span-3 lg:col-start-3 text-sm text-center mr-10 truncate">
+        <span className="lg:col-span-3 lg:col-start-3 text-sm text-center mr-10">
           <strong>Precio (USD/kg 4ta balanza)</strong>
         </span>
 

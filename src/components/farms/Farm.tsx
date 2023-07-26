@@ -87,9 +87,27 @@ function Farm({ property }: { property: Farm2 }) {
             <div className="flex">
               <BsArrowsMove size={24} className="text-tertiary mt-2" />
               <span className="mt-2 ml-2">{property.size} Hectáreas</span>
-              <span className="mt-2 ml-4">
-                {property.price} <strong>USD/Ha </strong>
-              </span>
+              {property.price > 0 ? (
+                <span className="mt-2 ml-4">
+                  {property.price} <strong>USD/Ha </strong>
+                </span>
+              ) : (
+                <Link
+                  href={{
+                    pathname: `/contacto`,
+                    query: {
+                      name: property.name,
+                      type: property._type
+                    }
+                  }}
+                >
+                  <u>
+                    <p className="mt-2 ml-4 text-secondary font-semibold">
+                      <span className="text-tertiary"> $ </span>CONSÚLTENOS
+                    </p>
+                  </u>
+                </Link>
+              )}
             </div>
             <div className="flex my-4 md:mt-0 m-auto md:m-0">
               <div

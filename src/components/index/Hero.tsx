@@ -48,7 +48,7 @@ function Hero() {
         </div>
         <Link href={'/campos'}>
           <button
-            className={`absolute top-[68%] left-[25%] lg:top-[30%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
+            className={`absolute top-[68%] left-[25%] lg:top-[30%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold lg:font-normal text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
             ${
               loaded ? 'translate-x-0' : '-translate-x-[2500%]'
             } transition-all duration-500 ease-out hidden h-500:block`}
@@ -58,7 +58,7 @@ function Hero() {
         </Link>
         <Link href={'/ganado'}>
           <button
-            className={`absolute top-[76%] left-[25%]  lg:top-[40%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
+            className={`absolute top-[76%] left-[25%]  lg:top-[40%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold lg:font-normal text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
             ${
               loaded2 ? 'translate-x-0' : '-translate-x-[250%]'
             } transition-all duration-500 ease-out hidden h-500:block`}
@@ -68,7 +68,7 @@ function Hero() {
         </Link>
         <Link href={'/propiedades'}>
           <button
-            className={`absolute top-[84%] left-[25%] lg:top-[50%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
+            className={`absolute top-[84%] left-[25%] lg:top-[50%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold lg:font-normal text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
           ${
             loaded3 ? 'translate-x-0' : '-translate-x-[250%]'
           } transition-all duration-500 ease-ou hidden h-500:block`}

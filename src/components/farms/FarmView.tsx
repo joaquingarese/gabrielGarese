@@ -1,4 +1,5 @@
 import BlockContent from '@sanity/block-content-to-react';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 import { AiOutlineDollarCircle } from 'react-icons/ai';
@@ -47,11 +48,28 @@ function FarmView({ farm }: { farm: Farm2 }) {
             <span className="flex items-center mt-2">
               <BsArrowsMove size={20} className="text-secondary inline mr-2" /> {farm.size}{' '}
               hectáreas
-              <span className="ml-4">
-                {' '}
-                <AiOutlineDollarCircle size={25} className="text-secondary inline mb-1" /> USD
-                {farm.price}/ha
-              </span>{' '}
+              {farm.price > 0 ? (
+                <span className="ml-4">
+                  <AiOutlineDollarCircle size={25} className="text-secondary inline mb-1" /> USD
+                  {farm.price}/ha
+                </span>
+              ) : (
+                <Link
+                  href={{
+                    pathname: `/contacto`,
+                    query: {
+                      name: farm.name,
+                      type: farm._type
+                    }
+                  }}
+                >
+                  <u>
+                    <p className="mt-2 ml-4 font-semibold" role="button">
+                      <span className="text-tertiary"> $ </span>CONSÚLTENOS
+                    </p>
+                  </u>
+                </Link>
+              )}
             </span>
             <h4 className="text-xl text-secondary font-title mt-6 mb-2">Detalle</h4>
             <div className="w-full lg:w-3/4 xl:w-1/2">
