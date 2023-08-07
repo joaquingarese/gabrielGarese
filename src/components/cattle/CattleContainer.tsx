@@ -10,7 +10,9 @@ const CattleContainer = ({ cattles }: CattleContainerProps) => {
       {cattles.length > 0 ? (
         cattles.map((cattle) => <Cattle key={cattle._id} cattle={cattle} />)
       ) : (
-        <p className="text-primary text-xl mt-5">Por el momento no contamos ganado en oferta...</p>
+        <p className="text-primary text-xl mt-5">
+          Por el momento no contamos con ganado en oferta...
+        </p>
       )}
     </div>
   );

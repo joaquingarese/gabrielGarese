@@ -25,7 +25,7 @@ function Footer() {
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href="/cLinkmpos" className="hover:text-gray-300">
+                <Link href="/campos" className="hover:text-gray-300">
                   Campos
                 </Link>
               </li>
