@@ -35,8 +35,9 @@ function CustomForm({ fields }: CustomFormProps) {
       console.log('Form submission success:', response);
       setFormValues(initialFormState);
       toast.success(
-        `Su solicitud sobre "${name}" se ha enviado correctamente!
-        Lo contactaremos en menos de 24hs!`,
+        name
+          ? `Su solicitud sobre "${name}" se ha enviado correctamente! Lo contactaremos en menos de 24hs!`
+          : 'Su solicitud fue enviada con éxito! Lo contactaremos en menos de 24hs!',
         {
           position: toast.POSITION.TOP_RIGHT
         }
