@@ -13,9 +13,7 @@ const CattleContainer = ({ cattles }: CattleContainerProps) => {
         cattles.map((cattle) => <Cattle key={cattle._id} cattle={cattle} />)
       ) : (
         <div className="rounded-xl border border-dashed border-lightBrown bg-white/60 px-6 py-16 text-center">
-          <p className="font-header text-lg text-tierra">
-            No hay ganado en oferta por el momento.
-          </p>
+          <p className="font-header text-lg text-tierra">No hay ganado en oferta por el momento.</p>
           <p className="mx-auto mt-2 max-w-md font-body text-sm text-tertiary">
             Cuéntenos qué está buscando y le avisamos apenas ingrese nueva hacienda.
           </p>

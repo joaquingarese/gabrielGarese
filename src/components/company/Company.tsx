@@ -56,8 +56,7 @@ function Company() {
               </p>
               <p>
                 Trabajamos día a día en el sendero que nos marcó: con vocación de servicio,
-                seriedad, respeto, confianza y, por sobre todas las cosas, el valor de la
-                «Palabra».
+                seriedad, respeto, confianza y, por sobre todas las cosas, el valor de la «Palabra».
               </p>
               <p>
                 Inspirados por esos valores, confiamos en que cada uno de nuestros clientes es,

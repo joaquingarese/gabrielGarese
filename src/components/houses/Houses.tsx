@@ -19,7 +19,8 @@ const Houses = ({ houses }: PropertiesProps) => {
         </h1>
         {houses.length > 0 && (
           <p className="mt-2 font-body text-sm text-tertiary">
-            {houses.length} {houses.length === 1 ? 'propiedad disponible' : 'propiedades disponibles'}
+            {houses.length}{' '}
+            {houses.length === 1 ? 'propiedad disponible' : 'propiedades disponibles'}
           </p>
         )}
       </div>

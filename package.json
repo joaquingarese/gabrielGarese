@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Rudy schedules",
   "author": "Joaquin Garese",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",

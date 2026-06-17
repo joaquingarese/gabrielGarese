@@ -40,7 +40,9 @@ function Selector({ selectedState, setSelectedState, cities }: SelectorProps) {
                     {({ selected }) => (
                       <>
                         <span
-                          className={`block truncate ${selected ? 'font-semibold text-tierra' : 'font-normal'}`}
+                          className={`block truncate ${
+                            selected ? 'font-semibold text-tierra' : 'font-normal'
+                          }`}
                         >
                           {city}
                         </span>
