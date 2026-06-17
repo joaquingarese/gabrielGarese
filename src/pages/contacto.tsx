@@ -20,7 +20,7 @@ function Contacto() {
 
   return (
     <section className="bg-bodyBackground">
-      <div className="2xs:container mx-auto px-5 py-12 lg:py-20">
+      <div className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-20">
         <div className="mb-10 max-w-2xl lg:mb-14">
           <div className="mb-4 flex items-center gap-3">
             <span className="fence-line block w-12 text-primary" aria-hidden="true" />

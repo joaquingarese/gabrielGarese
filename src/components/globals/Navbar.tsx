@@ -13,7 +13,8 @@ const allLinks: NavLink[] = [
   { href: '/campos', label: 'CAMPOS' },
   { href: '/propiedades', label: 'PROPIEDADES', requires: 'houses' },
   { href: '/ganado', label: 'GANADO', requires: 'cattle' },
-  { href: '/informacion', label: 'INFORMACION' },
+  // Hidden for the moment — restore when the Información page is ready.
+  // { href: '/informacion', label: 'INFORMACION' },
   { href: '/nosotros', label: 'NOSOTROS' },
   { href: '/contacto', label: 'CONTACTO' }
 ];

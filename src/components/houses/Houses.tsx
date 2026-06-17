@@ -6,12 +6,25 @@ interface PropertiesProps {
 
 const Houses = ({ houses }: PropertiesProps) => {
   return (
-    <>
-      <div className="2xs:container mt-24 md:mt-10 flex-column 3xs:p-2">
-        <h2 className=" text-2xl md:text-3xl font-title mt-4 font-medium">PROPIEDADES</h2>
-        <HouseContainer houses={houses} />
+    <section className="bg-bodyBackground">
+      <div className="mx-auto max-w-5xl px-5 pt-10 md:pt-14">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="fence-line block w-12 text-primary" aria-hidden="true" />
+          <span className="font-navbar text-xs uppercase tracking-[0.28em] text-secondary">
+            Casas y terrenos
+          </span>
+        </div>
+        <h1 className="font-volte text-3xl font-semibold leading-tight text-tierra md:text-4xl">
+          Propiedades
+        </h1>
+        {houses.length > 0 && (
+          <p className="mt-2 font-body text-sm text-tertiary">
+            {houses.length} {houses.length === 1 ? 'propiedad disponible' : 'propiedades disponibles'}
+          </p>
+        )}
       </div>
-    </>
+      <HouseContainer houses={houses} />
+    </section>
   );
 };
 

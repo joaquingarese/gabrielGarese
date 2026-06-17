@@ -6,12 +6,25 @@ interface cattleDetailsProps {
 
 const Cattles = ({ cattles }: cattleDetailsProps) => {
   return (
-    <>
-      <div className="2xs:container 3xs:p-2 p-0 mt-28 md:mt-10 flex-column">
-        <h2 className=" text-2xl md:text-3xl font-title mt-4 ml-3 font-medium 3xl:ml-32">GANADO</h2>
-        <CattleContainer cattles={cattles} />
+    <section className="bg-bodyBackground">
+      <div className="mx-auto max-w-5xl px-5 pt-10 md:pt-14">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="fence-line block w-12 text-primary" aria-hidden="true" />
+          <span className="font-navbar text-xs uppercase tracking-[0.28em] text-secondary">
+            Hacienda en oferta
+          </span>
+        </div>
+        <h1 className="font-volte text-3xl font-semibold leading-tight text-tierra md:text-4xl">
+          Ganado
+        </h1>
+        {cattles.length > 0 && (
+          <p className="mt-2 font-body text-sm text-tertiary">
+            {cattles.length} {cattles.length === 1 ? 'lote disponible' : 'lotes disponibles'}
+          </p>
+        )}
       </div>
-    </>
+      <CattleContainer cattles={cattles} />
+    </section>
   );
 };
 

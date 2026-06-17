@@ -13,6 +13,8 @@ interface farmsFromLocationProps {
   states: { name: string; _id: string }[];
 }
 
+const ALL_OPTION = 'Todas las localidades';
+
 const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) => {
   const [statesArray, setStatesArray] = useState<string[]>([]);
   const [selectedState, setSelectedState] = useState('');
@@ -20,7 +22,7 @@ const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
   const [stateObject, setStateObject] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    setStatesArray(states.map((state) => state.name));
+    setStatesArray([ALL_OPTION, ...states.map((state) => state.name)]);
     const initialStateObject: Record<string, string> = {};
     states.forEach((state) => {
       initialStateObject[state.name] = state._id;
@@ -32,16 +34,20 @@ const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
   useEffect(() => {
     async function stateFarms() {
       try {
-        if (selectedState) {
-          const farms = await getClient().fetch(farmsByState(stateObject[selectedState]));
-          // setStateFarms(farms);
-          if (Array.isArray(farms)) {
+        if (selectedState && selectedState !== ALL_OPTION) {
+          const farmsByStateResult = await getClient().fetch(
+            farmsByState(stateObject[selectedState])
+          );
+          if (Array.isArray(farmsByStateResult)) {
             // Make sure that each item in the array is of the expected type
-            const validFarms: Farm2[] = farms.filter((farm): farm is Farm2 => {
+            const validFarms: Farm2[] = farmsByStateResult.filter((farm): farm is Farm2 => {
               return (farm as Farm2) && typeof farm === 'object';
             });
             setStateFarms(validFarms);
           }
+        } else {
+          // "Todas las localidades" or no selection → show every campo
+          setStateFarms(farms);
         }
       } catch (error) {
         console.error(error);
@@ -52,7 +58,7 @@ const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
     stateFarms().catch((error) => {
       console.error('Error fetching farms:', error);
     });
-  }, [selectedState, stateObject]);
+  }, [selectedState, stateObject, farms]);
 
   return (
     <>
