@@ -11,84 +11,97 @@ function Footer() {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className=" 2xs:container mx-auto px-4">
-        <div className="flex flex-wrap justify-between">
-          <div className="w-1/2 md:w-1/4 mb-6">
-            <h3 className="text-lg font-semibold mb-4 ml-1">
-              <u>Empresa</u>
+    <footer className="relative bg-tierra text-cream/80">
+      {/* Signature: the boundary fence marks the top edge */}
+      <div aria-hidden="true" className="fence-line w-full text-primary/60" />
+
+      <div className="2xs:container mx-auto px-5 pt-14 pb-8">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-8">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-2">
+            <div className="w-[220px] max-w-full">
+              <Image
+                src="/images/logoFainaBlanco.png"
+                alt="Gabriel Garese — Negocios Rurales"
+                layout="responsive"
+                width={400}
+                height={100}
+              />
+            </div>
+            <p className="mt-5 max-w-xs font-header text-[15px] italic leading-relaxed text-cream/70">
+              Compra y venta de campos, ganado y propiedades en Uruguay y la región.
+            </p>
+          </div>
+
+          {/* Empresa */}
+          <div>
+            <h3 className="mb-4 font-header text-sm uppercase tracking-[0.2em] text-primary">
+              Empresa
             </h3>
-            <ul className="text-sm">
-              <li className="mb-2">
-                <Link href="/nosotros" className="hover:text-gray-300">
-                  Sobre Nosotros
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/nosotros" className="transition-colors hover:text-cream">
+                  Sobre nosotros
                 </Link>
               </li>
-              <li className="mb-2">
-                <Link href="/campos" className="hover:text-gray-300">
+              <li>
+                <Link href="/campos" className="transition-colors hover:text-cream">
                   Campos
                 </Link>
               </li>
-              <li className="mb-2">
-                <Link href="/propiedades" className="hover:text-gray-300">
+              <li>
+                <Link href="/propiedades" className="transition-colors hover:text-cream">
                   Propiedades
+                </Link>
+              </li>
+              <li>
+                <Link href="/ganado" className="transition-colors hover:text-cream">
+                  Ganado
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="hidden md:flex md:w-1/4 mb-6 sm:pl-0 md:pl-2 justify-center items-center">
-            <Image
-              src="/images/logoFainaBlanco.png"
-              alt="My Site Logo"
-              width={400} // you have to provide these
-              height={100} // you have to adjust these values
-              className="sm:max-h-20 lg:max-h-16"
-            />
-          </div>
-          <div className="w-1/2 md:w-1/4 mb-6 sm:pl-0 md:pl-0 flex flex-row justify-end">
-            <div className="md:w-1/2">
-              <h3 className="text-lg font-semibold mb-4 ml-1">
-                <u> Contacto</u>
-              </h3>
-              <ul className="text-sm">
-                <li className="mb-2">
-                  <MdMail size={15} className="text-white inline mr-1 mb-1 " />
-                  <Link href="/contacto" className="hover:text-gray-300">
+
+          {/* Contacto */}
+          <div>
+            <h3 className="mb-4 font-header text-sm uppercase tracking-[0.2em] text-primary">
+              Contacto
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/contacto">
+                  <a className="flex items-center gap-2 transition-colors hover:text-cream">
+                    <MdMail size={16} className="shrink-0 text-primary" />
                     Contáctenos
-                  </Link>
-                </li>
-                <li className="mb-2">
-                  <div
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onClickWhatsApp();
-                    }}
-                    className="inline"
-                    role="button"
-                  >
-                    <BsWhatsapp size={15} className="text-white inline mr-1 mb-1 " />
-                    <p className="hover:text-gray-300 inline">099680911</p>
-                  </div>
-                </li>
-                <li className="mb-2">
-                  <MdLocationOn size={15} className="text-white inline mr-1 mb-1 " />
-                  <a href="#" className="hover:text-gray-300">
-                    Máximo Tajes 7224
                   </a>
-                </li>
-              </ul>
-            </div>
+                </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={onClickWhatsApp}
+                  className="flex items-center gap-2 transition-colors hover:text-cream"
+                >
+                  <BsWhatsapp size={15} className="shrink-0 text-primary" />
+                  099 680 911
+                </button>
+              </li>
+              <li className="flex items-center gap-2">
+                <MdLocationOn size={16} className="shrink-0 text-primary" />
+                Máximo Tajes 7224
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="border-t border-gray-700 mt-8 pt-6 text-sm">
-          <div className="text-center">
-            <div className="relative top-2 inline-block max-h-10 md:hidden w-auto mr-2">
-              <Image src="/images/GGBlanco.png" alt="My Site Logo" height={30} width={60} />
-            </div>
-            <p className="inline">
-              Todos los derechos reservados. &copy; {new Date().getFullYear()}
-            </p>
+
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-tierra-line pt-6 sm:flex-row sm:justify-between">
+          <div className="opacity-80 md:hidden">
+            <Image src="/images/GGBlanco.png" alt="Gabriel Garese" width={56} height={28} />
           </div>
+          <p className="text-xs tracking-wide text-cream/50">
+            &copy; {new Date().getFullYear()} Gabriel Garese — Negocios Rurales. Todos los derechos
+            reservados.
+          </p>
         </div>
       </div>
     </footer>

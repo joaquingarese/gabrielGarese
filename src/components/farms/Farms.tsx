@@ -1,86 +1,78 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { HiArrowRight } from 'react-icons/hi';
 
-// import FarmContainer from './FarmContainer';
+const countries = [
+  {
+    href: '/location/Uruguay',
+    name: 'Uruguay',
+    map: '/images/uruguayMarron3.png',
+    desc: 'Estancias, chacras y fracciones en todo el país.'
+  },
+  {
+    href: '/location/Paraguay',
+    name: 'Paraguay',
+    map: '/images/paraguay6.png',
+    desc: 'Campos ganaderos y agrícolas en la región.'
+  }
+];
 
-// interface FarmsProps {
-//   farms: Farm2[];
-// }
-
-// const Farms = ({ farms }: FarmsProps) => {
 const Farms = () => {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoaded(true);
-    }, 800);
-  }, []);
-
   return (
-    <>
-      <div className="2xs:container 3xs:p-4 p-0 mt-28 md:mt-10 flex-column">
-        <h2 className=" text-2xl md:text-3xl font-title mt-4 font-medium">
-          CAMPOS EN URUGUAY O PARAGUAY
-        </h2>
-        <p className="font-navbar mt-4 xs:w-3/4 lg:w-1/3 text-textNotes font-thin">
-          Seleccione localidad:
-        </p>
-        <section className="mb-10 mt-5">
-          <div className="flex flex-wrap sm:flex-nowrap justify-center md:my-18 h-[500px] lg:h-[400px] xl:h-[600px]">
-            <Link href={'/location/Uruguay'}>
-              <div
-                role="button"
-                className={`relative w-3/4 lg:w-1/2 3xl:w-1/3 md:h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
-                  loaded ? 'scale-100' : 'scale-0'
-                } transform transition-transform duration-1000`}
-              >
-                <Image
-                  src="/images/uruguayMarron3.png"
-                  alt="mapa uruguay"
-                  layout="fill"
-                  objectFit="contain"
-                  className="text-primary"
-                />
-                <div className="absolute top-[45%] right-[5%] w-full h-full flex justify-center">
-                  <p className="text-white text-base xl:text-3xl font-volte font-semibold">
-                    URUGUAY
-                  </p>
-                </div>
-              </div>
-            </Link>
-            <Link href={'/location/Paraguay'}>
-              <div
-                role="button"
-                className={`relative w-3/4 lg:w-1/2 3xl:w-1/3 md:h-auto lg:max-h-auto px-5 md:px-14 lg:px-8 brightness-75 hover:brightness-125 mb-4 lg:mb-0 ${
-                  loaded ? 'scale-100' : 'scale-0'
-                } transform transition-transform duration-1000`}
-              >
-                <Image
-                  src="/images/paraguay6.png"
-                  alt="mapa uruguay"
-                  layout="fill"
-                  objectFit="contain"
-                  className="text-primary"
-                />
-                <div className="absolute top-[41%] sm:top-[45%] right-[0%]  w-full h-full flex justify-center">
-                  <p className="text-white text-sm  xl:text-3xl font-volte font-semibold">
-                    PARAGUAY
-                  </p>
-                </div>
-              </div>
-            </Link>
+    <section className="bg-bodyBackground">
+      <div className="mx-auto max-w-5xl px-5 pb-20 pt-10 md:pt-14">
+        {/* Header */}
+        <div className="mb-10 max-w-2xl md:mb-12">
+          <div className="mb-3 flex items-center gap-3">
+            <span className="fence-line block w-12 text-primary" aria-hidden="true" />
+            <span className="font-navbar text-xs uppercase tracking-[0.28em] text-secondary">
+              Elija un país
+            </span>
           </div>
-        </section>
-        {/* <hr className="border-2 border-gray-300 mt-8 mx-8" />
-        <hr className="mt-4 mb-10 w-3/4 mx-auto border-gray-300" />
-        <div className="flex 2xs:container">
-          <h3 className="text-xl md:text-3xl mb-6 font-title">CAMPOS DESTACADOS</h3>
+          <h1 className="font-volte text-3xl font-semibold leading-tight text-tierra md:text-4xl">
+            Campos en Uruguay y Paraguay
+          </h1>
+          <p className="mt-3 font-body text-base leading-relaxed text-tertiary">
+            Explore nuestra cartera de campos por país y filtre luego por localidad.
+          </p>
         </div>
-        <FarmContainer properties={farms} /> */}
+
+        {/* Country cards */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+          {countries.map(({ href, name, map, desc }) => (
+            <Link href={href} key={name}>
+              <article
+                role="button"
+                className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-xl border border-lightBrown/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative flex h-56 items-center justify-center bg-gradient-to-br from-primary-soft/60 to-cream p-10">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={map}
+                      alt={`Mapa de ${name}`}
+                      layout="fill"
+                      objectFit="contain"
+                      className="transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h2 className="font-volte text-2xl font-semibold text-tierra transition-colors group-hover:text-primary">
+                    {name}
+                  </h2>
+                  <p className="mt-1.5 font-body text-sm leading-relaxed text-tertiary">{desc}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 font-navbar text-sm font-semibold uppercase tracking-[0.12em] text-primary">
+                    Ver campos
+                    <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-1.5" />
+                  </span>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 

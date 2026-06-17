@@ -11,9 +11,9 @@ function MiniForm({ type, property }: MiniFormProps) {
   const router = useRouter();
 
   const entities: Record<string, string> = {
-    farm: 'Te interesa este Campo?',
-    house: 'Te interesa esta Propiedad?',
-    cattle: 'Te interesa este Ganado?'
+    farm: '¿Le interesa este campo?',
+    house: '¿Le interesa esta propiedad?',
+    cattle: '¿Le interesa este ganado?'
   };
 
   const onClickWhatsApp = () => {
@@ -22,49 +22,45 @@ function MiniForm({ type, property }: MiniFormProps) {
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
 
+  const goToContacto = () => {
+    router
+      .push({
+        pathname: `/contacto`,
+        query: { name: property.name, type: property._type }
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
-    <div className={`flex flex-col bg-white p-3 h-[400px] w-[250px] rounded`}>
-      <h2 className="text-2xl font-title p-2 text-center">{entities[type]}</h2>
-      <h3 className="font-title text-center mt-auto">
-        <strong className="text-primary text-center mt-auto block text-2xl">CONTÁCTANOS!</strong>
-        Te responderemos en menos de 24hs!
-      </h3>
-      <div className="flex justify-center mt-auto mb-3">
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            onClickWhatsApp();
-          }}
-        >
-          <BsWhatsapp
-            role="button"
-            size={55}
-            className="bg-gray-200 p-2 text-secondary mr-6 rounded-md"
-          />
-        </div>
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            router
-              .push({
-                pathname: `/contacto`,
-                query: {
-                  name: property.name,
-                  type: property._type
-                }
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          }}
-        >
-          <MdMail
-            role="button"
-            size={55}
-            className="bg-gray-200 p-2 text-secondary rounded-md ml-6"
-          />
-        </div>
-      </div>
+    <div className="w-full rounded-xl border border-tierra-line bg-tierra p-6 text-cream">
+      <span className="fence-line mb-5 block w-12 text-primary" aria-hidden="true" />
+      <h2 className="font-header text-xl leading-snug text-cream">{entities[type]}</h2>
+      <p className="mt-2 font-body text-sm leading-relaxed text-cream/70">
+        Le respondemos en menos de 24 horas.
+      </p>
+
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClickWhatsApp();
+        }}
+        className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-navbar text-sm font-semibold uppercase tracking-[0.1em] text-tierra transition-colors hover:bg-secondary hover:text-cream"
+      >
+        <BsWhatsapp size={18} />
+        WhatsApp
+      </button>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          goToContacto();
+        }}
+        className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-cream/30 px-5 py-3 font-navbar text-sm font-semibold uppercase tracking-[0.1em] text-cream transition-colors hover:border-cream hover:bg-cream/10"
+      >
+        <MdMail size={18} />
+        Escribir un mensaje
+      </button>
     </div>
   );
 }

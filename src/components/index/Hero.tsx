@@ -1,83 +1,91 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-// import HeroSlider from '../UIElements/HeroSlider';
+import { HiArrowRight } from 'react-icons/hi';
+
+const categories = [
+  { href: '/campos', label: 'Campos', desc: 'Estancias y fracciones, por hectárea' },
+  { href: '/ganado', label: 'Ganado', desc: 'Hacienda y reproductores' },
+  { href: '/propiedades', label: 'Propiedades', desc: 'Venta y alquiler' }
+];
 
 function Hero() {
-  const [loaded, setLoaded] = useState(false);
-  const [loaded2, setLoaded2] = useState(false);
-  const [loaded3, setLoaded3] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoaded(true);
-      setTimeout(() => {
-        setTimeout(() => {
-          setLoaded3(true);
-        }, 500);
-        setLoaded2(true);
-      }, 500);
-    }, 1000);
-  }, []);
-
   return (
-    <>
-      <div className="h-90vh relative flex items-start">
-        <div className="absolute inset-0 w-full h-full">
-          <Image
-            src="/images/campoHero2.webp"
-            alt=""
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            className="object-center filter brightness-75"
-          />
-        </div>
-        <div className="absolute top-[20%] right-[5%] lg:top-[30%] lg:right-[7%] w-11/12 lg:w-7/12 h-full">
-          <h3 className=" text-white text-4xl sm:text-5xl lg:text-7xl font-volte font-semibold mt-12 md:mt-[-70px] xl:mt-5 ml-3 animate-fadeIn">
-            COMPRE Y VENDA CAMPOS EN URUGUAY Y ALREDEDORES
-          </h3>
-          <div className="flex justify-end">
-            <Link href={'/contacto'}>
-              <button className="md:w-80 text-xl md:text-xl bg-red-800 text-white p-1 md:p-2  hover:bg-gray-600 shadow-lg animate-fadeIn font-title font-thin mt-4 md:mt-8">
-                CONTÁCTENOS
-              </button>
-            </Link>
-          </div>
-          {/* <HeroSlider /> */}
-        </div>
-        <Link href={'/campos'}>
-          <button
-            className={`absolute top-[68%] left-[25%] lg:top-[30%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold lg:font-normal text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
-            ${
-              loaded ? 'translate-x-0' : '-translate-x-[2500%]'
-            } transition-all duration-500 ease-out hidden h-500:block`}
-          >
-            CAMPOS
-          </button>
-        </Link>
-        <Link href={'/ganado'}>
-          <button
-            className={`absolute top-[76%] left-[25%]  lg:top-[40%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold lg:font-normal text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
-            ${
-              loaded2 ? 'translate-x-0' : '-translate-x-[250%]'
-            } transition-all duration-500 ease-out hidden h-500:block`}
-          >
-            GANADO
-          </button>
-        </Link>
-        <Link href={'/propiedades'}>
-          <button
-            className={`absolute top-[84%] left-[25%] lg:top-[50%] lg:left-[8%] w-[220px] sm:w-[280px] xl:w-[280px] font-bold lg:font-normal text-xl lg:text-2xl rounded-lg bg-gray-800 text-slate-100 p-1 sm:p-2 hover:bg-gray-600
-          ${
-            loaded3 ? 'translate-x-0' : '-translate-x-[250%]'
-          } transition-all duration-500 ease-ou hidden h-500:block`}
-          >
-            PROPIEDADES
-          </button>
-        </Link>
+    <section className="relative flex min-h-[82vh] flex-col justify-between overflow-hidden xl:min-h-[86vh]">
+      {/* Background: the Uruguayan campo from above — the literal product */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/campoHero2.webp"
+          alt="Vista aérea de un campo en Uruguay"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          priority
+          className="object-center"
+        />
+        {/* Legibility scrims, in the brand earth tone */}
+        <div className="absolute inset-0 bg-gradient-to-r from-tierra/90 via-tierra/55 to-tierra/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-tierra/85 via-transparent to-tierra/30" />
       </div>
-    </>
+
+      {/* Headline block */}
+      <div className="relative z-10 flex flex-grow items-center">
+        <div className="2xs:container mx-auto w-full px-6">
+          <div className="max-w-2xl py-16">
+            <div className="fade-up fade-up-1 mb-6 flex items-center gap-3">
+              <span className="fence-line block w-12 text-primary" aria-hidden="true" />
+              <span className="font-navbar text-xs uppercase tracking-[0.28em] text-cream/90">
+                Negocios rurales · Uruguay y la región
+              </span>
+            </div>
+
+            <h1 className="fade-up fade-up-2 font-volte text-[1.5rem] font-semibold leading-[1.15] text-cream break-words xs:text-4xl sm:text-5xl sm:leading-[1.08] xl:text-6xl">
+              Compra y venta de campos, ganado y{' '}
+              <span className="font-header font-normal italic text-primary-soft">propiedades</span>.
+            </h1>
+
+            <p className="fade-up fade-up-3 mt-6 max-w-xl font-body text-base leading-relaxed text-cream/80 sm:text-lg">
+              Lo acompañamos en cada operación con conocimiento real del terreno — de la primera
+              recorrida al cierre del negocio.
+            </p>
+
+            <div className="fade-up fade-up-4 mt-9 flex flex-wrap items-center gap-4">
+              <Link href="/contacto">
+                <a className="group inline-flex items-center gap-2 bg-primary px-7 py-3.5 font-navbar text-sm font-semibold uppercase tracking-[0.12em] text-tierra shadow-lg transition-colors hover:bg-secondary hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream">
+                  Contáctenos
+                  <HiArrowRight className="transition-transform group-hover:translate-x-1" />
+                </a>
+              </Link>
+              <Link href="/campos">
+                <a className="inline-flex items-center gap-2 border border-cream/40 px-7 py-3.5 font-navbar text-sm font-medium uppercase tracking-[0.12em] text-cream transition-colors hover:border-cream hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream">
+                  Ver campos
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Category strip — the three things the brokerage actually moves */}
+      <div className="relative z-10 border-t border-cream/15 bg-tierra/30 backdrop-blur-sm">
+        <div className="2xs:container mx-auto px-6">
+          <div className="grid grid-cols-1 divide-y divide-cream/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            {categories.map(({ href, label, desc }) => (
+              <Link href={href} key={href}>
+                <a className="group flex items-center justify-between gap-4 py-6 transition-colors hover:bg-cream/5 sm:px-8 sm:first:pl-0 sm:last:pr-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary">
+                  <span>
+                    <span className="block font-volte text-2xl font-medium text-cream transition-colors group-hover:text-primary-soft">
+                      {label}
+                    </span>
+                    <span className="mt-1 block font-body text-sm text-cream/60">{desc}</span>
+                  </span>
+                  <HiArrowRight className="shrink-0 text-xl text-primary transition-transform duration-300 group-hover:translate-x-1.5" />
+                </a>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

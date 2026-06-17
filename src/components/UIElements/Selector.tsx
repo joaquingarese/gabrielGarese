@@ -11,13 +11,13 @@ interface SelectorProps {
 function Selector({ selectedState, setSelectedState, cities }: SelectorProps) {
   return (
     <>
-      <div className="w-60 z-10">
+      <div className="z-10 w-60">
         <Listbox value={selectedState} onChange={setSelectedState}>
           <div className="relative mt-1">
-            <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-              <span className="block truncate">{selectedState || 'Seleccione Localidad'}</span>
-              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <BsChevronDown className="w-5 h-5 text-gray-400" />
+            <Listbox.Button className="relative w-full cursor-pointer rounded-lg border border-lightBrown bg-white py-2.5 pl-4 pr-10 text-left font-navbar text-sm text-tierra shadow-sm transition-colors hover:border-primary focus:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/30">
+              <span className="block truncate">{selectedState || 'Seleccione localidad'}</span>
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                <BsChevronDown className="h-4 w-4 text-secondary" />
               </span>
             </Listbox.Button>
             <Transition
@@ -26,13 +26,13 @@ function Selector({ selectedState, setSelectedState, cities }: SelectorProps) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              <Listbox.Options className="absolute mt-2 max-h-60 w-full overflow-auto rounded-lg border border-lightBrown bg-white py-1 font-navbar text-sm shadow-lg focus:outline-none">
                 {cities.map((city, cityIdx) => (
                   <Listbox.Option
                     key={cityIdx}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                      `relative cursor-pointer select-none py-2.5 pl-10 pr-4 transition-colors ${
+                        active ? 'bg-primary-soft text-tierra' : 'text-tertiary'
                       }`
                     }
                     value={city}
@@ -40,12 +40,12 @@ function Selector({ selectedState, setSelectedState, cities }: SelectorProps) {
                     {({ selected }) => (
                       <>
                         <span
-                          className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}
+                          className={`block truncate ${selected ? 'font-semibold text-tierra' : 'font-normal'}`}
                         >
                           {city}
                         </span>
                         {selected ? (
-                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary">
                             <BsCheck className="h-5 w-5" />
                           </span>
                         ) : null}

@@ -1,14 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { BsArrowsMove } from 'react-icons/bs';
-import { BsWhatsapp } from 'react-icons/bs';
-import { GiCow } from 'react-icons/gi';
-import { GiBull } from 'react-icons/gi';
-import { MdLocationOn } from 'react-icons/md';
-import { MdMail } from 'react-icons/md';
-import { MdOutlineAgriculture } from 'react-icons/md';
-import { MdForest } from 'react-icons/md';
+import { BsArrowsMove, BsWhatsapp } from 'react-icons/bs';
+import { GiCow, GiBull } from 'react-icons/gi';
+import { MdLocationOn, MdMail, MdOutlineAgriculture, MdForest } from 'react-icons/md';
+
+const specialityMap: Record<string, { label: string; icon: React.ReactNode }> = {
+  agriculture: { label: 'Agrícola', icon: <MdOutlineAgriculture size={16} /> },
+  milking: { label: 'Tambo', icon: <GiCow size={16} /> },
+  cattle: { label: 'Ganadero', icon: <GiBull size={16} /> },
+  forestry: { label: 'Forestal', icon: <MdForest size={16} /> }
+};
 
 function Farm({ property }: { property: Farm2 }) {
   const router = useRouter();
@@ -18,6 +20,17 @@ function Farm({ property }: { property: Farm2 }) {
     const message = encodeURIComponent(`Hola! Estoy interesado en ${property.name}.`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`);
   };
+
+  const goToContacto = () => {
+    router
+      .push({
+        pathname: `/contacto`,
+        query: { name: property.name, type: property._type }
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const totalPrice = property.price > 0 ? property.price * property.size : 0;
 
   return (
     <Link
@@ -30,116 +43,112 @@ function Farm({ property }: { property: Farm2 }) {
         }
       }}
     >
-      <div
-        className="bg-white grid grid-cols-1 md:grid-cols-3 my-7 shadow-md w-full rounded-md md:rounded-none h-auto md:h-[290px]"
+      <article
         role="button"
+        className="group my-6 grid cursor-pointer grid-cols-1 overflow-hidden rounded-xl border border-lightBrown/60 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[300px_1fr]"
       >
-        <div className="col-span-1 h-[250px] md:h-[auto]">
-          <div className="relative h-full">
-            <Image
-              src={property.image?.asset.url}
-              alt=""
-              layout="fill"
-              objectFit="cover"
-              className="rounded-t-md md:rounded-none"
-            />
-            <small className="absolute top-0 right-0 p-1 bg-tertiary rounded-md m-2 text-white">
-              {property.transaction === 'sell' ? 'VENDE' : 'ARRIENDA'}
-            </small>
-          </div>
-        </div>
-        <div className="col-span-2 pt-6 px-8 w-full flex flex-col items-start">
-          <h3 className="text-2xl">{property.name}</h3>
-          <div className="flex">
-            <MdLocationOn size={34} className="text-secondary mt-3" />
-            <span className="ml-2 mt-5">
-              {property.state?.name === undefined ? 'Paraguay' : property.state.name}
-            </span>
-          </div>
-          <span className="mt-8 inline-block 2xl:mt-8 2xl:mb-6">
-            {property.specialities.map((speciality) => {
-              let emoticon: React.ReactNode;
-              let name = '';
-
-              if (speciality === 'agriculture') {
-                emoticon = <MdOutlineAgriculture size={30} className="inline" />;
-                name = 'Agrícola';
-              } else if (speciality === 'milking') {
-                emoticon = <GiCow size={30} className="inline" />;
-                name = 'Tambo';
-              } else if (speciality === 'cattle') {
-                emoticon = <GiBull size={30} className="inline" />;
-                name = 'Ganadero';
-              } else if (speciality === 'forestry') {
-                emoticon = <MdForest size={30} className="inline" />;
-                name = 'Forestal';
-              }
-
-              return (
-                <p className="inline ml-2" key={speciality}>
-                  {emoticon} {name}
-                </p>
-              );
-            })}
+        {/* Image */}
+        <div className="relative h-[220px] md:h-full md:min-h-[270px]">
+          <Image
+            src={property.image?.asset.url}
+            alt={property.name}
+            layout="fill"
+            objectFit="cover"
+            className="transition-transform duration-500 group-hover:scale-105"
+          />
+          <span className="absolute left-3 top-3 rounded-full bg-tierra/90 px-3 py-1 font-navbar text-[11px] font-semibold uppercase tracking-[0.16em] text-cream backdrop-blur-sm">
+            {property.transaction === 'sell' ? 'En venta' : 'En arriendo'}
           </span>
-          <hr className="border-1 w-full bg-slate-100 mt-2 2xl:mt-4" />
-          <div className="flex justify-between flex-col md:flex-row md:mt-6  w-full my-3">
-            <div className="flex">
-              <BsArrowsMove size={24} className="text-tertiary mt-2" />
-              <span className="mt-2 ml-2">{property.size} Hectáreas</span>
-              {property.price > 0 ? (
-                <span className="mt-2 ml-4">
-                  {property.price} <strong>USD/Ha </strong>
-                </span>
-              ) : (
-                <Link
-                  href={{
-                    pathname: `/contacto`,
-                    query: {
-                      name: property.name,
-                      type: property._type
-                    }
-                  }}
-                >
-                  <u>
-                    <p className="mt-2 ml-4 text-secondary font-semibold">
-                      <span className="text-tertiary"> $ </span>CONSÚLTENOS
-                    </p>
-                  </u>
-                </Link>
-              )}
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col p-6 md:p-7">
+          <h3 className="font-header text-xl leading-snug text-tierra transition-colors group-hover:text-primary md:text-2xl">
+            {property.name}
+          </h3>
+          <div className="mt-2 flex items-center gap-1.5 font-body text-sm text-tertiary">
+            <MdLocationOn size={18} className="shrink-0 text-primary" />
+            {property.state?.name === undefined ? 'Paraguay' : property.state.name}
+          </div>
+
+          {/* Specialities */}
+          {property.specialities.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {property.specialities.map((speciality) => {
+                const entry = specialityMap[speciality as string];
+                if (!entry) return null;
+                return (
+                  <span
+                    key={speciality}
+                    className="inline-flex items-center gap-1.5 rounded-full bg-primary-soft px-3 py-1 font-navbar text-xs font-medium text-tertiary"
+                  >
+                    <span className="text-primary">{entry.icon}</span>
+                    {entry.label}
+                  </span>
+                );
+              })}
             </div>
-            <div className="flex my-4 md:mt-0 m-auto md:m-0">
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onClickWhatsApp();
-                }}
-              >
-                <BsWhatsapp size={44} className="bg-gray-200 p-2 text-tertiary mr-3 rounded-md" />
+          )}
+
+          {/* Footer: size, price, actions */}
+          <div className="mt-auto border-t border-lightBrown/70 pt-4">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-1.5 font-body text-sm text-tertiary">
+                  <BsArrowsMove size={16} className="text-primary" />
+                  <span className="font-semibold text-tierra">{property.size} hectáreas</span>
+                </div>
+                {property.price > 0 ? (
+                  <div className="mt-1.5">
+                    <span className="font-volte text-2xl font-semibold text-primary">
+                      USD {totalPrice.toLocaleString('es-UY')}
+                    </span>
+                    <span className="ml-2 font-body text-xs text-caqui">
+                      {property.price.toLocaleString('es-UY')} USD/ha
+                    </span>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToContacto();
+                    }}
+                    className="mt-1.5 font-navbar text-sm font-semibold uppercase tracking-[0.08em] text-secondary underline-offset-4 transition-colors hover:text-primary hover:underline"
+                  >
+                    Consúltenos el precio
+                  </button>
+                )}
               </div>
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  router
-                    .push({
-                      pathname: `/contacto`,
-                      query: {
-                        name: property.name,
-                        type: property._type
-                      }
-                    })
-                    .catch((error) => {
-                      console.error(error);
-                    });
-                }}
-              >
-                <MdMail size={44} className="bg-gray-200 p-2 text-tertiary rounded-md" />
+
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  aria-label="Consultar por WhatsApp"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onClickWhatsApp();
+                  }}
+                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-lightBrown text-tertiary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <BsWhatsapp size={18} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Consultar por email"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToContacto();
+                  }}
+                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-lightBrown text-tertiary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <MdMail size={18} />
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

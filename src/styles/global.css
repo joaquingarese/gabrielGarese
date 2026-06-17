@@ -2,6 +2,143 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --cuero: #a67e58;
+  --tierra: #2b231a;
+}
+
+/*
+ * Signature — "el alambrado" (the boundary fence).
+ * A hairline wire with periodic posts, the literal subject of a land
+ * brokerage. Used under the sticky navbar and along the footer's top edge
+ * to tie every page together. Pure CSS, no assets.
+ */
+.fence-line {
+  height: 8px;
+  background-color: transparent;
+  background-image:
+    /* the wire */
+    linear-gradient(
+      to bottom,
+      transparent 3px,
+      currentColor 3px,
+      currentColor 4px,
+      transparent 4px
+    ),
+    /* the posts */
+    repeating-linear-gradient(
+      to right,
+      currentColor 0,
+      currentColor 1.5px,
+      transparent 1.5px,
+      transparent 52px
+    );
+  background-repeat: repeat-x;
+}
+
+/* Nav link with an active/hover underline that grows from the left. */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: var(--cuero);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.32s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[data-active='true']::after {
+  transform: scaleX(1);
+}
+.nav-link:focus-visible {
+  outline: 2px solid var(--cuero);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Staggered entrance for the hero content. */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.fade-up-1 {
+  animation-delay: 0.1s;
+}
+.fade-up-2 {
+  animation-delay: 0.25s;
+}
+.fade-up-3 {
+  animation-delay: 0.4s;
+}
+.fade-up-4 {
+  animation-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after {
+    transition: none;
+  }
+  .animate-fadeIn,
+  .animate-slideIn {
+    animation: none;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Image gallery (Swiper) — brand the controls */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #fff;
+  background-color: rgba(43, 35, 26, 0.55);
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  backdrop-filter: blur(2px);
+  transition: background-color 0.2s ease;
+}
+.mySwiper .swiper-button-next:hover,
+.mySwiper .swiper-button-prev:hover {
+  background-color: var(--cuero);
+}
+.mySwiper .swiper-button-next::after,
+.mySwiper .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: 700;
+}
+.mySwiper .swiper-pagination-fraction {
+  display: inline-block;
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  padding: 2px 12px;
+  border-radius: 9999px;
+  background-color: rgba(43, 35, 26, 0.6);
+  color: #fff;
+  font-size: 13px;
+}
+
 /* Custom styles */
 .duration-2000 {
   transition-duration: 2000ms;

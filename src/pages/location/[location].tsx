@@ -56,19 +56,33 @@ const FarmsFromLocation = ({ farms, location, states }: farmsFromLocationProps) 
 
   return (
     <>
-      <div className="flex flex-col md:flex-row 2xs:container 3xs:p-5 p-0">
-        <h3 className="text-2xl md:text-3xl mb-0 md:mb-10 font-title inline mt-24 md:mt-5">
-          Campos en {location}
-        </h3>
-        {location === 'Uruguay' && (
-          <div className="md:ml-auto w-1/2 md:w-1/4 mb-6 flex mt-4 md:mt-5">
-            <Selector
-              selectedState={selectedState}
-              setSelectedState={setSelectedState}
-              cities={statesArray}
-            />
+      <div className="2xs:container mx-auto px-5 pt-10 md:pt-14">
+        <div className="mx-auto flex max-w-5xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="mb-3 flex items-center gap-3">
+              <span className="fence-line block w-12 text-primary" aria-hidden="true" />
+              <span className="font-navbar text-xs uppercase tracking-[0.28em] text-secondary">
+                Campos disponibles
+              </span>
+            </div>
+            <h1 className="font-volte text-3xl font-semibold leading-tight text-tierra md:text-4xl">
+              Campos en {location}
+            </h1>
+            <p className="mt-2 font-body text-sm text-tertiary">
+              {stateFarms.length}{' '}
+              {stateFarms.length === 1 ? 'propiedad disponible' : 'propiedades disponibles'}
+            </p>
           </div>
-        )}
+          {location === 'Uruguay' && (
+            <div className="md:pb-1">
+              <Selector
+                selectedState={selectedState}
+                setSelectedState={setSelectedState}
+                cities={statesArray}
+              />
+            </div>
+          )}
+        </div>
       </div>
       <FarmContainer properties={stateFarms} />
     </>

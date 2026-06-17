@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { FormEvent, useState } from 'react';
-import { BsWhatsapp } from 'react-icons/bs';
 import { toast } from 'react-toastify';
 
 interface Field {
@@ -36,8 +35,8 @@ function CustomForm({ fields }: CustomFormProps) {
       setFormValues(initialFormState);
       toast.success(
         name
-          ? `Su solicitud sobre "${name}" se ha enviado correctamente! Lo contactaremos en menos de 24hs!`
-          : 'Su solicitud fue enviada con éxito! Lo contactaremos en menos de 24hs!',
+          ? `Su consulta sobre "${name}" se envió correctamente. Lo contactamos en menos de 24 horas.`
+          : 'Su mensaje se envió correctamente. Lo contactamos en menos de 24 horas.',
         {
           position: toast.POSITION.TOP_RIGHT
         }
@@ -47,6 +46,9 @@ function CustomForm({ fields }: CustomFormProps) {
       }, 2000);
     } catch (error) {
       console.error('Form submission error:', error);
+      toast.error('No pudimos enviar su mensaje. Intente de nuevo o escríbanos por WhatsApp.', {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   };
 
@@ -57,29 +59,32 @@ function CustomForm({ fields }: CustomFormProps) {
     });
   };
 
-  const onClickWhatsApp = () => {
-    const phoneNumber = '+59899680911';
-    const message = encodeURIComponent(`Hola! Quisiera hacer una consulta.`);
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`);
-  };
+  const inputClasses =
+    'w-full rounded-md border border-lightBrown bg-white px-3.5 py-2.5 font-body text-sm text-tierra placeholder:text-caqui/60 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30';
 
   return (
-    <div className="flex flex-col items-center mb-16 mt-16 md:mt-16">
-      <form
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSubmit={handleSubmit}
-        className="flex flex-col justify-center bg-white w-11/12 md:w-7/12 xl:w-6/12 2xl:w-5/12 p-3 m-8 lg:m-0 md:m-3 flex-grow mt-20 rounded shadow"
-      >
-        <h2 className="tertiary font-title text-lg text-black md:text-2xl text-center pb-4 md:pb-8 mt-4">
-          {name === undefined ? (
-            '¡Contáctenos!'
-          ) : (
-            <>
-              <span>Consúltenos sobre: </span>
-              <span className="text-caqui font-bold">&quot;{name}&quot;</span>
-            </>
-          )}
-        </h2>
+    <form
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      onSubmit={handleSubmit}
+      className="rounded-xl border border-lightBrown/70 bg-white p-6 shadow-sm sm:p-8"
+    >
+      <h2 className="font-header text-xl text-tierra sm:text-2xl">
+        {name === undefined ? (
+          'Escríbanos'
+        ) : (
+          <>
+            <span className="block text-sm font-normal uppercase tracking-[0.18em] text-primary">
+              Consúltenos sobre
+            </span>
+            <span className="text-tierra">&quot;{name}&quot;</span>
+          </>
+        )}
+      </h2>
+      <p className="mt-2 font-body text-sm text-caqui">
+        Complete sus datos y le respondemos a la brevedad.
+      </p>
+
+      <div className="mt-6 flex flex-col gap-4">
         {fields.map((field, index) => {
           if (field.type === 'hidden') {
             return (
@@ -91,57 +96,48 @@ function CustomForm({ fields }: CustomFormProps) {
                 onChange={handleInputChange}
               />
             );
-          } else {
-            return (
-              <div key={index} className="flex w-full justify-between items-center">
-                <label className="w-1/3 m-1 ml-auto text-black font-title">{field.label}</label>
-                {field.type === 'text-area' ? (
-                  <textarea
-                    required
-                    name={field.name}
-                    value={formValues[field.name] || ''}
-                    onChange={handleInputChange}
-                    className="w-1/2 m-1 mr-auto p-1 bg-bodyBackground focus:border-gray-800 text-xs md:text-sm"
-                  ></textarea>
-                ) : (
-                  <input
-                    required={field.label.includes('*')}
-                    type={field.type}
-                    name={field.name}
-                    value={formValues[field.name] || ''}
-                    onChange={handleInputChange}
-                    className="w-1/2 m-1 mr-auto p-1 bg-bodyBackground focus:border-gray-800 text-sm md:text-md"
-                  />
-                )}
-              </div>
-            );
           }
+
+          const required = field.label.includes('*');
+          const cleanLabel = field.label.replace('*', '');
+
+          return (
+            <div key={index} className="flex flex-col gap-1.5">
+              <label className="font-navbar text-xs font-semibold uppercase tracking-[0.1em] text-tertiary">
+                {cleanLabel}
+                {required && <span className="ml-0.5 text-primary">*</span>}
+              </label>
+              {field.type === 'text-area' ? (
+                <textarea
+                  required
+                  rows={5}
+                  name={field.name}
+                  value={formValues[field.name] || ''}
+                  onChange={handleInputChange}
+                  className={`${inputClasses} resize-y`}
+                />
+              ) : (
+                <input
+                  required={required}
+                  type={field.type}
+                  name={field.name}
+                  value={formValues[field.name] || ''}
+                  onChange={handleInputChange}
+                  className={inputClasses}
+                />
+              )}
+            </div>
+          );
         })}
-        <div className="flex justify-center my-6">
-          <button
-            type="submit"
-            className="items-center text-white hover:text-gray-300 font-title bg-gray-800 hover:bg-gray-800 rounded-lg p-2 w-28"
-          >
-            Enviar
-          </button>
-        </div>
-      </form>
-      <div className="flex flex-col justify-center md:ml-auto px-4 md:px-10 bg-white p-3 mx-4 mt-5 rounded">
-        <p className="font-title">Envíenos un Whastapp!</p>
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            onClickWhatsApp();
-          }}
-        >
-          <BsWhatsapp
-            role="button"
-            size={60}
-            className="bg-gray-100 p-2 text-green2 rounded-md m-auto my-2"
-          />
-        </div>
       </div>
-    </div>
+
+      <button
+        type="submit"
+        className="mt-7 inline-flex w-full items-center justify-center bg-primary px-7 py-3.5 font-navbar text-sm font-semibold uppercase tracking-[0.12em] text-tierra transition-colors hover:bg-secondary hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        Enviar consulta
+      </button>
+    </form>
   );
 }
 
